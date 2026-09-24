@@ -294,7 +294,217 @@ ng serve --open</pre></div>
         ├── app.routes.ts
         └── app.config.ts</div>
 
-  <div class="table-wrap"><table><thead><tr><th>Archivo</th><th>Qué hace</th></tr></thead><tbody>
+  
+  <div class="file-category">
+    <h3>Guía de archivos del proyecto</h3>
+    <p>No necesitas memorizar todos los archivos. Esta guía te dice para qué sirve cada uno, qué tipo de código contiene y cuándo lo vas a modificar.</p>
+  </div>
+
+  <h3>Archivos generales del proyecto</h3>
+  <div class="file-purpose-grid">
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type json">JSON</span><span class="file-purpose__name">package.json</span><span class="file-purpose__kind system">Angular lo administra</span></div>
+      <p>Describe el proyecto para npm.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Guardar dependencias, versiones y comandos del proyecto.</dd>
+        <dt>Qué encontrarás</dt><dd>Paquetes como Angular, RxJS y scripts como <code>start</code> o <code>build</code>.</dd>
+        <dt>¿Lo editas?</dt><dd>Normalmente no al comienzo. npm lo actualiza cuando instalas paquetes.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type json">JSON</span><span class="file-purpose__name">package-lock.json</span><span class="file-purpose__kind system">No tocar al inicio</span></div>
+      <p>Guarda las versiones exactas de las dependencias instaladas.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Que otros computadores instalen exactamente las mismas versiones.</dd>
+        <dt>¿Lo editas?</dt><dd>No manualmente. npm lo genera y actualiza.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type json">JSON</span><span class="file-purpose__name">angular.json</span><span class="file-purpose__kind system">Configuración</span></div>
+      <p>Configura cómo Angular construye y ejecuta el proyecto.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Definir build, estilos globales, assets y opciones de ejecución.</dd>
+        <dt>¿Lo editas?</dt><dd>Muy poco en este taller. Es importante saber que existe.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type json">JSON</span><span class="file-purpose__name">tsconfig.json</span><span class="file-purpose__kind system">TypeScript</span></div>
+      <p>Contiene la configuración general del compilador TypeScript.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Decidir cómo TypeScript interpreta y compila el código.</dd>
+        <dt>¿Lo editas?</dt><dd>No es necesario para las actividades básicas del taller.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type">CFG</span><span class="file-purpose__name">.gitignore</span><span class="file-purpose__kind system">Git</span></div>
+      <p>Indica qué archivos y carpetas no deben subirse a Git.</p>
+      <dl>
+        <dt>Ejemplo</dt><dd><code>node_modules/</code> no se sube porque puede reconstruirse con npm.</dd>
+        <dt>¿Lo editas?</dt><dd>Solo cuando necesites ignorar nuevos archivos.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type">DIR</span><span class="file-purpose__name">node_modules/</span><span class="file-purpose__kind system">Generada</span></div>
+      <p>Contiene físicamente las dependencias descargadas por npm.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Guardar Angular y las demás librerías necesarias para ejecutar el proyecto.</dd>
+        <dt>¿La editas?</dt><dd>No. Tampoco debes subirla normalmente a Git.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Archivos dentro de <code>src/</code></h3>
+  <div class="file-purpose-grid">
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type html">HTML</span><span class="file-purpose__name">src/index.html</span><span class="file-purpose__kind system">Base del navegador</span></div>
+      <p>Es el documento HTML principal que carga Angular.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Contener el elemento raíz donde Angular monta la aplicación.</dd>
+        <dt>¿Lo editas?</dt><dd>Muy poco. Las pantallas reales se construyen en los templates de componentes.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">src/main.ts</span><span class="file-purpose__kind system">Arranque</span></div>
+      <p>Es el punto de entrada de la aplicación.</p>
+      <dl>
+        <dt>Sirve para</dt><dd>Iniciar Angular y cargar el componente raíz usando la configuración global.</dd>
+        <dt>¿Lo editas?</dt><dd>No normalmente en este taller.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type css">CSS</span><span class="file-purpose__name">src/styles.css</span><span class="file-purpose__kind edit">Sí lo editaremos</span></div>
+      <p>Contiene estilos globales que afectan a toda la aplicación.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Tipografía, fondo del <code>body</code>, resets y estilos compartidos.</dd>
+        <dt>No va aquí</dt><dd>El diseño específico de una tarjeta o una sola página, si puede vivir en su componente.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type">DIR</span><span class="file-purpose__name">public/</span><span class="file-purpose__kind system">Recursos</span></div>
+      <p>Guarda archivos estáticos que se copian al build.</p>
+      <dl>
+        <dt>Ejemplos</dt><dd>Iconos, imágenes u otros recursos que quieras servir directamente.</dd>
+        <dt>¿Lo editas?</dt><dd>Solo cuando la aplicación necesite recursos propios.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Componente raíz: <code>src/app/</code></h3>
+  <div class="file-purpose-grid">
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">app.ts</span><span class="file-purpose__kind edit">Sí lo editaremos</span></div>
+      <p>Es la clase TypeScript del componente raíz.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Imports del componente, configuración <code>@Component</code> y lógica general del shell de la app.</dd>
+        <dt>En nuestro proyecto</dt><dd>Más adelante importará <code>RouterLink</code>, <code>RouterLinkActive</code> y <code>RouterOutlet</code>.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type html">HTML</span><span class="file-purpose__name">app.html</span><span class="file-purpose__kind edit">Sí lo editaremos</span></div>
+      <p>Es el template visual del componente raíz.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Cabecera, navegación principal y <code>router-outlet</code>.</dd>
+        <dt>Piensa en él como</dt><dd>El marco que rodea las distintas páginas de Angular Aula.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type css">CSS</span><span class="file-purpose__name">app.css</span><span class="file-purpose__kind edit">Sí lo editaremos</span></div>
+      <p>Estilos del componente raíz.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Diseño de la barra principal, navegación y contenedor general.</dd>
+        <dt>Ventaja</dt><dd>Los estilos quedan cerca del componente al que pertenecen.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">app.routes.ts</span><span class="file-purpose__kind edit">Sí lo editaremos</span></div>
+      <p>Relaciona URLs con páginas Angular.</p>
+      <dl>
+        <dt>Ejemplo</dt><dd><code>/estudiantes</code> → componente Estudiantes.</dd>
+        <dt>Va aquí</dt><dd>Rutas, redirecciones y títulos de páginas.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">app.config.ts</span><span class="file-purpose__kind edit">Lo editaremos después</span></div>
+      <p>Configuración global de providers de la aplicación.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Servicios/proveedores que deben estar disponibles globalmente.</dd>
+        <dt>En nuestro proyecto</dt><dd>Agregaremos <code>provideHttpClient()</code> para usar HTTP.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <h3>Archivos que iremos creando durante Angular Aula</h3>
+  <div class="file-purpose-grid">
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">models/estudiante.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Define qué datos tiene un estudiante.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>La interface <code>Estudiante</code>: id, nombre, correo, programa y semestre.</dd>
+        <dt>Por qué separarlo</dt><dd>Varios componentes y servicios pueden reutilizar el mismo tipo.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">services/estudiantes.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Centraliza el estado y las operaciones sobre estudiantes.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Signals, agregar, eliminar, localStorage y consumo de API.</dd>
+        <dt>No debería ir aquí</dt><dd>HTML ni estilos visuales.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">components/estudiante-card/*.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Lógica de una tarjeta reutilizable.</p>
+      <dl>
+        <dt>Va aquí</dt><dd><code>input()</code>, <code>output()</code> y comportamiento de la tarjeta.</dd>
+        <dt>HTML/CSS hermanos</dt><dd>Su estructura visual va en <code>.html</code> y sus estilos en <code>.css</code>.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">pages/estudiantes/*.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Lógica de la pantalla de listado.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Búsqueda, acceso al servicio, Signals derivados y eliminación.</dd>
+        <dt>Template</dt><dd><code>estudiantes.html</code> mostrará buscador y tarjetas.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">pages/nuevo-estudiante/*.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Lógica de la pantalla de registro.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Modelo del formulario, método guardar e inyección del servicio/router.</dd>
+        <dt>Template</dt><dd>El HTML contiene inputs, validaciones y botón de envío.</dd>
+      </dl>
+    </article>
+
+    <article class="file-purpose">
+      <div class="file-purpose__top"><span class="project-tree__type ts">TS</span><span class="file-purpose__name">pages/inicio/*.ts</span><span class="file-purpose__kind edit">Lo crearemos</span></div>
+      <p>Lógica de la página principal o dashboard.</p>
+      <dl>
+        <dt>Va aquí</dt><dd>Lectura del total de estudiantes y datos resumidos del servicio.</dd>
+        <dt>Template</dt><dd>El HTML presenta los indicadores y enlaces principales.</dd>
+      </dl>
+    </article>
+  </div>
+
+  <div class="callout ok"><b>Regla sencilla:</b> archivos <code>.ts</code> = lógica y tipos; <code>.html</code> = estructura visual; <code>.css</code> = apariencia; archivos de configuración = indican a las herramientas cómo funciona el proyecto.</div>
+
+<div class="table-wrap"><table><thead><tr><th>Archivo</th><th>Qué hace</th></tr></thead><tbody>
     <tr><td><code>package.json</code></td><td>Dependencias y scripts npm.</td></tr>
     <tr><td><code>angular.json</code></td><td>Configuración del workspace.</td></tr>
     <tr><td><code>src/main.ts</code></td><td>Arranca Angular.</td></tr>
