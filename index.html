@@ -7,7 +7,7 @@
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
-<link rel="stylesheet" href="styles.css?v=20260924-syntax-1">
+<link rel="stylesheet" href="styles.css?v=20260924-platform-1">
 </head>
 <body>
 <header class="topbar">
@@ -30,10 +30,12 @@
 
   <nav class="nav">
     <a href="#inicio"><span class="dot">0</span>Qué construiremos</a>
+    <a href="#mapa-aprendizaje"><span class="dot">M</span>Mapa del curso</a>
     <a href="#repaso-html"><span class="dot">R</span>Repaso HTML</a>
     <a href="#repaso-css"><span class="dot">R</span>Repaso CSS</a>
     <a href="#repaso-js"><span class="dot">R</span>Repaso JavaScript</a>
     <a href="#sintaxis-principiante"><span class="dot">S</span>Sintaxis para empezar</a>
+    <a href="#js-vs-angular"><span class="dot">↔</span>JS vs Angular</a>
     <a href="#instalacion"><span class="dot">1</span>Instalación</a>
     <a href="#crear"><span class="dot">2</span>Crear Angular Aula</a>
     <a href="#estructura"><span class="dot">3</span>Estructura Angular</a>
@@ -50,11 +52,14 @@
     <a href="#formulario"><span class="dot">13</span>Formulario</a>
     <a href="#rutas"><span class="dot">14</span>Rutas</a>
     <a href="#inicio-page"><span class="dot">15</span>Dashboard</a>
+    <a href="#viaje-dato"><span class="dot">D</span>Viaje del dato</a>
     <a href="#storage"><span class="dot">16</span>Persistencia</a>
     <a href="#http"><span class="dot">17</span>HttpClient</a>
     <a href="#estados"><span class="dot">18</span>Carga y errores</a>
     <a href="#acabado"><span class="dot">19</span>Acabado final</a>
     <a href="#build"><span class="dot">20</span>Build y entrega</a>
+    <a href="#debugging-final"><span class="dot">🐞</span>Debugging final</a>
+    <a href="#proyecto-transferencia"><span class="dot">★</span>Proyecto final</a>
   </nav>
 </aside>
 
@@ -89,6 +94,48 @@
     <div class="goal"><b>Qué harás</b>Una tarea concreta dentro del proyecto Angular.</div>
     <div class="goal"><b>Por qué</b>Qué problema real resuelve en Angular Aula.</div>
     <div class="goal"><b>Qué debes ver</b>Una comprobación antes de continuar.</div>
+  </div>
+</section>
+
+
+<section class="section" id="mapa-aprendizaje" data-search="mapa aprendizaje progreso arquitectura vista previa etapas">
+  <div class="section-head"><div class="num">M</div><div><h2>Mapa de aprendizaje</h2><p class="subtitle">Mira dónde estás y qué conceptos dependen de cuáles.</p></div></div>
+
+  <div class="learning-map">
+    <div class="learning-map__head"><strong>Tu recorrido por Angular Aula</strong><p>Los bloques se actualizan según las etapas que marques como terminadas.</p></div>
+    <div class="learning-track">
+      <div class="learning-node" id="map-phase-1"><b>1 · Preparar</b><span>Instalar · crear · estructura · raíz</span><span data-count>0/4 etapas</span></div>
+      <div class="learning-node" id="map-phase-2"><b>2 · Entender Angular</b><span>Bindings · Signals · control flow · modelo</span><span data-count>0/4 etapas</span></div>
+      <div class="learning-node" id="map-phase-3"><b>3 · Componentizar</b><span>Tarjeta · comunicación · servicio · listado</span><span data-count>0/4 etapas</span></div>
+      <div class="learning-node" id="map-phase-4"><b>4 · Crear la SPA</b><span>Formulario · Router · dashboard · persistencia</span><span data-count>0/4 etapas</span></div>
+      <div class="learning-node" id="map-phase-5"><b>5 · Conectar y entregar</b><span>HTTP · estados · acabado · build</span><span data-count>0/4 etapas</span></div>
+    </div>
+    <div class="learning-map__caption">No necesitas dominar todo al mismo tiempo. Cada fase reutiliza conceptos de la anterior.</div>
+  </div>
+
+  <figure class="svg-diagram-card">
+    <div class="svg-diagram-card__head">
+      <div><strong>Arquitectura completa de Angular Aula</strong><p>Úsala como mapa global cuando no sepas dónde vive una responsabilidad.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/arquitectura-completa.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage"><img class="svg-diagram-card__image" src="assets/diagrams/arquitectura-completa.svg" alt="Arquitectura completa de Angular Aula"></div>
+    <figcaption class="svg-diagram-card__caption"><span>↳</span><div><b>Cómo leerlo:</b> la interfaz y las rutas están arriba; el servicio y el estado están abajo; localStorage y la API son fuentes externas conectadas al servicio.</div></figcaption>
+  </figure>
+
+  <h3>Cómo crecerá la aplicación</h3>
+  <div class="preview-evolution">
+    <div class="preview-tabs">
+      <button class="preview-tab active" data-preview-target="p5" type="button">Etapa 5</button>
+      <button class="preview-tab" data-preview-target="p10" type="button">Etapa 10</button>
+      <button class="preview-tab" data-preview-target="p15" type="button">Etapa 15</button>
+      <button class="preview-tab" data-preview-target="pfinal" type="button">Resultado final</button>
+    </div>
+    <div class="preview-evolution__body">
+      <div class="preview-stage active" data-preview-stage="p5"><div class="preview-mock"><h4>Etapa 5 · Componente interactivo</h4><p>Título, ayuda y botones ya reaccionan a TypeScript.</p><div class="preview-wire"><span class="medium"></span><span></span><span class="short"></span></div></div></div>
+      <div class="preview-stage" data-preview-stage="p10"><div class="preview-mock"><h4>Etapa 10 · Componentes conectados</h4><p>Ya existen tarjetas reutilizables con input/output.</p><div class="preview-wire"><span></span><span></span><span class="medium"></span></div></div></div>
+      <div class="preview-stage" data-preview-stage="p15"><div class="preview-mock"><h4>Etapa 15 · SPA con dashboard</h4><p>Router, páginas, formulario y métricas trabajan sobre el mismo servicio.</p><div class="preview-wire"><span class="short"></span><span></span><span></span><span class="medium"></span></div></div></div>
+      <div class="preview-stage" data-preview-stage="pfinal"><div class="preview-mock"><h4>Resultado final</h4><p>CRUD, búsqueda, persistencia, API, estados de carga y build.</p><div class="preview-wire"><span></span><span class="medium"></span><span></span><span></span></div></div></div>
+    </div>
   </div>
 </section>
 
@@ -440,6 +487,47 @@ const nuevos = [
   </div>
 </section>
 
+
+<section class="section" id="js-vs-angular" data-search="javascript vs angular queryselector eventlistener innerhtml signal ngmodel">
+  <div class="section-head"><div class="num">↔</div><div><h2>JavaScript normal vs Angular</h2><p class="subtitle">Angular no elimina JavaScript: cambia la forma de conectar estado e interfaz.</p></div></div>
+
+  <div class="grid2">
+    <div class="card"><h4>1. Mostrar un dato</h4>
+      <div class="codebox"><div class="codehead">JavaScript</div><pre>titulo.textContent = nombre;</pre></div>
+      <div class="codebox"><div class="codehead">Angular HTML</div><pre>&lt;h1&gt;{{ nombre }}&lt;/h1&gt;</pre></div>
+      <p>En Angular describes el resultado; no buscas manualmente el elemento.</p>
+    </div>
+    <div class="card"><h4>2. Escuchar un clic</h4>
+      <div class="codebox"><div class="codehead">JavaScript</div><pre>boton.addEventListener(
+  'click',
+  guardar
+);</pre></div>
+      <div class="codebox"><div class="codehead">Angular HTML</div><pre>&lt;button (click)="guardar()"&gt;
+  Guardar
+&lt;/button&gt;</pre></div>
+      <p>El evento se declara directamente en el template.</p>
+    </div>
+    <div class="card"><h4>3. Mostrar/ocultar contenido</h4>
+      <div class="codebox"><div class="codehead">JavaScript</div><pre>mensaje.style.display =
+  visible ? 'block' : 'none';</pre></div>
+      <div class="codebox"><div class="codehead">Angular HTML</div><pre>@if (visible) {
+  &lt;p&gt;Mensaje&lt;/p&gt;
+}</pre></div>
+      <p>Angular decide si el bloque existe en el DOM.</p>
+    </div>
+    <div class="card"><h4>4. Estado reactivo</h4>
+      <div class="codebox"><div class="codehead">JavaScript</div><pre>let total = 0;
+total++;
+actualizarPantalla();</pre></div>
+      <div class="codebox"><div class="codehead">Angular / Signals</div><pre>total = signal(0);
+total.update(n =&gt; n + 1);</pre></div>
+      <p>Las dependencias del Signal pueden reaccionar automáticamente.</p>
+    </div>
+  </div>
+
+  <div class="callout ok"><b>Idea central:</b> en JavaScript tradicional sueles decir “busca este elemento y cámbialo”. En Angular describes “esta vista depende de este estado”.</div>
+</section>
+
 <div class="phase-title"><h2>FASE 1 · Instalar y crear Angular Aula</h2><p>Aquí comienza el proyecto real. Desde este punto todo lo que construyas será Angular.</p></div>
 
 <section class="section station" id="instalacion" data-search="instalar vscode node npm angular cli windows powershell ng version">
@@ -742,6 +830,8 @@ ng serve --open</pre></div>
   <div class="mission"><h3>Comprobación</h3><p>Localiza cada archivo en VS Code.</p><button class="finish" data-finish="3">Marcar etapa terminada</button></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase1"><h3>✅ Resumen Fase 1 · Ya puedes preparar un proyecto Angular</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>Instalar CLI, crear proyecto y reconocer la estructura.</span></div><div class="phase-summary-card"><b>Archivos clave</b><span>package.json · angular.json · src/ · app/</span></div><div class="phase-summary-card"><b>Siguiente salto</b><span>Conectar TypeScript, HTML y estado reactivo.</span></div></div></div>
 <div class="phase-title"><h2>FASE 2 · Construir la interfaz Angular</h2><p>Empezamos con el componente raíz y después dividimos la aplicación.</p></div>
 
 <section class="section station" id="raiz" data-search="component decorator root app ts html css selector templateurl styleurl">
@@ -1322,6 +1412,8 @@ contador.update(
 <div class="mission"><h3>Prueba</h3><p>Debes ver una tarjeta por cada nombre.</p><button class="finish" data-finish="7">Marcar etapa terminada</button></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase2"><h3>✅ Resumen Fase 2 · Ya entiendes la base reactiva</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>Bindings, eventos, Signals, computed, @if y @for.</span></div><div class="phase-summary-card"><b>Conexión mental</b><span>Estado → template → interacción → nuevo estado.</span></div><div class="phase-summary-card"><b>Siguiente salto</b><span>Modelos, componentes reutilizables y servicios.</span></div></div></div>
 <div class="phase-title"><h2>FASE 3 · Convertir datos simples en una aplicación real</h2><p>Creamos modelo, componentes reutilizables y servicios.</p></div>
 
 <section class="section station" id="modelo" data-search="typescript interface model student">
@@ -2446,6 +2538,8 @@ export class NuevoEstudiante {
 <div class="mission"><h3>Prueba</h3><p>El botón debe estar deshabilitado si faltan campos.</p><button class="finish" data-finish="13">Marcar etapa terminada</button></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase3"><h3>✅ Resumen Fase 3 · Ya tienes arquitectura reutilizable</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>Interfaces, input/output, servicios y estado compartido.</span></div><div class="phase-summary-card"><b>Separación</b><span>Tarjeta presenta · página coordina · servicio administra.</span></div><div class="phase-summary-card"><b>Siguiente salto</b><span>Formularios, Router, dashboard y persistencia.</span></div></div></div>
 <div class="phase-title"><h2>FASE 4 · Convertir Angular Aula en una SPA completa</h2><p>Separamos pantallas con rutas y mejoramos la experiencia.</p></div>
 
 <section class="section station" id="rutas" data-search="router routes routerlink routeroutlet navigation">
@@ -2756,6 +2850,24 @@ export class Inicio {
 <div class="mission"><h3>Prueba</h3><p>Agrega un estudiante y vuelve a Inicio: el total debe aumentar.</p><button class="finish" data-finish="15">Marcar etapa terminada</button></div>
 </section>
 
+
+<section class="section" id="viaje-dato" data-search="viaje dato ana formulario ngmodel servicio signal localstorage tarjeta">
+  <div class="section-head"><div class="num">D</div><div><h2>El viaje de un dato: sigue a “Ana”</h2><p class="subtitle">Una forma de unir mentalmente formulario, servicio, estado, persistencia y vista.</p></div></div>
+  <figure class="svg-diagram-card">
+    <div class="svg-diagram-card__head"><div><strong>Historia visual de un dato</strong><p>El mismo nombre cambia de “lugar”, pero sigue siendo el mismo dato.</p></div><a class="svg-diagram-card__action" href="assets/diagrams/viaje-dato-ana.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a></div>
+    <div class="svg-diagram-card__stage"><img class="svg-diagram-card__image" src="assets/diagrams/viaje-dato-ana.svg" alt="Viaje del dato Ana"></div>
+    <figcaption class="svg-diagram-card__caption"><span>↳</span><div><b>Cómo leerlo:</b> “Ana” nace como texto del input, pasa a formulario.nombre, se convierte en parte de un Estudiante, entra al Signal, se persiste y finalmente aparece en una tarjeta.</div></figcaption>
+  </figure>
+  <div class="line-guide">
+    <div class="row"><div>Input</div><div>El usuario escribe <code>Ana</code>.</div></div>
+    <div class="row"><div>ngModel</div><div><code>formulario.nombre</code> ahora contiene ese texto.</div></div>
+    <div class="row"><div>Servicio</div><div><code>agregar()</code> crea el objeto Estudiante completo.</div></div>
+    <div class="row"><div>Signal</div><div>El objeto pasa a la lista reactiva compartida.</div></div>
+    <div class="row"><div>localStorage</div><div>La lista se serializa para sobrevivir a un F5.</div></div>
+    <div class="row"><div>Tarjeta</div><div>@for entrega el objeto a EstudianteCard y finalmente vemos “Ana”.</div></div>
+  </div>
+</section>
+
 <section class="section station" id="storage" data-search="localstorage persistence json stringify parse service">
   <div class="section-head"><div class="num">16</div><div><h2>Guardar datos con localStorage</h2><p class="subtitle">Los estudiantes sobrevivirán a una recarga.</p></div></div><div data-project-map="storage">
   <div class="project-map">
@@ -2890,6 +3002,8 @@ private leer(): Estudiante[] {
 <div class="mission"><h3>Prueba</h3><p>Registra un estudiante, recarga con F5 y comprueba que permanezca.</p><button class="finish" data-finish="16">Marcar etapa terminada</button></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase4"><h3>✅ Resumen Fase 4 · Angular Aula ya es una SPA</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>Forms, ngModel, rutas, router-outlet y localStorage.</span></div><div class="phase-summary-card"><b>Flujo completo</b><span>Formulario → servicio → Signal → Router → vista.</span></div><div class="phase-summary-card"><b>Siguiente salto</b><span>Datos remotos con HttpClient y RxJS.</span></div></div></div>
 <div class="phase-title"><h2>FASE 5 · Conectar Angular Aula con una API</h2><p>Usaremos HttpClient dentro del servicio, no fetch directo en el componente.</p></div>
 
 <section class="section station" id="http" data-search="httpclient provide http api get observable rxjs">
@@ -3235,6 +3349,8 @@ importar(): void {
 <div class="mission"><h3>Prueba</h3><p>Importa usuarios y después recarga la página para comprobar la persistencia.</p><button class="finish" data-finish="18">Marcar etapa terminada</button></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase5"><h3>✅ Resumen Fase 5 · Ya consumes datos externos</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>HttpClient, Observable, pipe, tap, subscribe y estados.</span></div><div class="phase-summary-card"><b>Frontera</b><span>API externa → transformar → modelo interno → Signal.</span></div><div class="phase-summary-card"><b>Siguiente salto</b><span>Acabado, pruebas, build y depuración.</span></div></div></div>
 <div class="phase-title"><h2>FASE 6 · Terminar y entregar</h2><p>Mejoramos estilos, revisamos errores y construimos la versión final.</p></div>
 
 <section class="section station" id="acabado" data-search="css final responsive cards styles active nav">
@@ -3494,6 +3610,65 @@ button {
   </tbody></table></div>
 </section>
 
+
+<div class="phase-summary" data-phase-summary="fase6"><h3>✅ Resumen Fase 6 · Ya puedes cerrar y entregar</h3><div class="phase-summary-grid"><div class="phase-summary-card"><b>Ya sabes</b><span>Revisar responsive, ejecutar build y validar funciones.</span></div><div class="phase-summary-card"><b>Habilidad nueva</b><span>Depurar buscando la primera responsabilidad que falla.</span></div><div class="phase-summary-card"><b>Meta final</b><span>Reutilizar la arquitectura en otro proyecto sin copiar ciegamente.</span></div></div></div>
+
+<section class="section" id="debugging-final" data-search="debugging proyecto roto errores forms router signals servicio">
+  <div class="section-head"><div class="num">🐞</div><div><h2>Laboratorio final: proyecto roto</h2><p class="subtitle">Cinco errores intencionales para practicar diagnóstico en vez de copiar soluciones.</p></div></div>
+  <div class="debug-lab">
+    <div class="debug-case" data-explanation="Falta FormsModule en imports del componente standalone.">
+      <div class="debug-case__top">Caso 1 · “Can't bind to ngModel”</div><div class="debug-case__body"><pre>imports: [EstudianteCard]</pre><div class="learning-actions"><button class="debug-action" data-debug-answer="wrong">Cambiar app.css</button><button class="debug-action" data-debug-answer="correct">Importar FormsModule</button><button class="debug-action" data-debug-answer="wrong">Eliminar ngModel</button></div><div class="debug-feedback" hidden></div></div>
+    </div>
+    <div class="debug-case" data-explanation="Un Signal se lee con paréntesis: total().">
+      <div class="debug-case__top">Caso 2 · El template muestra algo extraño para total</div><div class="debug-case__body"><pre>&lt;p&gt;Total: {{ total }}&lt;/p&gt;</pre><div class="learning-actions"><button class="debug-action" data-debug-answer="correct">Usar total()</button><button class="debug-action" data-debug-answer="wrong">Usar total.value</button><button class="debug-action" data-debug-answer="wrong">Moverlo a CSS</button></div><div class="debug-feedback" hidden></div></div>
+    </div>
+    <div class="debug-case" data-explanation="Sin router-outlet no existe un lugar donde renderizar la ruta activa.">
+      <div class="debug-case__top">Caso 3 · La URL cambia pero la página no aparece</div><div class="debug-case__body"><pre>&lt;nav&gt;...&lt;/nav&gt;
+&lt;!-- falta algo aquí --&gt;</pre><div class="learning-actions"><button class="debug-action" data-debug-answer="wrong">Agregar localStorage</button><button class="debug-action" data-debug-answer="correct">Agregar router-outlet</button><button class="debug-action" data-debug-answer="wrong">Quitar las rutas</button></div><div class="debug-feedback" hidden></div></div>
+    </div>
+    <div class="debug-case" data-explanation="provideHttpClient() debe estar disponible en la configuración de providers.">
+      <div class="debug-case__top">Caso 4 · No provider for HttpClient</div><div class="debug-case__body"><pre>providers: [
+  provideRouter(routes)
+]</pre><div class="learning-actions"><button class="debug-action" data-debug-answer="correct">Agregar provideHttpClient()</button><button class="debug-action" data-debug-answer="wrong">Cambiar GET por POST</button><button class="debug-action" data-debug-answer="wrong">Crear otro componente</button></div><div class="debug-feedback" hidden></div></div>
+    </div>
+    <div class="debug-case" data-explanation="Guardar y leer deben usar la misma clave y el contenido debe ser JSON válido.">
+      <div class="debug-case__top">Caso 5 · Después de F5 no aparecen estudiantes</div><div class="debug-case__body"><pre>setItem('angular-aula', ...)
+getItem('angular-aula-v2')</pre><div class="learning-actions"><button class="debug-action" data-debug-answer="wrong">Cambiar @for</button><button class="debug-action" data-debug-answer="correct">Usar la misma clave</button><button class="debug-action" data-debug-answer="wrong">Quitar JSON.stringify</button></div><div class="debug-feedback" hidden></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="proyecto-transferencia" data-search="mini proyecto final desafio libre tareas biblioteca productos reutilizar arquitectura">
+  <div class="section-head"><div class="num">★</div><div><h2>Proyecto de transferencia: demuestra que aprendiste</h2><p class="subtitle">Construye otra aplicación usando la misma arquitectura, pero sin copiar Angular Aula línea por línea.</p></div></div>
+  <div class="final-project-grid">
+    <div class="final-project-card">
+      <h4>Proyecto guiado · Gestor de tareas</h4>
+      <p>Repite la arquitectura con otra temática.</p>
+      <ul>
+        <li><b>Modelo:</b> Tarea { id, titulo, completada, prioridad }</li>
+        <li><b>Componente:</b> tarea-card con input/output.</li>
+        <li><b>Servicio:</b> Signal privado + agregar/eliminar/cambiarEstado.</li>
+        <li><b>Páginas:</b> Inicio, Tareas y Nueva tarea.</li>
+        <li><b>Router:</b> /, /tareas y /nueva.</li>
+        <li><b>Persistencia:</b> localStorage.</li>
+        <li><b>Reto extra:</b> filtro por completadas/pendientes.</li>
+      </ul>
+    </div>
+    <div class="final-project-card">
+      <h4>Desafío libre</h4>
+      <p>Elige una temática y conserva las responsabilidades.</p>
+      <ul>
+        <li>Biblioteca de libros</li>
+        <li>Inventario de productos</li>
+        <li>Control de películas</li>
+        <li>Agenda de contactos</li>
+      </ul>
+      <p><b>Regla:</b> cambia nombres y datos, pero conserva modelo → componentes → servicio → Signals → páginas → rutas.</p>
+    </div>
+  </div>
+  <div class="callout ok"><b>Prueba de aprendizaje:</b> si puedes construir este segundo proyecto consultando el taller pero sin copiar todo, ya estás transfiriendo el conocimiento.</div>
+</section>
+
 <section class="section" id="fuentes" data-search="references angular official">
   <div class="section-head"><div class="num">i</div><div><h2>Referencias oficiales</h2><p class="subtitle">Para ampliar cada tema después del taller.</p></div></div>
   <ul>
@@ -3512,7 +3687,7 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-syntax-1"></script>
+<script src="script.js?v=20260924-platform-1"></script>\n<script src="learning.js?v=20260924-platform-1"></script>
 <script type="module">
   try {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs');
