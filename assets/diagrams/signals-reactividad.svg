@@ -6,7 +6,11 @@
  <linearGradient id="cmp" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
  <linearGradient id="view" x1="0" x2="1"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
  <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e293b" flood-opacity=".13"/></filter>
- <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#7c3aed"/></marker>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path class="flow" d="M0 0 L12 6 L0 12Z" fill="#7c3aed"/></marker>
+ <style>
+  .flow{stroke-dasharray:10 8;animation:dash 2.1s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-36}}
+ </style>
 </defs>
 <rect width="1200" height="520" rx="34" fill="url(#bg)"/>
 <text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Reactividad con Signals</text>
@@ -15,21 +19,21 @@
 <g filter="url(#s)">
  <rect x="70" y="190" width="190" height="150" rx="28" fill="#fff"/>
  <circle cx="165" cy="222" r="26" fill="#eff6ff"/>
- <path d="M151 222h28M165 208v28" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+ <path class="flow" d="M151 222h28M165 208v28" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
  <text x="165" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="800" fill="#172033">Acción</text>
  <text x="165" y="305" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">Agregar estudiante</text>
 </g>
-<path d="M260 265 H348" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M260 265 H348" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="360" y="170" width="220" height="190" rx="30" fill="url(#sig)"/>
  <circle cx="470" cy="218" r="30" fill="#fff" opacity=".2"/>
  <circle cx="470" cy="218" r="8" fill="#fff"/>
- <path d="M470 226v24M452 242h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+ <path class="flow" d="M470 226v24M452 242h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
  <text x="470" y="292" text-anchor="middle" font-family="Inter,Arial" font-size="21" font-weight="900" fill="#fff">Signal</text>
  <text x="470" y="320" text-anchor="middle" font-family="monospace" font-size="13" fill="#ecfdf5">_estudiantes</text>
 </g>
-<path d="M580 235 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
-<path d="M580 295 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M580 235 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M580 295 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="680" y="145" width="200" height="130" rx="24" fill="url(#cmp)"/>
  <text x="780" y="188" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#fff">computed()</text>
@@ -42,8 +46,8 @@
  <text x="780" y="370" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee estudiantes()</text>
  <text x="780" y="397" text-anchor="middle" font-family="monospace" font-size="13" fill="#2563eb">@for</text>
 </g>
-<path d="M880 210 C930 210 925 260 965 260" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
-<path d="M880 360 C930 360 925 300 965 300" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path class="flow" d="M880 210 C930 210 925 260 965 260" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path class="flow" d="M880 360 C930 360 925 300 965 300" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="975" y="205" width="160" height="150" rx="28" fill="url(#view)"/>
  <text x="1055" y="248" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#fff">Template</text>
