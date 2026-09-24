@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Taller Angular desde Cero | Construye Angular Aula paso a paso</title>
-<meta name="description" content="Taller muy detallado para construir una sola aplicación desde HTML, CSS y JavaScript hasta Angular 22, con instalación, errores comunes y comprobaciones.">
+<title>Taller Angular desde Cero | Angular Aula paso a paso</title>
+<meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,297 +19,339 @@
 
 <div class="layout">
 <aside class="sidebar" id="sidebar">
-  <input class="search" id="search" placeholder="Buscar: instalación, fetch, rutas..." aria-label="Buscar tema">
+  <input class="search" id="search" placeholder="Buscar: signals, rutas, forms..." aria-label="Buscar tema">
   <div class="progress">
-    <strong>Tu avance</strong>
+    <strong>Progreso Angular</strong>
     <div class="progress-line"><span id="bar"></span></div>
-    <div class="progress-meta"><span id="progressText">0 de 22 etapas</span><span id="pct">0%</span></div>
+    <div class="progress-meta"><span id="progressText">0 de 20 etapas</span><span id="pct">0%</span></div>
   </div>
 
   <nav class="nav">
     <a href="#inicio"><span class="dot">0</span>Qué construiremos</a>
-    <a href="#instalacion"><span class="dot">1</span>Instalar todo</a>
-    <a href="#carpeta"><span class="dot">2</span>Preparar carpeta</a>
-    <a href="#html-base"><span class="dot">3</span>HTML desde cero</a>
-    <a href="#html-app"><span class="dot">4</span>HTML de la app</a>
-    <a href="#css-base"><span class="dot">5</span>CSS desde cero</a>
-    <a href="#css-app"><span class="dot">6</span>Diseño responsive</a>
-    <a href="#js-base"><span class="dot">7</span>JavaScript básico</a>
-    <a href="#js-render"><span class="dot">8</span>Datos y DOM</a>
-    <a href="#js-eventos"><span class="dot">9</span>Eventos y búsqueda</a>
-    <a href="#js-crud"><span class="dot">10</span>Agregar y eliminar</a>
-    <a href="#storage"><span class="dot">11</span>localStorage</a>
-    <a href="#fetch"><span class="dot">12</span>API con fetch</a>
-    <a href="#typescript"><span class="dot">13</span>TypeScript</a>
-    <a href="#ng-new"><span class="dot">14</span>Crear Angular</a>
-    <a href="#estructura-angular"><span class="dot">15</span>Archivos Angular</a>
-    <a href="#migracion"><span class="dot">16</span>Migrar la interfaz</a>
-    <a href="#signals"><span class="dot">17</span>Signals y @for</a>
-    <a href="#componentes"><span class="dot">18</span>Componentes</a>
-    <a href="#servicio"><span class="dot">19</span>Servicio</a>
-    <a href="#formulario"><span class="dot">20</span>Formulario</a>
-    <a href="#rutas"><span class="dot">21</span>Rutas</a>
-    <a href="#http-final"><span class="dot">22</span>HttpClient y final</a>
+    <a href="#repaso-html"><span class="dot">R</span>Repaso HTML</a>
+    <a href="#repaso-css"><span class="dot">R</span>Repaso CSS</a>
+    <a href="#repaso-js"><span class="dot">R</span>Repaso JavaScript</a>
+    <a href="#instalacion"><span class="dot">1</span>Instalación</a>
+    <a href="#crear"><span class="dot">2</span>Crear Angular Aula</a>
+    <a href="#estructura"><span class="dot">3</span>Estructura Angular</a>
+    <a href="#raiz"><span class="dot">4</span>Componente raíz</a>
+    <a href="#binding"><span class="dot">5</span>Bindings y eventos</a>
+    <a href="#signals"><span class="dot">6</span>Signals</a>
+    <a href="#control"><span class="dot">7</span>@if y @for</a>
+    <a href="#modelo"><span class="dot">8</span>Modelo Estudiante</a>
+    <a href="#tarjeta"><span class="dot">9</span>Componente tarjeta</a>
+    <a href="#comunicacion"><span class="dot">10</span>input y output</a>
+    <a href="#servicio"><span class="dot">11</span>Servicio</a>
+    <a href="#listado"><span class="dot">12</span>Página estudiantes</a>
+    <a href="#formulario"><span class="dot">13</span>Formulario</a>
+    <a href="#rutas"><span class="dot">14</span>Rutas</a>
+    <a href="#inicio-page"><span class="dot">15</span>Dashboard</a>
+    <a href="#storage"><span class="dot">16</span>Persistencia</a>
+    <a href="#http"><span class="dot">17</span>HttpClient</a>
+    <a href="#estados"><span class="dot">18</span>Carga y errores</a>
+    <a href="#acabado"><span class="dot">19</span>Acabado final</a>
+    <a href="#build"><span class="dot">20</span>Build y entrega</a>
   </nav>
 </aside>
 
 <main class="main">
 
 <section class="hero" id="inicio">
-  <div class="eyebrow">Taller guiado · nivel cero absoluto</div>
-  <h1>Construye una aplicación completa y aprende Angular mientras la haces.</h1>
-  <p class="lead">No vas a saltar entre ejemplos sin relación. Todo el taller construye la misma aplicación: <b>Angular Aula</b>, un gestor de estudiantes con listado, búsqueda, registro, eliminación, persistencia, navegación e importación desde una API.</p>
+  <div class="eyebrow">Angular 22 · desde cero · una sola aplicación</div>
+  <h1>Repasa la web y construye la aplicación directamente con Angular.</h1>
+  <p class="lead">HTML, CSS y JavaScript aparecen al principio únicamente como <b>repaso rápido</b>. La aplicación real <b>Angular Aula</b> comienza cuando ejecutas <code>ng new</code> y, desde ese momento, todo lo que construyes vive dentro de Angular.</p>
   <div class="hero-grid">
-    <div class="stat"><b>1 proyecto</b><span>Desde carpeta vacía hasta Angular</span></div>
-    <div class="stat"><b>22 etapas</b><span>Una mejora real por etapa</span></div>
-    <div class="stat"><b>Cero experiencia</b><span>Explicamos terminal, archivos y código</span></div>
-    <div class="stat"><b>Angular 22</b><span>Estructura moderna standalone</span></div>
+    <div class="stat"><b>3 repasos</b><span>HTML, CSS y JavaScript</span></div>
+    <div class="stat"><b>20 etapas</b><span>100% enfocadas en Angular</span></div>
+    <div class="stat"><b>1 aplicación</b><span>Gestor de estudiantes</span></div>
+    <div class="stat"><b>Resultado</b><span>CRUD + rutas + API + persistencia</span></div>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-head"><div class="num">★</div><div><h2>Cómo leer este taller</h2><p class="subtitle">Cada etapa tiene exactamente la misma estructura para que no te pierdas.</p></div></div>
-  <div class="lesson-goal">
-    <div class="goal"><b>Qué harás</b>La tarea concreta que vas a realizar.</div>
-    <div class="goal"><b>Por qué</b>La razón por la que esa tarea existe dentro de Angular Aula.</div>
-    <div class="goal"><b>Qué debes ver</b>La comprobación visual o técnica antes de continuar.</div>
-  </div>
-  <div class="project-rule"><strong>Regla principal:</strong> no avances si el resultado de una etapa no funciona. El código siguiente parte del estado anterior del proyecto.</div>
+  <div class="section-head"><div class="num">★</div><div><h2>Cómo está organizado el taller</h2><p class="subtitle">Primero recuerdas lo mínimo necesario. Después todo el trabajo es Angular.</p></div></div>
+
   <div class="diagram">
-    <div class="node">Carpeta vacía</div><div class="arrow">→</div>
-    <div class="node">HTML</div><div class="arrow">→</div>
-    <div class="node">CSS</div><div class="arrow">→</div>
-    <div class="node">JavaScript</div><div class="arrow">→</div>
-    <div class="node">TypeScript</div><div class="arrow">→</div>
-    <div class="node">Angular</div>
+    <div class="node">Repaso HTML</div><div class="arrow">→</div>
+    <div class="node">Repaso CSS</div><div class="arrow">→</div>
+    <div class="node">Repaso JS</div><div class="arrow">→</div>
+    <div class="node">Instalar Angular</div><div class="arrow">→</div>
+    <div class="node">Construir Angular Aula</div>
+  </div>
+
+  <div class="project-rule"><strong>Importante:</strong> las secciones de repaso NO construyen una aplicación aparte. Solo sirven para recordar conceptos que después aparecerán dentro de templates, estilos y TypeScript de Angular.</div>
+
+  <div class="lesson-goal">
+    <div class="goal"><b>Qué harás</b>Una tarea concreta dentro del proyecto Angular.</div>
+    <div class="goal"><b>Por qué</b>Qué problema real resuelve en Angular Aula.</div>
+    <div class="goal"><b>Qué debes ver</b>Una comprobación antes de continuar.</div>
   </div>
 </section>
 
-<div class="phase-title"><h2>FASE A · Preparar el computador</h2><p>Antes de escribir código, dejamos listo todo lo necesario para trabajar sin errores de entorno.</p></div>
+<div class="phase-title"><h2>REPASO PREVIO · Lo mínimo de web que debes recordar</h2><p>No se construye el proyecto aquí. Solo repasamos conceptos que Angular usa constantemente.</p></div>
 
-<section class="section station" id="instalacion" data-search="instalar vscode node npm angular cli windows powershell ng version">
-  <div class="section-head"><div class="num">1</div><div><h2>Instalar todo desde cero</h2><p class="subtitle">Editor, Node.js, npm y Angular CLI.</p></div></div>
-  <div class="lesson-goal">
-    <div class="goal"><b>Objetivo</b>Que los comandos <code>node</code>, <code>npm</code> y <code>ng</code> funcionen.</div>
-    <div class="goal"><b>Necesitas</b>Windows, macOS o Linux y acceso a Internet.</div>
-    <div class="goal"><b>Resultado</b>Una terminal preparada para crear proyectos Angular.</div>
+<section class="section" id="repaso-html" data-search="repaso html etiquetas atributos class id form input button div section">
+  <div class="section-head"><div class="num">R</div><div><h2>Repaso HTML</h2><p class="subtitle">HTML define la estructura del contenido.</p></div></div>
+
+  <h3>1. Etiquetas</h3>
+  <p>Una etiqueta representa un elemento de la interfaz.</p>
+  <div class="codebox"><div class="codehead">HTML</div><pre>&lt;h1&gt;Angular Aula&lt;/h1&gt;
+&lt;p&gt;Gestor de estudiantes&lt;/p&gt;
+&lt;button&gt;Guardar&lt;/button&gt;</pre></div>
+
+  <div class="line-guide">
+    <div class="row"><div>&lt;h1&gt;</div><div>Título principal.</div></div>
+    <div class="row"><div>&lt;p&gt;</div><div>Párrafo de texto.</div></div>
+    <div class="row"><div>&lt;button&gt;</div><div>Botón que luego puede reaccionar a un evento.</div></div>
   </div>
 
-  <h3>1.1 Instala Visual Studio Code</h3>
-  <p>Visual Studio Code será el editor donde abrirás las carpetas y modificarás los archivos. No es obligatorio para Angular, pero es una opción sencilla para principiantes.</p>
-  <div class="path-step"><span class="n">1</span><div>Descarga Visual Studio Code desde su sitio oficial e instálalo.</div></div>
-  <div class="path-step"><span class="n">2</span><div>Ábrelo una vez para comprobar que funciona.</div></div>
-  <div class="path-step"><span class="n">3</span><div>En Extensions puedes instalar <b>Angular Language Service</b>. Ayuda con autocompletado y errores en templates.</div></div>
+  <h3>2. Atributos</h3>
+  <div class="codebox"><div class="codehead">HTML</div><pre>&lt;input
+  id="nombre"
+  class="campo"
+  type="text"
+  placeholder="Nombre del estudiante"&gt;</pre></div>
 
-  <h3>1.2 Instala Node.js</h3>
-  <p><b>Node.js</b> permite ejecutar herramientas JavaScript fuera del navegador. Angular CLI necesita Node.js para funcionar. <b>npm</b> se instala junto con Node.js y sirve para instalar paquetes.</p>
-  <div class="why"><strong>Versión recomendada para este taller:</strong> Node.js 24 LTS. Angular 22 admite Node <code>^22.22.3</code>, <code>^24.15.0</code> o <code>^26.0.0</code>. Para estudiantes conviene una rama LTS, no una versión experimental.</div>
+  <div class="grid3">
+    <div class="card"><h4><code>id</code></h4><p>Identifica un elemento específico.</p></div>
+    <div class="card"><h4><code>class</code></h4><p>Agrupa elementos para aplicar estilos.</p></div>
+    <div class="card"><h4><code>type</code></h4><p>Define el tipo de control, por ejemplo text, email o number.</p></div>
+  </div>
 
-  <h3>1.3 Comprueba Node y npm</h3>
-  <p>Abre PowerShell, CMD o la terminal integrada de VS Code y escribe:</p>
+  <h3>3. Estructura semántica</h3>
+  <div class="codebox"><div class="codehead">HTML</div><pre>&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;
+  &lt;section&gt;...&lt;/section&gt;
+&lt;/main&gt;</pre></div>
+
+  <div class="callout"><b>En Angular:</b> seguirás escribiendo HTML dentro de archivos como <code>app.html</code> o <code>estudiantes.html</code>. Angular agrega sintaxis especial, pero el HTML sigue siendo HTML.</div>
+</section>
+
+<section class="section" id="repaso-css" data-search="repaso css selector class flex grid margin padding responsive">
+  <div class="section-head"><div class="num">R</div><div><h2>Repaso CSS</h2><p class="subtitle">CSS controla apariencia, distribución y adaptación de la interfaz.</p></div></div>
+
+  <h3>1. Regla CSS</h3>
+  <div class="codebox"><div class="codehead">CSS</div><pre>.tarjeta {
+  background: white;
+  padding: 16px;
+  border-radius: 12px;
+}</pre></div>
+
+  <div class="command-explain">
+    <div><code>.tarjeta</code></div><div>Selector: busca elementos con esa clase.</div>
+    <div><code>background</code></div><div>Propiedad.</div>
+    <div><code>white</code></div><div>Valor de la propiedad.</div>
+  </div>
+
+  <h3>2. Espaciado</h3>
+  <div class="grid2">
+    <div class="card"><h4><code>margin</code></h4><p>Espacio por fuera del elemento.</p></div>
+    <div class="card"><h4><code>padding</code></h4><p>Espacio interno entre contenido y borde.</p></div>
+  </div>
+
+  <h3>3. Flexbox y Grid</h3>
+  <div class="codebox"><div class="codehead">CSS</div><pre>.fila {
+  display: flex;
+  gap: 12px;
+}
+
+.lista {
+  display: grid;
+  gap: 16px;
+}</pre></div>
+
+  <div class="callout"><b>En Angular:</b> los componentes tienen archivos CSS propios. Por ejemplo, <code>estudiante-card.css</code> estilizará únicamente la tarjeta de estudiante.</div>
+</section>
+
+<section class="section" id="repaso-js" data-search="repaso javascript variables arrays objects functions events filter map async await">
+  <div class="section-head"><div class="num">R</div><div><h2>Repaso JavaScript</h2><p class="subtitle">Angular usa TypeScript, pero TypeScript parte de JavaScript.</p></div></div>
+
+  <h3>1. Variables</h3>
+  <div class="codebox"><div class="codehead">JavaScript</div><pre>const nombre = 'Ana';
+let semestre = 4;</pre></div>
+  <p><code>const</code> se usa cuando no reasignarás la variable. <code>let</code> cuando sí puede cambiar.</p>
+
+  <h3>2. Objetos y arrays</h3>
+  <div class="codebox"><div class="codehead">JavaScript</div><pre>const estudiante = {
+  id: 1,
+  nombre: 'Ana',
+  programa: 'Sistemas'
+};
+
+const estudiantes = [
+  estudiante,
+  { id: 2, nombre: 'Carlos', programa: 'Diseño' }
+];</pre></div>
+
+  <h3>3. Funciones</h3>
+  <div class="codebox"><div class="codehead">JavaScript</div><pre>function obtenerNombre(estudiante) {
+  return estudiante.nombre;
+}</pre></div>
+
+  <h3>4. Métodos que usaremos mucho</h3>
+  <div class="table-wrap"><table><thead><tr><th>Método</th><th>Para qué sirve</th></tr></thead><tbody>
+    <tr><td><code>filter()</code></td><td>Crear una lista con elementos que cumplen una condición.</td></tr>
+    <tr><td><code>map()</code></td><td>Transformar cada elemento en otro valor.</td></tr>
+    <tr><td><code>includes()</code></td><td>Comprobar si un texto contiene otro.</td></tr>
+    <tr><td><code>JSON.parse()</code></td><td>Convertir texto JSON a objeto/array.</td></tr>
+    <tr><td><code>JSON.stringify()</code></td><td>Convertir objeto/array a texto JSON.</td></tr>
+  </tbody></table></div>
+
+  <h3>5. Arrow function</h3>
+  <div class="codebox"><div class="codehead">JavaScript moderno</div><pre>const activos = estudiantes.filter(
+  estudiante =&gt; estudiante.semestre &gt; 1
+);</pre></div>
+
+  <div class="callout ok"><b>Con esto basta para comenzar.</b> No necesitas dominar JavaScript completo antes de Angular. Los conceptos se reforzarán cuando aparezcan dentro del proyecto.</div>
+</section>
+
+<div class="phase-title"><h2>FASE 1 · Instalar y crear Angular Aula</h2><p>Aquí comienza el proyecto real. Desde este punto todo lo que construyas será Angular.</p></div>
+
+<section class="section station" id="instalacion" data-search="instalar vscode node npm angular cli windows powershell ng version">
+  <div class="section-head"><div class="num">1</div><div><h2>Instalación completa</h2><p class="subtitle">Prepara el computador antes de crear el proyecto.</p></div></div>
+
+  <div class="lesson-goal">
+    <div class="goal"><b>Objetivo</b>Tener Node, npm y Angular CLI funcionando.</div>
+    <div class="goal"><b>Comprobar</b><code>node -v</code>, <code>npm -v</code> y <code>ng version</code>.</div>
+    <div class="goal"><b>No avances si...</b>Alguno de esos comandos falla.</div>
+  </div>
+
+  <h3>1.1 Visual Studio Code</h3>
+  <p>Instala VS Code. Será el editor del proyecto. Como extensión opcional instala <b>Angular Language Service</b> para autocompletado y validación de templates.</p>
+
+  <h3>1.2 Node.js y npm</h3>
+  <p>Node.js permite ejecutar Angular CLI. npm es el gestor de paquetes que se instala junto con Node.</p>
+  <div class="why"><strong>Para Angular 22:</strong> usa una versión de Node compatible. Para un entorno de clase conviene una versión LTS.</div>
+
   <div class="term"><div class="term-head">Terminal</div><pre>node -v
 npm -v</pre></div>
-  <div class="expected"><strong>Debes ver:</strong> dos números de versión. Por ejemplo <code>v24.x.x</code> para Node y un número de npm debajo.</div>
-  <div class="mistake"><strong>Si aparece “node no se reconoce”:</strong> Node no quedó instalado correctamente o la terminal estaba abierta antes de instalarlo. Cierra y vuelve a abrir la terminal.</div>
 
-  <h3>1.4 Instala Angular CLI</h3>
-  <p><b>CLI</b> significa Command Line Interface. Es la herramienta que crea proyectos, componentes y servicios Angular mediante comandos.</p>
+  <div class="expected"><strong>Debes ver:</strong> un número de versión para ambos comandos.</div>
+
+  <h3>1.3 Angular CLI</h3>
   <div class="term"><div class="term-head">Terminal</div><pre>npm install -g @angular/cli</pre></div>
 
   <div class="command-explain">
-    <div><code>npm</code></div><div>Administrador de paquetes de Node.js.</div>
-    <div><code>install</code></div><div>Indica que vamos a instalar un paquete.</div>
-    <div><code>-g</code></div><div>Instala la herramienta globalmente para poder usar <code>ng</code> desde cualquier carpeta.</div>
-    <div><code>@angular/cli</code></div><div>Nombre oficial del paquete Angular CLI.</div>
+    <div><code>npm</code></div><div>Gestor de paquetes.</div>
+    <div><code>install</code></div><div>Instala un paquete.</div>
+    <div><code>-g</code></div><div>Instalación global.</div>
+    <div><code>@angular/cli</code></div><div>Herramienta oficial de línea de comandos de Angular.</div>
   </div>
 
-  <h3>1.5 Problema frecuente en Windows PowerShell</h3>
-  <p>Si PowerShell muestra un error parecido a <i>“la ejecución de scripts está deshabilitada”</i>, Angular documenta esta solución:</p>
-  <div class="term"><div class="term-head">PowerShell</div><pre>Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned</pre></div>
-  <p class="small">Lee el mensaje de PowerShell antes de confirmar. El cambio afecta la política de ejecución del usuario actual.</p>
-
-  <h3>1.6 Comprueba Angular</h3>
+  <h3>1.4 Comprueba Angular</h3>
   <div class="term"><div class="term-head">Terminal</div><pre>ng version</pre></div>
-  <div class="expected"><strong>Debes ver:</strong> Angular CLI, Node, npm y el sistema operativo. Si <code>ng version</code> funciona, el entorno está listo.</div>
 
-  <div class="explain">
-    <div class="explain-title">Conceptos que ya debes distinguir</div>
-    <div class="check-now"><div><b>Node.js:</b> ejecuta herramientas JavaScript fuera del navegador.</div></div>
-    <div class="check-now"><div><b>npm:</b> instala dependencias.</div></div>
-    <div class="check-now"><div><b>Angular CLI:</b> crea y administra proyectos Angular.</div></div>
-    <div class="check-now"><div><b>VS Code:</b> editor de archivos; no ejecuta Angular por sí solo.</div></div>
-  </div>
-  <div class="mission"><h3>Antes de continuar</h3><p>Ejecuta <code>node -v</code>, <code>npm -v</code> y <code>ng version</code>. Los tres deben responder correctamente.</p><button class="finish" data-finish="1">Marcar etapa terminada</button></div>
+  <div class="mistake"><strong>PowerShell bloquea scripts:</strong> si Windows muestra ese error, puedes usar una terminal CMD o revisar la política de ejecución de PowerShell antes de continuar.</div>
+
+  <div class="mission"><h3>Comprobación</h3><p>Los tres comandos deben responder correctamente.</p><button class="finish" data-finish="1">Marcar etapa terminada</button></div>
 </section>
 
-<div class="phase-title"><h2>FASE B · Construir el prototipo web</h2><p>Primero hacemos Angular Aula con tecnologías web básicas. Así comprenderás qué problemas resuelve Angular después.</p></div>
+<section class="section station" id="crear" data-search="ng new project routing css standalone ssr skip tests">
+  <div class="section-head"><div class="num">2</div><div><h2>Crear Angular Aula desde cero</h2><p class="subtitle">Este es el nacimiento real de la aplicación.</p></div></div>
 
-<section class="section station" id="carpeta" data-search="crear carpeta terminal mkdir cd code punto archivos">
-  <div class="section-head"><div class="num">2</div><div><h2>Crear la carpeta y aprender a moverte en la terminal</h2><p class="subtitle">Empezamos literalmente desde una carpeta vacía.</p></div></div>
+  <h3>2.1 Elige una carpeta de trabajo</h3>
+  <p>Por ejemplo, crea una carpeta <code>proyectos-angular</code> y abre una terminal dentro de ella.</p>
 
-  <h3>2.1 Crea la carpeta principal</h3>
-  <div class="term"><div class="term-head">Terminal</div><pre>mkdir angular-aula-taller
-cd angular-aula-taller
-mkdir prototipo-web
-cd prototipo-web</pre></div>
+  <h3>2.2 Ejecuta ng new</h3>
+  <div class="term"><div class="term-head">Terminal</div><pre>ng new angular-aula --routing --style=css --standalone --ssr=false --skip-tests</pre></div>
 
   <div class="command-explain">
-    <div><code>mkdir</code></div><div>Crea una carpeta.</div>
-    <div><code>cd nombre</code></div><div>Entra a una carpeta.</div>
-    <div><code>cd ..</code></div><div>Regresa una carpeta atrás.</div>
-    <div><code>dir</code> / <code>ls</code></div><div>Muestra lo que existe en la carpeta actual.</div>
+    <div><code>ng new</code></div><div>Crea un proyecto Angular.</div>
+    <div><code>angular-aula</code></div><div>Nombre de la carpeta/proyecto.</div>
+    <div><code>--routing</code></div><div>Incluye soporte para rutas.</div>
+    <div><code>--style=css</code></div><div>Usaremos CSS normal.</div>
+    <div><code>--standalone</code></div><div>Usa componentes standalone.</div>
+    <div><code>--ssr=false</code></div><div>No agrega renderizado en servidor.</div>
+    <div><code>--skip-tests</code></div><div>No genera archivos de pruebas unitarias para este taller inicial.</div>
   </div>
 
-  <h3>2.2 Abre la carpeta en VS Code</h3>
-  <div class="term"><div class="term-head">Terminal</div><pre>code .</pre></div>
-  <p>El punto <code>.</code> significa “esta carpeta”. Si el comando no funciona, abre VS Code manualmente y usa <b>File → Open Folder</b>.</p>
+  <h3>2.3 Entra y ejecuta</h3>
+  <div class="term"><div class="term-head">Terminal</div><pre>cd angular-aula
+ng serve --open</pre></div>
 
-  <h3>2.3 Crea tres archivos</h3>
-  <div class="folder">angular-aula-taller/
-└── prototipo-web/
-    ├── index.html
-    ├── styles.css
-    └── app.js</div>
+  <div class="expected"><strong>Debes ver:</strong> Angular abre el navegador en <code>http://localhost:4200</code>.</div>
+  <div class="mistake"><strong>Puerto ocupado:</strong> usa <code>ng serve --port 4201 --open</code>.</div>
 
-  <div class="why"><strong>Por qué tres archivos:</strong> queremos separar responsabilidades. HTML define la estructura, CSS la apariencia y JavaScript el comportamiento.</div>
-
-  <div class="mission"><h3>Antes de continuar</h3><p>En el panel izquierdo de VS Code debes ver exactamente los tres archivos.</p><button class="finish" data-finish="2">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Antes de continuar</h3><p>El proyecto debe compilar sin errores.</p><button class="finish" data-finish="2">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="html-base" data-search="html doctype html head body title link script etiquetas atributos">
-  <div class="section-head"><div class="num">3</div><div><h2>HTML desde cero: entender el documento</h2><p class="subtitle">Antes de crear la aplicación, aprende qué significa la estructura mínima.</p></div></div>
+<section class="section station" id="estructura" data-search="angular structure package json main ts app ts html css routes config">
+  <div class="section-head"><div class="num">3</div><div><h2>Entender la estructura del proyecto</h2><p class="subtitle">Antes de editar, identifica qué archivo hace qué.</p></div></div>
 
-  <div class="filepath">prototipo-web/index.html</div>
-  <div class="codebox"><div class="codehead">index.html · estructura mínima <button class="copy-btn">Copiar</button></div><pre>&lt;!doctype html&gt;
-&lt;html lang="es"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-  &lt;title&gt;Angular Aula&lt;/title&gt;
-  &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
+  <div class="folder">angular-aula/
+├── angular.json
+├── package.json
+├── public/
+└── src/
+    ├── index.html
+    ├── main.ts
+    ├── styles.css
+    └── app/
+        ├── app.ts
+        ├── app.html
+        ├── app.css
+        ├── app.routes.ts
+        └── app.config.ts</div>
 
-  &lt;h1&gt;Angular Aula&lt;/h1&gt;
+  <div class="table-wrap"><table><thead><tr><th>Archivo</th><th>Qué hace</th></tr></thead><tbody>
+    <tr><td><code>package.json</code></td><td>Dependencias y scripts npm.</td></tr>
+    <tr><td><code>angular.json</code></td><td>Configuración del workspace.</td></tr>
+    <tr><td><code>src/main.ts</code></td><td>Arranca Angular.</td></tr>
+    <tr><td><code>src/styles.css</code></td><td>Estilos globales.</td></tr>
+    <tr><td><code>app.ts</code></td><td>Lógica del componente raíz.</td></tr>
+    <tr><td><code>app.html</code></td><td>Template del componente raíz.</td></tr>
+    <tr><td><code>app.css</code></td><td>Estilos del componente raíz.</td></tr>
+    <tr><td><code>app.routes.ts</code></td><td>Define URLs y componentes.</td></tr>
+    <tr><td><code>app.config.ts</code></td><td>Configura providers globales.</td></tr>
+  </tbody></table></div>
 
-  &lt;script src="app.js"&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</pre></div>
+  <div class="callout"><b>No borres archivos porque “parecen innecesarios”.</b> En este taller iremos entendiendo para qué sirve cada uno antes de modificarlo.</div>
+
+  <div class="mission"><h3>Comprobación</h3><p>Localiza cada archivo en VS Code.</p><button class="finish" data-finish="3">Marcar etapa terminada</button></div>
+</section>
+
+<div class="phase-title"><h2>FASE 2 · Construir la interfaz Angular</h2><p>Empezamos con el componente raíz y después dividimos la aplicación.</p></div>
+
+<section class="section station" id="raiz" data-search="component decorator root app ts html css selector templateurl styleurl">
+  <div class="section-head"><div class="num">4</div><div><h2>Construir el componente raíz</h2><p class="subtitle">Primera pantalla real de Angular Aula.</p></div></div>
+
+  <div class="filepath">src/app/app.ts</div>
+  <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  imports: [],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {}</pre></div>
 
   <div class="line-guide">
-    <div class="row"><div>&lt;!doctype html&gt;</div><div>Indica al navegador que el documento usa HTML moderno.</div></div>
-    <div class="row"><div>&lt;html lang="es"&gt;</div><div>Es el elemento raíz y declara que el contenido está en español.</div></div>
-    <div class="row"><div>&lt;head&gt;</div><div>Contiene configuración que normalmente no se ve dentro de la página.</div></div>
-    <div class="row"><div>&lt;meta charset&gt;</div><div>Permite mostrar correctamente tildes, ñ y otros caracteres.</div></div>
-    <div class="row"><div>&lt;meta viewport&gt;</div><div>Hace que la página se adapte correctamente a móviles.</div></div>
-    <div class="row"><div>&lt;title&gt;</div><div>Texto mostrado en la pestaña del navegador.</div></div>
-    <div class="row"><div>&lt;link&gt;</div><div>Conecta el archivo HTML con <code>styles.css</code>.</div></div>
-    <div class="row"><div>&lt;body&gt;</div><div>Todo lo visible para el usuario va aquí.</div></div>
-    <div class="row"><div>&lt;script&gt;</div><div>Conecta el HTML con <code>app.js</code>.</div></div>
+    <div class="row"><div>@Component</div><div>Le indica a Angular que esta clase es un componente.</div></div>
+    <div class="row"><div>selector</div><div>Nombre de la etiqueta que representa el componente.</div></div>
+    <div class="row"><div>imports</div><div>Dependencias que el template puede usar.</div></div>
+    <div class="row"><div>templateUrl</div><div>Archivo HTML.</div></div>
+    <div class="row"><div>styleUrl</div><div>Archivo CSS.</div></div>
   </div>
 
-  <div class="expected"><strong>Debes ver:</strong> al abrir <code>index.html</code> en el navegador, solamente el texto “Angular Aula”.</div>
-  <div class="mission"><h3>Prueba</h3><p>Cambia temporalmente el título visible y guarda. Recarga el navegador para comprobar que estás editando el archivo correcto.</p><button class="finish" data-finish="3">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="html-app" data-search="header nav main section form label input button id class semantic html app">
-  <div class="section-head"><div class="num">4</div><div><h2>HTML: construir toda la estructura de Angular Aula</h2><p class="subtitle">Ahora cada etiqueta tendrá una función dentro del proyecto.</p></div></div>
-
-  <div class="filepath">prototipo-web/index.html</div>
-  <p>Conserva <code>head</code> y reemplaza el contenido del <code>body</code> por:</p>
-
-  <div class="codebox"><div class="codehead">body de index.html <button class="copy-btn">Copiar</button></div><pre>&lt;header class="barra"&gt;
+  <div class="filepath">src/app/app.html</div>
+  <div class="codebox"><div class="codehead">app.html <button class="copy-btn">Copiar</button></div><pre>&lt;header class="barra"&gt;
   &lt;div&gt;
     &lt;h1&gt;Angular Aula&lt;/h1&gt;
     &lt;p&gt;Gestor de estudiantes&lt;/p&gt;
   &lt;/div&gt;
-
-  &lt;nav&gt;
-    &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
-    &lt;a href="#estudiantes"&gt;Estudiantes&lt;/a&gt;
-    &lt;a href="#nuevo"&gt;Nuevo&lt;/a&gt;
-  &lt;/nav&gt;
 &lt;/header&gt;
 
 &lt;main class="contenedor"&gt;
-  &lt;section id="inicio" class="panel"&gt;
-    &lt;h2&gt;Panel principal&lt;/h2&gt;
-    &lt;p&gt;Estudiantes registrados:
-      &lt;strong id="totalEstudiantes"&gt;0&lt;/strong&gt;
-    &lt;/p&gt;
+  &lt;section class="panel"&gt;
+    &lt;h2&gt;Bienvenido&lt;/h2&gt;
+    &lt;p&gt;Nuestra aplicación Angular ya está funcionando.&lt;/p&gt;
   &lt;/section&gt;
+&lt;/main&gt;</pre></div>
 
-  &lt;section id="estudiantes" class="panel"&gt;
-    &lt;div class="fila-titulo"&gt;
-      &lt;h2&gt;Estudiantes&lt;/h2&gt;
-      &lt;button id="btnImportar" type="button"&gt;Importar desde API&lt;/button&gt;
-    &lt;/div&gt;
-
-    &lt;label for="buscar"&gt;Buscar estudiante&lt;/label&gt;
-    &lt;input id="buscar" type="search" placeholder="Nombre o programa"&gt;
-
-    &lt;p id="estadoApi"&gt;&lt;/p&gt;
-    &lt;div id="listaEstudiantes" class="lista"&gt;&lt;/div&gt;
-  &lt;/section&gt;
-
-  &lt;section id="nuevo" class="panel"&gt;
-    &lt;h2&gt;Registrar estudiante&lt;/h2&gt;
-
-    &lt;form id="formEstudiante"&gt;
-      &lt;label for="nombre"&gt;Nombre&lt;/label&gt;
-      &lt;input id="nombre" name="nombre" required&gt;
-
-      &lt;label for="email"&gt;Correo&lt;/label&gt;
-      &lt;input id="email" name="email" type="email" required&gt;
-
-      &lt;label for="programa"&gt;Programa&lt;/label&gt;
-      &lt;input id="programa" name="programa" required&gt;
-
-      &lt;label for="semestre"&gt;Semestre&lt;/label&gt;
-      &lt;input id="semestre" name="semestre" type="number" min="1" max="12" required&gt;
-
-      &lt;button type="submit"&gt;Guardar estudiante&lt;/button&gt;
-    &lt;/form&gt;
-  &lt;/section&gt;
-&lt;/main&gt;
-
-&lt;script src="app.js"&gt;&lt;/script&gt;</pre></div>
-
-  <div class="grid3">
-    <div class="card"><h4><code>class</code></h4><p>Se usa para aplicar un mismo estilo a varios elementos. Ejemplo: todos los paneles usan <code>class="panel"</code>.</p></div>
-    <div class="card"><h4><code>id</code></h4><p>Identifica un elemento concreto. JavaScript usará IDs como <code>buscar</code> o <code>listaEstudiantes</code>.</p></div>
-    <div class="card"><h4><code>name</code></h4><p>Da nombre a un campo de formulario y facilita leer su valor.</p></div>
-  </div>
-
-  <div class="why"><strong>Importante:</strong> todavía no intentes que los botones funcionen. En esta etapa solo construimos estructura.</div>
-  <div class="expected"><strong>Debes ver:</strong> cabecera, enlaces, tres secciones, buscador y formulario. Se verá sin diseño; eso es correcto.</div>
-  <div class="mission"><h3>Comprobación</h3><p>Haz clic en “Estudiantes” y “Nuevo”. El navegador debe desplazarse a esas secciones mediante los IDs.</p><button class="finish" data-finish="4">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="css-base" data-search="css selector class id box model padding margin border box sizing">
-  <div class="section-head"><div class="num">5</div><div><h2>CSS desde cero: entender cómo se aplican estilos</h2><p class="subtitle">No memorices propiedades: identifica qué parte de Angular Aula resuelve cada una.</p></div></div>
-
-  <h3>5.1 Cómo se escribe una regla CSS</h3>
-  <div class="codebox"><div class="codehead">Ejemplo</div><pre>.panel {
-  background: white;
-  padding: 20px;
-}</pre></div>
-  <div class="command-explain">
-    <div><code>.panel</code></div><div>Selector: busca elementos con <code>class="panel"</code>.</div>
-    <div><code>background</code></div><div>Propiedad que cambia el fondo.</div>
-    <div><code>white</code></div><div>Valor asignado a la propiedad.</div>
-  </div>
-
-  <h3>5.2 Diferencia rápida entre selectores</h3>
-  <div class="table-wrap"><table><thead><tr><th>CSS</th><th>Selecciona</th><th>Ejemplo del proyecto</th></tr></thead><tbody>
-    <tr><td><code>body</code></td><td>Una etiqueta HTML</td><td>Todo el cuerpo de la página.</td></tr>
-    <tr><td><code>.panel</code></td><td>Una clase</td><td>Todas las secciones visuales.</td></tr>
-    <tr><td><code>#buscar</code></td><td>Un ID</td><td>Solo el buscador.</td></tr>
-  </tbody></table></div>
-
-  <h3>5.3 Crea los estilos base</h3>
-  <div class="filepath">prototipo-web/styles.css</div>
-  <div class="codebox"><div class="codehead">styles.css · base <button class="copy-btn">Copiar</button></div><pre>* {
+  <div class="filepath">src/styles.css</div>
+  <div class="codebox"><div class="codehead">styles.css <button class="copy-btn">Copiar</button></div><pre>* {
   box-sizing: border-box;
 }
 
@@ -325,29 +367,9 @@ input {
   font: inherit;
 }</pre></div>
 
-  <div class="line-guide">
-    <div class="row"><div>box-sizing: border-box</div><div>Hace más predecibles anchos y altos cuando agregamos padding o borde.</div></div>
-    <div class="row"><div>margin: 0</div><div>Quita el margen que el navegador coloca alrededor del body.</div></div>
-    <div class="row"><div>font-family</div><div>Define la tipografía general.</div></div>
-    <div class="row"><div>background</div><div>Cambia el fondo de la aplicación.</div></div>
-    <div class="row"><div>color</div><div>Define el color de texto.</div></div>
-  </div>
-
-  <div class="expected"><strong>Debes ver:</strong> el fondo pasa a gris claro y desaparece el margen exterior predeterminado.</div>
-  <div class="mission"><h3>Prueba</h3><p>Cambia temporalmente <code>background</code> por otro color y vuelve al original. Esto confirma que el CSS está conectado.</p><button class="finish" data-finish="5">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="css-app" data-search="css flex grid responsive media query cards app styles">
-  <div class="section-head"><div class="num">6</div><div><h2>CSS: diseñar la aplicación y hacerla responsive</h2><p class="subtitle">Flexbox y Grid aparecen porque la interfaz necesita organizar elementos.</p></div></div>
-
-  <div class="filepath">prototipo-web/styles.css</div>
-  <p>Debajo de los estilos anteriores agrega:</p>
-  <div class="codebox"><div class="codehead">styles.css · interfaz <button class="copy-btn">Copiar</button></div><pre>.barra {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 16px 24px;
+  <div class="filepath">src/app/app.css</div>
+  <div class="codebox"><div class="codehead">app.css <button class="copy-btn">Copiar</button></div><pre>.barra {
+  padding: 18px 24px;
   background: #512da8;
   color: white;
 }
@@ -357,21 +379,9 @@ input {
   margin: 0;
 }
 
-.barra nav {
-  display: flex;
-  gap: 14px;
-}
-
-.barra a {
-  color: white;
-  text-decoration: none;
-}
-
 .contenedor {
   width: min(1000px, calc(100% - 32px));
   margin: 28px auto;
-  display: grid;
-  gap: 20px;
 }
 
 .panel {
@@ -379,499 +389,57 @@ input {
   border-radius: 16px;
   padding: 22px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
-}
-
-.fila-titulo,
-.estudiante {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-}
-
-form,
-.lista {
-  display: grid;
-  gap: 10px;
-}
-
-input,
-button {
-  padding: 10px 12px;
-  border-radius: 9px;
-}
-
-input {
-  border: 1px solid #cbd5e1;
-}
-
-button {
-  border: 0;
-  background: #512da8;
-  color: white;
-  cursor: pointer;
-}
-
-.estudiante {
-  padding: 14px;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-}
-
-.btn-eliminar {
-  background: #b91c1c;
-}
-
-@media (max-width: 650px) {
-  .barra,
-  .fila-titulo,
-  .estudiante {
-    align-items: stretch;
-    flex-direction: column;
-  }
 }</pre></div>
 
-  <div class="concept-compare">
-    <div class="side"><b>Flexbox</b><p>Ideal para organizar elementos en una fila o columna: barra superior y tarjetas.</p></div>
-    <div class="middle">+</div>
-    <div class="side"><b>Grid</b><p>Ideal para distribuir bloques con filas/columnas y espacios: contenido, formulario y lista.</p></div>
-  </div>
-
-  <div class="why"><strong>@media:</strong> la regla se aplica cuando la pantalla mide 650 px o menos. Así las filas se convierten en columnas en móvil.</div>
-  <div class="expected"><strong>Debes ver:</strong> una barra morada, paneles blancos, formulario ordenado y diseño que cambia al reducir la ventana.</div>
-  <div class="mission"><h3>Prueba responsive</h3><p>Haz la ventana muy angosta. Navegación y filas deben acomodarse verticalmente.</p><button class="finish" data-finish="6">Marcar etapa terminada</button></div>
+  <div class="expected"><strong>Debes ver:</strong> una cabecera morada y un panel blanco con “Bienvenido”.</div>
+  <div class="mission"><h3>Prueba</h3><p>Cambia “Gestor de estudiantes” por otro texto y guarda. El navegador debe actualizarse.</p><button class="finish" data-finish="4">Marcar etapa terminada</button></div>
 </section>
 
-<div class="phase-title"><h2>FASE C · Dar comportamiento con JavaScript</h2><p>La interfaz ya existe. Ahora necesita datos y acciones.</p></div>
+<section class="section station" id="binding" data-search="interpolation property binding event binding click title disabled">
+  <div class="section-head"><div class="num">5</div><div><h2>Interpolación, property binding y eventos</h2><p class="subtitle">Primera conexión entre TypeScript y el template.</p></div></div>
 
-<section class="section station" id="js-base" data-search="javascript let const string number array object function return">
-  <div class="section-head"><div class="num">7</div><div><h2>JavaScript básico usando datos del proyecto</h2><p class="subtitle">Variables, objetos, arrays y funciones sin ejemplos ajenos a Angular Aula.</p></div></div>
-
-  <h3>7.1 Un estudiante es un objeto</h3>
-  <div class="codebox"><div class="codehead">app.js</div><pre>const estudiante = {
-  id: 1,
-  nombre: 'Ana Torres',
-  email: 'ana@correo.com',
-  programa: 'Ingeniería de Sistemas',
-  semestre: 4
-};</pre></div>
-  <p>Un objeto agrupa datos que pertenecen a la misma entidad. Cada propiedad tiene un nombre y un valor.</p>
-
-  <h3>7.2 Varios estudiantes forman un array</h3>
-  <div class="codebox"><div class="codehead">app.js</div><pre>let estudiantes = [
-  {
-    id: 1,
-    nombre: 'Ana Torres',
-    email: 'ana@correo.com',
-    programa: 'Ingeniería de Sistemas',
-    semestre: 4
-  },
-  {
-    id: 2,
-    nombre: 'Carlos Ruiz',
-    email: 'carlos@correo.com',
-    programa: 'Diseño',
-    semestre: 2
-  }
-];</pre></div>
-
-  <div class="grid3">
-    <div class="card"><h4><code>const</code></h4><p>Usamos <code>const</code> cuando la variable no será reasignada.</p></div>
-    <div class="card"><h4><code>let</code></h4><p>Usamos <code>let</code> para <code>estudiantes</code> porque luego reemplazaremos el array al eliminar.</p></div>
-    <div class="card"><h4>Array</h4><p>Una colección ordenada de valores. Aquí contiene objetos estudiante.</p></div>
-  </div>
-
-  <h3>7.3 Una función agrupa una tarea</h3>
-  <div class="codebox"><div class="codehead">Idea</div><pre>function obtenerTotal() {
-  return estudiantes.length;
-}</pre></div>
-  <p><code>return</code> devuelve un resultado. <code>length</code> indica cuántos elementos hay en el array.</p>
-
-  <div class="mission"><h3>Comprobación conceptual</h3><p>Debes poder explicar con tus palabras: variable, objeto, array, propiedad y función.</p><button class="finish" data-finish="7">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="js-render" data-search="dom queryselector render innerhtml for loop javascript">
-  <div class="section-head"><div class="num">8</div><div><h2>Conectar JavaScript con el HTML: DOM y renderizado</h2><p class="subtitle">Los datos existen en memoria; ahora hay que mostrarlos.</p></div></div>
-
-  <div class="filepath">prototipo-web/app.js</div>
-  <p>Escribe el array de la etapa anterior y luego agrega:</p>
-  <div class="codebox"><div class="codehead">app.js · DOM <button class="copy-btn">Copiar</button></div><pre>const lista = document.querySelector('#listaEstudiantes');
-const total = document.querySelector('#totalEstudiantes');
-
-function renderizarEstudiantes(datos) {
-  lista.innerHTML = '';
-
-  for (const estudiante of datos) {
-    lista.innerHTML +=
-      '&lt;article class="estudiante"&gt;' +
-        '&lt;div&gt;' +
-          '&lt;h3&gt;' + estudiante.nombre + '&lt;/h3&gt;' +
-          '&lt;p&gt;' + estudiante.programa + ' · semestre ' + estudiante.semestre + '&lt;/p&gt;' +
-          '&lt;p&gt;' + estudiante.email + '&lt;/p&gt;' +
-        '&lt;/div&gt;' +
-        '&lt;button class="btn-eliminar" data-id="' + estudiante.id + '"&gt;Eliminar&lt;/button&gt;' +
-      '&lt;/article&gt;';
-  }
-
-  total.textContent = estudiantes.length;
-}
-
-renderizarEstudiantes(estudiantes);</pre></div>
-
-  <div class="line-guide">
-    <div class="row"><div>document.querySelector(...)</div><div>Busca un elemento del HTML.</div></div>
-    <div class="row"><div>lista.innerHTML = ''</div><div>Limpia la lista antes de volver a dibujar.</div></div>
-    <div class="row"><div>for (const ... of ...)</div><div>Recorre cada estudiante del array.</div></div>
-    <div class="row"><div>textContent</div><div>Cambia únicamente el texto de un elemento.</div></div>
-  </div>
-
-  <div class="expected"><strong>Debes ver:</strong> dos tarjetas de estudiante y el total debe mostrar <b>2</b>.</div>
-  <div class="mistake"><strong>Si no aparece nada:</strong> abre DevTools con <span class="kbd">F12</span>, entra a Console y revisa el primer error rojo. También confirma que <code>app.js</code> esté enlazado al final del body.</div>
-
-  <div class="mission"><h3>Prueba</h3><p>Agrega manualmente un tercer objeto al array. Debe aparecer automáticamente al recargar sin tocar el HTML.</p><button class="finish" data-finish="8">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="js-eventos" data-search="events input addEventListener filter includes lowercase search">
-  <div class="section-head"><div class="num">9</div><div><h2>Eventos: hacer funcionar la búsqueda</h2><p class="subtitle">El navegador detecta cuando el usuario escribe.</p></div></div>
-
-  <div class="filepath">prototipo-web/app.js</div>
-  <p>Debajo de las referencias <code>lista</code> y <code>total</code>, agrega:</p>
-  <div class="codebox"><div class="codehead">Referencia al buscador <button class="copy-btn">Copiar</button></div><pre>const buscar = document.querySelector('#buscar');</pre></div>
-
-  <p>Al final del archivo agrega:</p>
-  <div class="codebox"><div class="codehead">Evento input <button class="copy-btn">Copiar</button></div><pre>buscar.addEventListener('input', function () {
-  const texto = buscar.value.toLowerCase().trim();
-
-  const filtrados = estudiantes.filter(function (estudiante) {
-    return estudiante.nombre.toLowerCase().includes(texto) ||
-           estudiante.programa.toLowerCase().includes(texto);
-  });
-
-  renderizarEstudiantes(filtrados);
-});</pre></div>
-
-  <div class="line-guide">
-    <div class="row"><div>addEventListener</div><div>Ejecuta una función cuando ocurre un evento.</div></div>
-    <div class="row"><div>'input'</div><div>Se dispara cada vez que cambia el contenido del input.</div></div>
-    <div class="row"><div>filter()</div><div>Crea un nuevo array con los elementos que cumplen una condición.</div></div>
-    <div class="row"><div>includes()</div><div>Comprueba si un texto contiene otro.</div></div>
-    <div class="row"><div>toLowerCase()</div><div>Evita que mayúsculas/minúsculas rompan la búsqueda.</div></div>
-  </div>
-
-  <div class="expected"><strong>Debes ver:</strong> al escribir “Ana” solo queda Ana; al borrar el texto vuelven todos.</div>
-  <div class="mission"><h3>Prueba</h3><p>Busca también por programa, por ejemplo “Diseño”.</p><button class="finish" data-finish="9">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="js-crud" data-search="form submit preventdefault push date now delete dataset filter">
-  <div class="section-head"><div class="num">10</div><div><h2>Formulario: agregar y eliminar estudiantes</h2><p class="subtitle">Angular Aula ya empieza a comportarse como una aplicación CRUD.</p></div></div>
-
-  <p>Agrega la referencia al formulario:</p>
-  <div class="codebox"><div class="codehead">app.js <button class="copy-btn">Copiar</button></div><pre>const formulario = document.querySelector('#formEstudiante');</pre></div>
-
-  <h3>10.1 Agregar</h3>
-  <div class="codebox"><div class="codehead">Evento submit <button class="copy-btn">Copiar</button></div><pre>formulario.addEventListener('submit', function (evento) {
-  evento.preventDefault();
-
-  const nuevo = {
-    id: Date.now(),
-    nombre: formulario.nombre.value.trim(),
-    email: formulario.email.value.trim(),
-    programa: formulario.programa.value.trim(),
-    semestre: Number(formulario.semestre.value)
-  };
-
-  estudiantes.push(nuevo);
-  formulario.reset();
-  renderizarEstudiantes(estudiantes);
-});</pre></div>
-
-  <div class="why"><strong>preventDefault():</strong> evita que el formulario recargue la página. <strong>Date.now():</strong> nos da un número que usaremos como ID sencillo. <strong>push():</strong> agrega al final del array.</div>
-
-  <h3>10.2 Eliminar</h3>
-  <div class="codebox"><div class="codehead">Delegación de evento <button class="copy-btn">Copiar</button></div><pre>lista.addEventListener('click', function (evento) {
-  if (!evento.target.classList.contains('btn-eliminar')) {
-    return;
-  }
-
-  const id = Number(evento.target.dataset.id);
-
-  estudiantes = estudiantes.filter(function (estudiante) {
-    return estudiante.id !== id;
-  });
-
-  renderizarEstudiantes(estudiantes);
-});</pre></div>
-
-  <div class="expected"><strong>Debes poder:</strong> crear un estudiante, verlo en la lista, encontrarlo con el buscador y eliminarlo.</div>
-  <div class="mission"><h3>Prueba completa</h3><p>Agrega “Laura Gómez”, búscala y elimínala. Si todo funciona, continúa.</p><button class="finish" data-finish="10">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="storage" data-search="localstorage json stringify parse persistence reload">
-  <div class="section-head"><div class="num">11</div><div><h2>Guardar los datos con localStorage</h2><p class="subtitle">Hasta ahora todo desaparece al recargar. Vamos a persistirlo.</p></div></div>
-
-  <h3>11.1 Crea funciones de guardar y leer</h3>
-  <div class="codebox"><div class="codehead">app.js <button class="copy-btn">Copiar</button></div><pre>const CLAVE = 'angular-aula-estudiantes';
-
-function guardarEstudiantes() {
-  localStorage.setItem(CLAVE, JSON.stringify(estudiantes));
-}
-
-function leerEstudiantes() {
-  const guardados = localStorage.getItem(CLAVE);
-
-  if (guardados) {
-    estudiantes = JSON.parse(guardados);
-  }
-}</pre></div>
-
-  <h3>11.2 Lee antes del primer render</h3>
-  <div class="codebox"><div class="codehead">Orden al final del archivo <button class="copy-btn">Copiar</button></div><pre>leerEstudiantes();
-renderizarEstudiantes(estudiantes);</pre></div>
-
-  <h3>11.3 Guarda después de agregar o eliminar</h3>
-  <p>Después de modificar el array, ejecuta:</p>
-  <div class="codebox"><div class="codehead">En ambos eventos</div><pre>guardarEstudiantes();
-renderizarEstudiantes(estudiantes);</pre></div>
-
-  <div class="concept-compare">
-    <div class="side"><b>JSON.stringify()</b><p>Convierte el array en texto para guardarlo.</p></div>
-    <div class="middle">⇄</div>
-    <div class="side"><b>JSON.parse()</b><p>Convierte el texto guardado nuevamente en array/objetos.</p></div>
-  </div>
-
-  <div class="expected"><strong>Debes ver:</strong> agrega un estudiante, pulsa <span class="kbd">F5</span> y el estudiante debe seguir allí.</div>
-  <div class="mission"><h3>Prueba</h3><p>Abre DevTools → Application → Local Storage y localiza la clave <code>angular-aula-estudiantes</code>.</p><button class="finish" data-finish="11">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="fetch" data-search="fetch api async await response ok json try catch jsonplaceholder">
-  <div class="section-head"><div class="num">12</div><div><h2>Consumir una API con fetch, async y await</h2><p class="subtitle">El botón “Importar desde API” finalmente tendrá una función.</p></div></div>
-
-  <p>Agrega referencias:</p>
-  <div class="codebox"><div class="codehead">app.js</div><pre>const btnImportar = document.querySelector('#btnImportar');
-const estadoApi = document.querySelector('#estadoApi');</pre></div>
-
-  <p>Y luego la función:</p>
-  <div class="codebox"><div class="codehead">app.js · API <button class="copy-btn">Copiar</button></div><pre>async function importarUsuarios() {
-  estadoApi.textContent = 'Cargando usuarios...';
-
-  try {
-    const respuesta = await fetch('https://jsonplaceholder.typicode.com/users');
-
-    if (!respuesta.ok) {
-      throw new Error('HTTP ' + respuesta.status);
-    }
-
-    const usuarios = await respuesta.json();
-
-    const importados = usuarios.slice(0, 5).map(function (usuario) {
-      return {
-        id: Date.now() + usuario.id,
-        nombre: usuario.name,
-        email: usuario.email,
-        programa: 'Importado desde API',
-        semestre: 1
-      };
-    });
-
-    estudiantes = estudiantes.concat(importados);
-
-    guardarEstudiantes();
-    renderizarEstudiantes(estudiantes);
-
-    estadoApi.textContent = 'Usuarios importados correctamente.';
-  } catch (error) {
-    console.error(error);
-    estadoApi.textContent = 'No fue posible consultar la API.';
-  }
-}
-
-btnImportar.addEventListener('click', importarUsuarios);</pre></div>
-
-  <div class="line-guide">
-    <div class="row"><div>async</div><div>Permite usar <code>await</code> dentro de la función.</div></div>
-    <div class="row"><div>fetch(url)</div><div>Realiza una petición HTTP.</div></div>
-    <div class="row"><div>await</div><div>Espera a que termine una operación asíncrona.</div></div>
-    <div class="row"><div>respuesta.ok</div><div>Indica si HTTP respondió correctamente.</div></div>
-    <div class="row"><div>respuesta.json()</div><div>Convierte el cuerpo JSON en objetos JavaScript.</div></div>
-    <div class="row"><div>try/catch</div><div>Permite reaccionar ante errores de red o ejecución.</div></div>
-  </div>
-
-  <div class="checkpoint"><h3>Prototipo web terminado</h3><div class="build-list">
-    <div class="build-item">HTML semántico.</div>
-    <div class="build-item">CSS responsive.</div>
-    <div class="build-item">Listado dinámico.</div>
-    <div class="build-item">Buscar, agregar y eliminar.</div>
-    <div class="build-item">Persistencia local.</div>
-    <div class="build-item">Consumo de API.</div>
-  </div></div>
-  <div class="mission"><h3>Antes de entrar a Angular</h3><p>Importa usuarios, recarga y confirma que permanezcan guardados.</p><button class="finish" data-finish="12">Marcar etapa terminada</button></div>
-</section>
-
-<div class="phase-title"><h2>FASE D · Entender TypeScript antes de Angular</h2><p>Angular usa TypeScript. No necesitamos dominarlo entero, solo comprender los conceptos que usaremos.</p></div>
-
-<section class="section station" id="typescript" data-search="typescript types interface student optional function array">
-  <div class="section-head"><div class="num">13</div><div><h2>TypeScript: tipar el mismo modelo Estudiante</h2><p class="subtitle">No cambiamos de problema; describimos con más precisión los datos que ya conocemos.</p></div></div>
-
-  <div class="concept-compare">
-    <div class="side"><b>JavaScript</b><pre>let semestre = 4;</pre><p>La variable existe, pero el lenguaje no declara explícitamente su tipo.</p></div>
-    <div class="middle">→</div>
-    <div class="side"><b>TypeScript</b><pre>let semestre: number = 4;</pre><p>Indicamos que debe contener un número.</p></div>
-  </div>
-
-  <h3>13.1 Interface</h3>
-  <div class="codebox"><div class="codehead">Modelo TypeScript <button class="copy-btn">Copiar</button></div><pre>interface Estudiante {
-  id: number;
-  nombre: string;
-  email: string;
-  programa: string;
-  semestre: number;
-  externo?: boolean;
-}</pre></div>
-  <p><code>?</code> significa que la propiedad es opcional.</p>
-
-  <h3>13.2 Array tipado</h3>
-  <div class="codebox"><div class="codehead">TypeScript</div><pre>let estudiantes: Estudiante[] = [];</pre></div>
-
-  <h3>13.3 Función tipada</h3>
-  <div class="codebox"><div class="codehead">TypeScript</div><pre>function eliminar(id: number): void {
-  estudiantes = estudiantes.filter(estudiante =&gt; estudiante.id !== id);
-}</pre></div>
-
-  <div class="line-guide">
-    <div class="row"><div>id: number</div><div>El parámetro debe ser un número.</div></div>
-    <div class="row"><div>: void</div><div>La función no devuelve un valor.</div></div>
-    <div class="row"><div>Estudiante[]</div><div>Array cuyos elementos deben respetar la interface.</div></div>
-  </div>
-
-  <div class="mission"><h3>Comprobación</h3><p>Debes distinguir <code>string</code>, <code>number</code>, <code>boolean</code>, <code>interface</code>, array y parámetro de función.</p><button class="finish" data-finish="13">Marcar etapa terminada</button></div>
-</section>
-
-<div class="phase-title"><h2>FASE E · Crear Angular Aula con Angular 22</h2><p>Ahora reconstruiremos la misma aplicación usando herramientas del framework.</p></div>
-
-<section class="section station" id="ng-new" data-search="ng new angular project routing css standalone ssr serve open">
-  <div class="section-head"><div class="num">14</div><div><h2>Crear el proyecto Angular paso a paso</h2><p class="subtitle">Usaremos opciones explícitas para que todos los estudiantes generen la misma estructura.</p></div></div>
-
-  <h3>14.1 Regresa a la carpeta principal</h3>
-  <p>Si tu terminal está dentro de <code>prototipo-web</code>:</p>
-  <div class="term"><div class="term-head">Terminal</div><pre>cd ..</pre></div>
-
-  <h3>14.2 Crea el proyecto</h3>
-  <div class="term"><div class="term-head">Terminal</div><pre>ng new angular-aula --routing --style=css --standalone --ssr=false --skip-tests</pre></div>
-
-  <div class="command-explain">
-    <div><code>ng new angular-aula</code></div><div>Crea un workspace y una aplicación inicial llamada <code>angular-aula</code>.</div>
-    <div><code>--routing</code></div><div>Prepara Angular Router.</div>
-    <div><code>--style=css</code></div><div>Usa archivos CSS normales.</div>
-    <div><code>--standalone</code></div><div>Usa componentes standalone, el enfoque moderno por defecto.</div>
-    <div><code>--ssr=false</code></div><div>No agrega renderizado en servidor; simplifica el taller.</div>
-    <div><code>--skip-tests</code></div><div>No genera archivos de pruebas unitarias en esta guía inicial.</div>
-  </div>
-
-  <h3>14.3 Entra al proyecto y ejecútalo</h3>
-  <div class="term"><div class="term-head">Terminal</div><pre>cd angular-aula
-ng serve --open</pre></div>
-  <p><code>ng serve</code> inicia un servidor de desarrollo y recompila cuando guardas. <code>--open</code> abre el navegador automáticamente.</p>
-
-  <div class="expected"><strong>Debes ver:</strong> una página Angular en <code>http://localhost:4200</code>.</div>
-  <div class="mistake"><strong>Si dice que el puerto 4200 está ocupado:</strong> prueba <code>ng serve --port 4201 --open</code>.</div>
-  <div class="mission"><h3>No continúes si falla</h3><p>El navegador debe mostrar la aplicación y la terminal no debe tener un error de compilación.</p><button class="finish" data-finish="14">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="estructura-angular" data-search="angular files package json angular json main ts app ts app html app css routes config">
-  <div class="section-head"><div class="num">15</div><div><h2>Entender la estructura antes de modificarla</h2><p class="subtitle">No borres archivos al azar. Primero identifica qué responsabilidad tiene cada uno.</p></div></div>
-
-  <div class="folder">angular-aula/
-├── package.json
-├── angular.json
-├── public/
-└── src/
-    ├── index.html
-    ├── main.ts
-    ├── styles.css
-    └── app/
-        ├── app.ts
-        ├── app.html
-        ├── app.css
-        ├── app.routes.ts
-        └── app.config.ts</div>
-
-  <div class="table-wrap"><table><thead><tr><th>Archivo</th><th>Función simple</th><th>¿Lo editaremos?</th></tr></thead><tbody>
-    <tr><td><code>package.json</code></td><td>Lista dependencias y comandos npm.</td><td>Normalmente no manualmente al inicio.</td></tr>
-    <tr><td><code>angular.json</code></td><td>Configuración del workspace y build.</td><td>Muy poco en este taller.</td></tr>
-    <tr><td><code>src/index.html</code></td><td>Documento HTML que aloja la app Angular.</td><td>Casi nunca.</td></tr>
-    <tr><td><code>src/main.ts</code></td><td>Punto de arranque de Angular.</td><td>No al inicio.</td></tr>
-    <tr><td><code>src/styles.css</code></td><td>CSS global.</td><td>Sí.</td></tr>
-    <tr><td><code>app.ts</code></td><td>Lógica del componente raíz.</td><td>Sí.</td></tr>
-    <tr><td><code>app.html</code></td><td>Vista HTML del componente raíz.</td><td>Sí.</td></tr>
-    <tr><td><code>app.css</code></td><td>Estilos del componente raíz.</td><td>Sí.</td></tr>
-    <tr><td><code>app.routes.ts</code></td><td>Relaciona URLs con componentes.</td><td>Sí.</td></tr>
-    <tr><td><code>app.config.ts</code></td><td>Configura providers globales.</td><td>Sí más adelante.</td></tr>
-  </tbody></table></div>
-
-  <div class="why"><strong>Convención moderna:</strong> Angular 22 usa por defecto el estilo de nombres 2025, por eso el componente raíz aparece como <code>app.ts</code> y no necesariamente <code>app.component.ts</code>.</div>
-  <div class="mission"><h3>Comprobación</h3><p>Localiza cada archivo en VS Code antes de tocar código.</p><button class="finish" data-finish="15">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section station" id="migracion" data-search="component decorator selector templateurl styleurl migrate css html root">
-  <div class="section-head"><div class="num">16</div><div><h2>Migrar la interfaz que ya construiste</h2><p class="subtitle">HTML y CSS no desaparecen: pasan a vivir dentro de componentes Angular.</p></div></div>
-
-  <h3>16.1 Simplifica el componente raíz</h3>
   <div class="filepath">src/app/app.ts</div>
-  <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>import { Component } from '@angular/core';
+  <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>export class App {
+  titulo = 'Angular Aula';
+  mensaje = 'Gestor de estudiantes';
+  mostrarAyuda = false;
 
-@Component({
-  selector: 'app-root',
-  imports: [],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
-})
-export class App {}</pre></div>
+  cambiarAyuda(): void {
+    this.mostrarAyuda = !this.mostrarAyuda;
+  }
+}</pre></div>
 
-  <div class="line-guide">
-    <div class="row"><div>@Component(...)</div><div>Metadata que le dice a Angular cómo funciona esta clase como componente.</div></div>
-    <div class="row"><div>selector</div><div>Nombre de la etiqueta HTML que representa al componente.</div></div>
-    <div class="row"><div>imports</div><div>Directivas/componentes que este componente puede usar.</div></div>
-    <div class="row"><div>templateUrl</div><div>Archivo HTML del componente.</div></div>
-    <div class="row"><div>styleUrl</div><div>Archivo CSS del componente.</div></div>
-    <div class="row"><div>export class App</div><div>Clase TypeScript donde vive la lógica.</div></div>
-  </div>
-
-  <h3>16.2 Lleva la cabecera y estructura base</h3>
   <div class="filepath">src/app/app.html</div>
   <div class="codebox"><div class="codehead">app.html <button class="copy-btn">Copiar</button></div><pre>&lt;header class="barra"&gt;
-  &lt;div&gt;
-    &lt;h1&gt;Angular Aula&lt;/h1&gt;
-    &lt;p&gt;Gestor de estudiantes&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;h1&gt;{{ titulo }}&lt;/h1&gt;
+  &lt;p&gt;{{ mensaje }}&lt;/p&gt;
+
+  &lt;button
+    type="button"
+    [title]="mostrarAyuda ? 'Ocultar ayuda' : 'Mostrar ayuda'"
+    (click)="cambiarAyuda()"&gt;
+    Ayuda
+  &lt;/button&gt;
 &lt;/header&gt;
 
-&lt;main class="contenedor"&gt;
-  &lt;section class="panel"&gt;
-    &lt;h2&gt;Panel principal&lt;/h2&gt;
-    &lt;p&gt;La interfaz ya está funcionando dentro de Angular.&lt;/p&gt;
-  &lt;/section&gt;
-&lt;/main&gt;</pre></div>
+@if (mostrarAyuda) {
+  &lt;p&gt;Esta aplicación permitirá gestionar estudiantes.&lt;/p&gt;
+}</pre></div>
 
-  <h3>16.3 Reutiliza tu CSS</h3>
-  <p>Pasa los estilos globales de <code>body</code>, <code>*</code>, <code>button</code> e <code>input</code> a <code>src/styles.css</code>. Pasa las clases <code>.barra</code>, <code>.contenedor</code>, <code>.panel</code> a <code>src/app/app.css</code>.</p>
+  <div class="line-guide">
+    <div class="row"><div>{{ valor }}</div><div>Interpolación: muestra un valor como texto.</div></div>
+    <div class="row"><div>[title]</div><div>Property binding: asigna una propiedad HTML desde TypeScript.</div></div>
+    <div class="row"><div>(click)</div><div>Event binding: ejecuta código cuando ocurre un clic.</div></div>
+  </div>
 
-  <div class="expected"><strong>Debes ver:</strong> Angular Aula con la apariencia del prototipo, pero ejecutándose mediante <code>ng serve</code>.</div>
-  <div class="mission"><h3>Prueba</h3><p>Cambia el texto dentro de <code>app.html</code>. Al guardar, el navegador debe actualizarse automáticamente.</p><button class="finish" data-finish="16">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Prueba</h3><p>El botón debe mostrar/ocultar la ayuda.</p><button class="finish" data-finish="5">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="signals" data-search="signal computed interpolation property event binding if for control flow">
-  <div class="section-head"><div class="num">17</div><div><h2>Estado Angular: Signals, interpolación y @for</h2><p class="subtitle">Reemplazamos <code>innerHTML</code> por templates reactivos.</p></div></div>
+<section class="section station" id="signals" data-search="signals signal computed state reactive">
+  <div class="section-head"><div class="num">6</div><div><h2>Signals: manejar estado reactivo</h2><p class="subtitle">Pasamos de variables simples a estado que Angular puede observar.</p></div></div>
 
   <div class="filepath">src/app/app.ts</div>
-  <div class="codebox"><div class="codehead">app.ts · estado <button class="copy-btn">Copiar</button></div><pre>import { Component, computed, signal } from '@angular/core';
-
-interface Estudiante {
-  id: number;
-  nombre: string;
-  email: string;
-  programa: string;
-  semestre: number;
-}
+  <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>import { Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -880,67 +448,66 @@ interface Estudiante {
   styleUrl: './app.css'
 })
 export class App {
-  estudiantes = signal&lt;Estudiante[]&gt;([
-    {
-      id: 1,
-      nombre: 'Ana Torres',
-      email: 'ana@correo.com',
-      programa: 'Ingeniería de Sistemas',
-      semestre: 4
-    },
-    {
-      id: 2,
-      nombre: 'Carlos Ruiz',
-      email: 'carlos@correo.com',
-      programa: 'Diseño',
-      semestre: 2
-    }
-  ]);
+  estudiantes = signal(['Ana', 'Carlos']);
 
   total = computed(() =&gt; this.estudiantes().length);
+
+  agregarTemporal(): void {
+    this.estudiantes.update(actuales =&gt; [
+      ...actuales,
+      'Laura'
+    ]);
+  }
 }</pre></div>
 
   <div class="filepath">src/app/app.html</div>
-  <div class="codebox"><div class="codehead">app.html · template <button class="copy-btn">Copiar</button></div><pre>&lt;section class="panel"&gt;
-  &lt;h2&gt;Panel principal&lt;/h2&gt;
-  &lt;p&gt;Estudiantes: &lt;strong&gt;{{ total() }}&lt;/strong&gt;&lt;/p&gt;
-&lt;/section&gt;
+  <div class="codebox"><div class="codehead">app.html <button class="copy-btn">Copiar</button></div><pre>&lt;p&gt;Total: {{ total() }}&lt;/p&gt;
 
-&lt;section class="panel"&gt;
-  &lt;h2&gt;Estudiantes&lt;/h2&gt;
+&lt;button type="button" (click)="agregarTemporal()"&gt;
+  Agregar Laura
+&lt;/button&gt;</pre></div>
 
-  @for (estudiante of estudiantes(); track estudiante.id) {
-    &lt;article class="estudiante"&gt;
-      &lt;div&gt;
-        &lt;h3&gt;{{ estudiante.nombre }}&lt;/h3&gt;
-        &lt;p&gt;{{ estudiante.programa }} · semestre {{ estudiante.semestre }}&lt;/p&gt;
-        &lt;p&gt;{{ estudiante.email }}&lt;/p&gt;
-      &lt;/div&gt;
-    &lt;/article&gt;
-  } @empty {
-    &lt;p&gt;No hay estudiantes registrados.&lt;/p&gt;
-  }
-&lt;/section&gt;</pre></div>
-
-  <div class="grid3">
-    <div class="card"><h4><code>signal()</code></h4><p>Guarda estado que Angular puede observar.</p></div>
-    <div class="card"><h4><code>computed()</code></h4><p>Calcula un valor derivado del estado.</p></div>
-    <div class="card"><h4><code>{{ ... }}</code></h4><p>Interpolación: muestra valores dentro del HTML.</p></div>
+  <div class="line-guide">
+    <div class="row"><div>signal(valor)</div><div>Crea estado reactivo.</div></div>
+    <div class="row"><div>signal()</div><div>Lee el valor actual.</div></div>
+    <div class="row"><div>update()</div><div>Calcula el nuevo valor usando el anterior.</div></div>
+    <div class="row"><div>computed()</div><div>Calcula un valor derivado.</div></div>
   </div>
 
-  <div class="why"><strong>track estudiante.id:</strong> ayuda a Angular a identificar cada elemento de la lista cuando cambia.</div>
-  <div class="expected"><strong>Debes ver:</strong> dos estudiantes y total 2, sin usar <code>querySelector</code> ni <code>innerHTML</code>.</div>
-  <div class="mission"><h3>Prueba</h3><p>Agrega un tercer objeto al Signal y verifica que cambien lista y total.</p><button class="finish" data-finish="17">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Prueba</h3><p>El total debe cambiar al pulsar el botón.</p><button class="finish" data-finish="6">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="componentes" data-search="ng generate component input output component child card">
-  <div class="section-head"><div class="num">18</div><div><h2>Separar la tarjeta en un componente</h2><p class="subtitle">Una pieza repetida merece una responsabilidad propia.</p></div></div>
+<section class="section station" id="control" data-search="if for angular control flow empty track">
+  <div class="section-head"><div class="num">7</div><div><h2>Control de flujo con @if y @for</h2><p class="subtitle">Mostramos listas y estados directamente desde el template.</p></div></div>
 
-  <h3>18.1 Crea carpetas/componentes con CLI</h3>
-  <div class="term"><div class="term-head">Terminal</div><pre>ng generate component components/estudiante-card</pre></div>
-  <p>Forma corta equivalente: <code>ng g c components/estudiante-card</code>.</p>
+  <div class="filepath">src/app/app.html</div>
+  <div class="codebox"><div class="codehead">app.html <button class="copy-btn">Copiar</button></div><pre>&lt;h2&gt;Estudiantes&lt;/h2&gt;
 
-  <h3>18.2 Crea el modelo compartido</h3>
+@if (total() &gt; 0) {
+  &lt;p&gt;Hay {{ total() }} estudiantes.&lt;/p&gt;
+} @else {
+  &lt;p&gt;No hay estudiantes.&lt;/p&gt;
+}
+
+@for (nombre of estudiantes(); track nombre) {
+  &lt;article class="panel"&gt;
+    {{ nombre }}
+  &lt;/article&gt;
+} @empty {
+  &lt;p&gt;La lista está vacía.&lt;/p&gt;
+}</pre></div>
+
+  <div class="why"><strong>@if:</strong> decide si una parte del HTML existe. <strong>@for:</strong> repite una parte del template por cada elemento.</div>
+
+  <div class="mission"><h3>Prueba</h3><p>Debes ver una tarjeta por cada nombre.</p><button class="finish" data-finish="7">Marcar etapa terminada</button></div>
+</section>
+
+<div class="phase-title"><h2>FASE 3 · Convertir datos simples en una aplicación real</h2><p>Creamos modelo, componentes reutilizables y servicios.</p></div>
+
+<section class="section station" id="modelo" data-search="typescript interface model student">
+  <div class="section-head"><div class="num">8</div><div><h2>Crear el modelo Estudiante</h2><p class="subtitle">Dejamos de trabajar con nombres sueltos.</p></div></div>
+
+  <p>Crea manualmente la carpeta <code>models</code> dentro de <code>src/app</code>.</p>
   <div class="filepath">src/app/models/estudiante.ts</div>
   <div class="codebox"><div class="codehead">estudiante.ts <button class="copy-btn">Copiar</button></div><pre>export interface Estudiante {
   id: number;
@@ -951,7 +518,37 @@ export class App {
   externo?: boolean;
 }</pre></div>
 
-  <h3>18.3 Configura entrada y salida</h3>
+  <div class="line-guide">
+    <div class="row"><div>export</div><div>Permite importar la interface desde otros archivos.</div></div>
+    <div class="row"><div>interface</div><div>Describe la forma que debe tener un objeto.</div></div>
+    <div class="row"><div>externo?</div><div>El signo ? indica que la propiedad es opcional.</div></div>
+  </div>
+
+  <div class="mission"><h3>Comprobación</h3><p>Debes tener <code>src/app/models/estudiante.ts</code>.</p><button class="finish" data-finish="8">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="tarjeta" data-search="generate component estudiante card cli">
+  <div class="section-head"><div class="num">9</div><div><h2>Crear el componente EstudianteCard</h2><p class="subtitle">Cada estudiante se mostrará mediante un componente reutilizable.</p></div></div>
+
+  <div class="term"><div class="term-head">Terminal</div><pre>ng generate component components/estudiante-card</pre></div>
+
+  <p>Forma corta:</p>
+  <div class="term"><div class="term-head">Terminal</div><pre>ng g c components/estudiante-card</pre></div>
+
+  <div class="folder">src/app/components/
+└── estudiante-card/
+    ├── estudiante-card.ts
+    ├── estudiante-card.html
+    └── estudiante-card.css</div>
+
+  <div class="callout"><b>Qué hizo CLI:</b> creó la carpeta y los archivos del componente usando las convenciones del proyecto.</div>
+
+  <div class="mission"><h3>Comprobación</h3><p>Localiza los tres archivos generados.</p><button class="finish" data-finish="9">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="comunicacion" data-search="input output component communication event">
+  <div class="section-head"><div class="num">10</div><div><h2>Comunicación entre componentes con input y output</h2><p class="subtitle">La tarjeta recibe datos y emite una solicitud de eliminación.</p></div></div>
+
   <div class="filepath">src/app/components/estudiante-card/estudiante-card.ts</div>
   <div class="codebox"><div class="codehead">estudiante-card.ts <button class="copy-btn">Copiar</button></div><pre>import { Component, input, output } from '@angular/core';
 import { Estudiante } from '../../models/estudiante';
@@ -968,32 +565,32 @@ export class EstudianteCard {
 }</pre></div>
 
   <div class="filepath">src/app/components/estudiante-card/estudiante-card.html</div>
-  <div class="codebox"><div class="codehead">estudiante-card.html <button class="copy-btn">Copiar</button></div><pre>&lt;article class="estudiante"&gt;
+  <div class="codebox"><div class="codehead">estudiante-card.html <button class="copy-btn">Copiar</button></div><pre>&lt;article class="tarjeta"&gt;
   &lt;div&gt;
     &lt;h3&gt;{{ estudiante().nombre }}&lt;/h3&gt;
-    &lt;p&gt;{{ estudiante().programa }} · semestre {{ estudiante().semestre }}&lt;/p&gt;
+    &lt;p&gt;{{ estudiante().programa }}&lt;/p&gt;
+    &lt;p&gt;Semestre {{ estudiante().semestre }}&lt;/p&gt;
     &lt;p&gt;{{ estudiante().email }}&lt;/p&gt;
   &lt;/div&gt;
 
   &lt;button
     type="button"
-    class="btn-eliminar"
     (click)="eliminar.emit(estudiante().id)"&gt;
     Eliminar
   &lt;/button&gt;
 &lt;/article&gt;</pre></div>
 
   <div class="concept-compare">
-    <div class="side"><b>input()</b><p>Información que entra desde el padre hacia la tarjeta.</p></div>
+    <div class="side"><b>input()</b><p>Datos que entran al componente hijo.</p></div>
     <div class="middle">↔</div>
-    <div class="side"><b>output()</b><p>Evento que sale de la tarjeta hacia el padre.</p></div>
+    <div class="side"><b>output()</b><p>Evento que el hijo comunica hacia afuera.</p></div>
   </div>
 
-  <div class="mission"><h3>Comprobación</h3><p>La tarjeta debe conocer un estudiante y emitir únicamente el ID cuando el usuario pide eliminar.</p><button class="finish" data-finish="18">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Comprobación</h3><p>La tarjeta ya está lista para recibir un objeto Estudiante.</p><button class="finish" data-finish="10">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="servicio" data-search="service injectable inject signal localstorage state">
-  <div class="section-head"><div class="num">19</div><div><h2>Crear un servicio para el estado y localStorage</h2><p class="subtitle">Las páginas no deberían duplicar la lógica de datos.</p></div></div>
+<section class="section station" id="servicio" data-search="service injectable state students">
+  <div class="section-head"><div class="num">11</div><div><h2>Crear el servicio de estudiantes</h2><p class="subtitle">Centralizamos el estado y las operaciones.</p></div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate service services/estudiantes</pre></div>
 
@@ -1005,15 +602,25 @@ import { Estudiante } from '../models/estudiante';
   providedIn: 'root'
 })
 export class Estudiantes {
-  private readonly clave = 'angular-aula-estudiantes';
-
-  private readonly _estudiantes =
-    signal&lt;Estudiante[]&gt;(this.leer());
+  private readonly _estudiantes = signal&lt;Estudiante[]&gt;([
+    {
+      id: 1,
+      nombre: 'Ana Torres',
+      email: 'ana@correo.com',
+      programa: 'Ingeniería de Sistemas',
+      semestre: 4
+    },
+    {
+      id: 2,
+      nombre: 'Carlos Ruiz',
+      email: 'carlos@correo.com',
+      programa: 'Diseño',
+      semestre: 2
+    }
+  ]);
 
   readonly estudiantes = this._estudiantes.asReadonly();
-
-  readonly total =
-    computed(() =&gt; this._estudiantes().length);
+  readonly total = computed(() =&gt; this._estudiantes().length);
 
   agregar(datos: Omit&lt;Estudiante, 'id'&gt;): void {
     const nuevo: Estudiante = {
@@ -1025,74 +632,88 @@ export class Estudiantes {
       ...actuales,
       nuevo
     ]);
-
-    this.guardar();
   }
 
   eliminar(id: number): void {
     this._estudiantes.update(actuales =&gt;
       actuales.filter(estudiante =&gt; estudiante.id !== id)
     );
-
-    this.guardar();
-  }
-
-  agregarVarios(nuevos: Estudiante[]): void {
-    this._estudiantes.update(actuales =&gt; [
-      ...actuales,
-      ...nuevos
-    ]);
-
-    this.guardar();
-  }
-
-  private guardar(): void {
-    localStorage.setItem(
-      this.clave,
-      JSON.stringify(this._estudiantes())
-    );
-  }
-
-  private leer(): Estudiante[] {
-    const guardados = localStorage.getItem(this.clave);
-
-    if (guardados) {
-      return JSON.parse(guardados);
-    }
-
-    return [
-      {
-        id: 1,
-        nombre: 'Ana Torres',
-        email: 'ana@correo.com',
-        programa: 'Ingeniería de Sistemas',
-        semestre: 4
-      },
-      {
-        id: 2,
-        nombre: 'Carlos Ruiz',
-        email: 'carlos@correo.com',
-        programa: 'Diseño',
-        semestre: 2
-      }
-    ];
   }
 }</pre></div>
 
   <div class="line-guide">
-    <div class="row"><div>@Injectable</div><div>Permite que Angular gestione la creación/inyección del servicio.</div></div>
-    <div class="row"><div>providedIn: 'root'</div><div>Hace que exista una instancia compartida a nivel de aplicación.</div></div>
-    <div class="row"><div>private</div><div>La propiedad solo se usa dentro del servicio.</div></div>
-    <div class="row"><div>asReadonly()</div><div>Expone el Signal para lectura sin permitir que otros lo modifiquen directamente.</div></div>
-    <div class="row"><div>update()</div><div>Calcula un nuevo valor a partir del estado actual.</div></div>
+    <div class="row"><div>@Injectable</div><div>Permite que Angular administre el servicio.</div></div>
+    <div class="row"><div>providedIn: 'root'</div><div>Comparte una instancia en toda la aplicación.</div></div>
+    <div class="row"><div>asReadonly()</div><div>Permite leer el Signal sin modificarlo desde fuera.</div></div>
   </div>
 
-  <div class="expected"><strong>Resultado:</strong> agregar/eliminar/persistir dejan de pertenecer al componente raíz y pasan al servicio.</div>
-  <div class="mission"><h3>Prueba conceptual</h3><p>Debes poder explicar por qué varias páginas pueden compartir este servicio.</p><button class="finish" data-finish="19">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Comprobación</h3><p>El servicio debe compilar sin errores.</p><button class="finish" data-finish="11">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="formulario" data-search="forms module ngmodel ngform submit validation new page">
-  <div class="section-head"><div class="num">20</div><div><h2>Crear la página de registro con FormsModule</h2><p class="subtitle">Usamos formularios dirigidos por template porque son más sencillos para comenzar.</p></div></div>
+<section class="section station" id="listado" data-search="students page search filter computed ngmodel">
+  <div class="section-head"><div class="num">12</div><div><h2>Crear la página Estudiantes</h2><p class="subtitle">Listado, búsqueda y eliminación en una pantalla real.</p></div></div>
+
+  <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/estudiantes</pre></div>
+
+  <div class="filepath">src/app/pages/estudiantes/estudiantes.ts</div>
+  <div class="codebox"><div class="codehead">estudiantes.ts <button class="copy-btn">Copiar</button></div><pre>import { Component, computed, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { EstudianteCard } from '../../components/estudiante-card/estudiante-card';
+import { Estudiantes as EstudiantesService } from '../../services/estudiantes';
+
+@Component({
+  selector: 'app-estudiantes',
+  imports: [FormsModule, EstudianteCard],
+  templateUrl: './estudiantes.html',
+  styleUrl: './estudiantes.css'
+})
+export class Estudiantes {
+  private servicio = inject(EstudiantesService);
+
+  texto = signal('');
+  estudiantes = this.servicio.estudiantes;
+
+  filtrados = computed(() =&gt; {
+    const filtro = this.texto().toLowerCase().trim();
+
+    return this.estudiantes().filter(estudiante =&gt;
+      estudiante.nombre.toLowerCase().includes(filtro) ||
+      estudiante.programa.toLowerCase().includes(filtro)
+    );
+  });
+
+  eliminar(id: number): void {
+    this.servicio.eliminar(id);
+  }
+}</pre></div>
+
+  <div class="filepath">src/app/pages/estudiantes/estudiantes.html</div>
+  <div class="codebox"><div class="codehead">estudiantes.html <button class="copy-btn">Copiar</button></div><pre>&lt;section class="panel"&gt;
+  &lt;h2&gt;Estudiantes&lt;/h2&gt;
+
+  &lt;input
+    type="search"
+    placeholder="Buscar por nombre o programa"
+    [ngModel]="texto()"
+    (ngModelChange)="texto.set($event)"&gt;
+
+  &lt;div class="lista"&gt;
+    @for (estudiante of filtrados(); track estudiante.id) {
+      &lt;app-estudiante-card
+        [estudiante]="estudiante"
+        (eliminar)="eliminar($event)" /&gt;
+    } @empty {
+      &lt;p&gt;No hay estudiantes que coincidan.&lt;/p&gt;
+    }
+  &lt;/div&gt;
+&lt;/section&gt;</pre></div>
+
+  <div class="expected"><strong>Debes lograr:</strong> escribir “Ana” y dejar únicamente la tarjeta de Ana.</div>
+  <div class="mission"><h3>Prueba</h3><p>Busca por nombre y por programa.</p><button class="finish" data-finish="12">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="formulario" data-search="forms ngmodel ngform validation submit new student">
+  <div class="section-head"><div class="num">13</div><div><h2>Crear el formulario Nuevo estudiante</h2><p class="subtitle">El formulario agrega datos al servicio.</p></div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/nuevo-estudiante</pre></div>
 
@@ -1174,79 +795,23 @@ export class NuevoEstudiante {
 &lt;/section&gt;</pre></div>
 
   <div class="line-guide">
-    <div class="row"><div>FormsModule</div><div>Habilita directivas como <code>ngModel</code> y <code>ngForm</code>.</div></div>
-    <div class="row"><div>[(ngModel)]</div><div>Sincroniza el input y una propiedad TypeScript en ambos sentidos.</div></div>
-    <div class="row"><div>(ngSubmit)</div><div>Ejecuta la función al enviar el formulario.</div></div>
-    <div class="row"><div>[disabled]</div><div>Property binding: desactiva el botón cuando el formulario es inválido.</div></div>
+    <div class="row"><div>FormsModule</div><div>Habilita herramientas de formulario.</div></div>
+    <div class="row"><div>[(ngModel)]</div><div>Sincroniza input y propiedad.</div></div>
+    <div class="row"><div>(ngSubmit)</div><div>Ejecuta guardar al enviar.</div></div>
+    <div class="row"><div>[disabled]</div><div>Desactiva el botón si el formulario no es válido.</div></div>
   </div>
 
-  <div class="why"><strong>Angular 22 también ofrece Signal Forms estables.</strong> En este taller empezamos con template-driven forms porque su curva de aprendizaje es menor; después puedes evolucionar a Signal Forms.</div>
-  <div class="mission"><h3>Comprobación</h3><p>El botón debe permanecer deshabilitado mientras falten campos requeridos.</p><button class="finish" data-finish="20">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Prueba</h3><p>El botón debe estar deshabilitado si faltan campos.</p><button class="finish" data-finish="13">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="rutas" data-search="router routes routerlink routeroutlet pages home students about">
-  <div class="section-head"><div class="num">21</div><div><h2>Crear páginas y navegar con Angular Router</h2><p class="subtitle">Cada función importante tendrá una URL.</p></div></div>
+<div class="phase-title"><h2>FASE 4 · Convertir Angular Aula en una SPA completa</h2><p>Separamos pantallas con rutas y mejoramos la experiencia.</p></div>
 
-  <h3>21.1 Genera las páginas restantes</h3>
+<section class="section station" id="rutas" data-search="router routes routerlink routeroutlet navigation">
+  <div class="section-head"><div class="num">14</div><div><h2>Configurar Angular Router</h2><p class="subtitle">Cada pantalla tendrá su URL.</p></div></div>
+
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/inicio
-ng generate component pages/estudiantes
 ng generate component pages/acerca</pre></div>
 
-  <h3>21.2 Crea la página de estudiantes</h3>
-  <div class="filepath">src/app/pages/estudiantes/estudiantes.ts</div>
-  <div class="codebox"><div class="codehead">estudiantes.ts <button class="copy-btn">Copiar</button></div><pre>import { Component, computed, inject, signal } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { EstudianteCard } from '../../components/estudiante-card/estudiante-card';
-import { Estudiantes as EstudiantesService } from '../../services/estudiantes';
-
-@Component({
-  selector: 'app-estudiantes',
-  imports: [FormsModule, EstudianteCard],
-  templateUrl: './estudiantes.html',
-  styleUrl: './estudiantes.css'
-})
-export class Estudiantes {
-  private servicio = inject(EstudiantesService);
-
-  texto = signal('');
-  estudiantes = this.servicio.estudiantes;
-
-  filtrados = computed(() =&gt; {
-    const filtro = this.texto().toLowerCase().trim();
-
-    return this.estudiantes().filter(estudiante =&gt;
-      estudiante.nombre.toLowerCase().includes(filtro) ||
-      estudiante.programa.toLowerCase().includes(filtro)
-    );
-  });
-
-  eliminar(id: number): void {
-    this.servicio.eliminar(id);
-  }
-}</pre></div>
-
-  <div class="filepath">src/app/pages/estudiantes/estudiantes.html</div>
-  <div class="codebox"><div class="codehead">estudiantes.html <button class="copy-btn">Copiar</button></div><pre>&lt;section class="panel"&gt;
-  &lt;h2&gt;Estudiantes&lt;/h2&gt;
-
-  &lt;input
-    type="search"
-    placeholder="Buscar por nombre o programa"
-    [ngModel]="texto()"
-    (ngModelChange)="texto.set($event)"&gt;
-
-  &lt;div class="lista"&gt;
-    @for (estudiante of filtrados(); track estudiante.id) {
-      &lt;app-estudiante-card
-        [estudiante]="estudiante"
-        (eliminar)="eliminar($event)" /&gt;
-    } @empty {
-      &lt;p&gt;No hay estudiantes que coincidan.&lt;/p&gt;
-    }
-  &lt;/div&gt;
-&lt;/section&gt;</pre></div>
-
-  <h3>21.3 Define las URLs</h3>
   <div class="filepath">src/app/app.routes.ts</div>
   <div class="codebox"><div class="codehead">app.routes.ts <button class="copy-btn">Copiar</button></div><pre>import { Routes } from '@angular/router';
 import { Inicio } from './pages/inicio/inicio';
@@ -1262,7 +827,6 @@ export const routes: Routes = [
   { path: '**', redirectTo: '' }
 ];</pre></div>
 
-  <h3>21.4 Convierte la raíz en “marco” de navegación</h3>
   <div class="filepath">src/app/app.ts</div>
   <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>import { Component } from '@angular/core';
 import {
@@ -1292,10 +856,21 @@ export class App {}</pre></div>
 
   &lt;nav&gt;
     &lt;a routerLink="/" routerLinkActive="activo"
-       [routerLinkActiveOptions]="{ exact: true }"&gt;Inicio&lt;/a&gt;
-    &lt;a routerLink="/estudiantes" routerLinkActive="activo"&gt;Estudiantes&lt;/a&gt;
-    &lt;a routerLink="/nuevo" routerLinkActive="activo"&gt;Nuevo&lt;/a&gt;
-    &lt;a routerLink="/acerca" routerLinkActive="activo"&gt;Acerca de&lt;/a&gt;
+       [routerLinkActiveOptions]="{ exact: true }"&gt;
+      Inicio
+    &lt;/a&gt;
+
+    &lt;a routerLink="/estudiantes" routerLinkActive="activo"&gt;
+      Estudiantes
+    &lt;/a&gt;
+
+    &lt;a routerLink="/nuevo" routerLinkActive="activo"&gt;
+      Nuevo
+    &lt;/a&gt;
+
+    &lt;a routerLink="/acerca" routerLinkActive="activo"&gt;
+      Acerca de
+    &lt;/a&gt;
   &lt;/nav&gt;
 &lt;/header&gt;
 
@@ -1303,22 +878,92 @@ export class App {}</pre></div>
   &lt;router-outlet /&gt;
 &lt;/main&gt;</pre></div>
 
-  <div class="line-guide">
-    <div class="row"><div>Routes</div><div>Array que relaciona una URL con un componente.</div></div>
-    <div class="row"><div>routerLink</div><div>Navega dentro de Angular sin recargar toda la página.</div></div>
-    <div class="row"><div>routerLinkActive</div><div>Aplica una clase al enlace activo.</div></div>
-    <div class="row"><div>router-outlet</div><div>Lugar donde Angular inserta la página correspondiente a la URL.</div></div>
-  </div>
-
-  <div class="expected"><strong>Debes poder visitar:</strong> <code>/</code>, <code>/estudiantes</code>, <code>/nuevo</code> y <code>/acerca</code>.</div>
-  <div class="mission"><h3>Prueba</h3><p>Agrega un estudiante en <code>/nuevo</code>, vuelve a <code>/estudiantes</code> y verifica que aparece.</p><button class="finish" data-finish="21">Marcar etapa terminada</button></div>
+  <div class="mission"><h3>Prueba</h3><p>Navega por las cuatro rutas sin recargar manualmente.</p><button class="finish" data-finish="14">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section station" id="http-final" data-search="httpclient api observable subscribe app config build final npm production">
-  <div class="section-head"><div class="num">22</div><div><h2>HttpClient, API y prueba final de la aplicación</h2><p class="subtitle">Reemplazamos el fetch del prototipo por la herramienta HTTP de Angular.</p></div></div>
+<section class="section station" id="inicio-page" data-search="dashboard total computed service inject home">
+  <div class="section-head"><div class="num">15</div><div><h2>Crear el dashboard de Inicio</h2><p class="subtitle">La página principal muestra información del servicio.</p></div></div>
 
-  <h3>22.1 Configura HttpClient de forma explícita</h3>
-  <p>Angular 21+ permite inyectar HttpClient por defecto, pero lo configuraremos explícitamente porque así se entiende dónde se agregan opciones HTTP.</p>
+  <div class="filepath">src/app/pages/inicio/inicio.ts</div>
+  <div class="codebox"><div class="codehead">inicio.ts <button class="copy-btn">Copiar</button></div><pre>import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Estudiantes } from '../../services/estudiantes';
+
+@Component({
+  selector: 'app-inicio',
+  imports: [RouterLink],
+  templateUrl: './inicio.html',
+  styleUrl: './inicio.css'
+})
+export class Inicio {
+  private servicio = inject(Estudiantes);
+
+  total = this.servicio.total;
+}</pre></div>
+
+  <div class="filepath">src/app/pages/inicio/inicio.html</div>
+  <div class="codebox"><div class="codehead">inicio.html <button class="copy-btn">Copiar</button></div><pre>&lt;section class="panel"&gt;
+  &lt;h2&gt;Panel principal&lt;/h2&gt;
+
+  &lt;div class="resumen"&gt;
+    &lt;strong&gt;{{ total() }}&lt;/strong&gt;
+    &lt;span&gt;estudiantes registrados&lt;/span&gt;
+  &lt;/div&gt;
+
+  &lt;a routerLink="/nuevo"&gt;
+    Registrar estudiante
+  &lt;/a&gt;
+&lt;/section&gt;</pre></div>
+
+  <div class="mission"><h3>Prueba</h3><p>Agrega un estudiante y vuelve a Inicio: el total debe aumentar.</p><button class="finish" data-finish="15">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="storage" data-search="localstorage persistence json stringify parse service">
+  <div class="section-head"><div class="num">16</div><div><h2>Guardar datos con localStorage</h2><p class="subtitle">Los estudiantes sobrevivirán a una recarga.</p></div></div>
+
+  <p>Modifica el servicio para inicializar desde almacenamiento y guardar después de cada cambio.</p>
+
+  <div class="filepath">src/app/services/estudiantes.ts</div>
+  <div class="codebox"><div class="codehead">Partes nuevas <button class="copy-btn">Copiar</button></div><pre>private readonly clave = 'angular-aula-estudiantes';
+
+private readonly _estudiantes =
+  signal&lt;Estudiante[]&gt;(this.leer());
+
+private guardar(): void {
+  localStorage.setItem(
+    this.clave,
+    JSON.stringify(this._estudiantes())
+  );
+}
+
+private leer(): Estudiante[] {
+  const guardados = localStorage.getItem(this.clave);
+
+  if (guardados) {
+    return JSON.parse(guardados);
+  }
+
+  return [];
+}</pre></div>
+
+  <p>Después de <code>update()</code> en <code>agregar()</code> y <code>eliminar()</code>, agrega:</p>
+
+  <div class="codebox"><div class="codehead">Servicio</div><pre>this.guardar();</pre></div>
+
+  <div class="concept-compare">
+    <div class="side"><b>JSON.stringify</b><p>Objeto/array → texto.</p></div>
+    <div class="middle">⇄</div>
+    <div class="side"><b>JSON.parse</b><p>Texto → objeto/array.</p></div>
+  </div>
+
+  <div class="mission"><h3>Prueba</h3><p>Registra un estudiante, recarga con F5 y comprueba que permanezca.</p><button class="finish" data-finish="16">Marcar etapa terminada</button></div>
+</section>
+
+<div class="phase-title"><h2>FASE 5 · Conectar Angular Aula con una API</h2><p>Usaremos HttpClient dentro del servicio, no fetch directo en el componente.</p></div>
+
+<section class="section station" id="http" data-search="httpclient provide http api get observable rxjs">
+  <div class="section-head"><div class="num">17</div><div><h2>Configurar HttpClient y consumir una API</h2><p class="subtitle">Importaremos usuarios externos.</p></div></div>
+
   <div class="filepath">src/app/app.config.ts</div>
   <div class="codebox"><div class="codehead">app.config.ts <button class="copy-btn">Copiar</button></div><pre>import {
   ApplicationConfig,
@@ -1337,25 +982,33 @@ export const appConfig: ApplicationConfig = {
   ]
 };</pre></div>
 
-  <h3>22.2 Amplía el servicio</h3>
-  <p>Agrega los imports:</p>
-  <div class="codebox"><div class="codehead">services/estudiantes.ts · imports <button class="copy-btn">Copiar</button></div><pre>import { inject } from '@angular/core';
+  <p>En el servicio agrega:</p>
+  <div class="codebox"><div class="codehead">Imports y modelo API <button class="copy-btn">Copiar</button></div><pre>import { inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs';</pre></div>
+import { tap } from 'rxjs';
 
-  <p>Encima de la clase agrega:</p>
-  <div class="codebox"><div class="codehead">Interface de API</div><pre>interface UsuarioApi {
+interface UsuarioApi {
   id: number;
   name: string;
   email: string;
 }</pre></div>
 
-  <p>Dentro de la clase agrega:</p>
-  <div class="codebox"><div class="codehead">Método HTTP <button class="copy-btn">Copiar</button></div><pre>private http = inject(HttpClient);
+  <div class="codebox"><div class="codehead">Dentro de la clase <button class="copy-btn">Copiar</button></div><pre>private http = inject(HttpClient);
+
+agregarVarios(nuevos: Estudiante[]): void {
+  this._estudiantes.update(actuales =&gt; [
+    ...actuales,
+    ...nuevos
+  ]);
+
+  this.guardar();
+}
 
 importarDesdeApi() {
   return this.http
-    .get&lt;UsuarioApi[]&gt;('https://jsonplaceholder.typicode.com/users')
+    .get&lt;UsuarioApi[]&gt;(
+      'https://jsonplaceholder.typicode.com/users'
+    )
     .pipe(
       tap(usuarios =&gt; {
         const nuevos: Estudiante[] =
@@ -1373,7 +1026,19 @@ importarDesdeApi() {
     );
 }</pre></div>
 
-  <h3>22.3 Agrega estado de carga en la página</h3>
+  <div class="line-guide">
+    <div class="row"><div>HttpClient.get()</div><div>Realiza una petición GET.</div></div>
+    <div class="row"><div>&lt;UsuarioApi[]&gt;</div><div>Tipo esperado de la respuesta.</div></div>
+    <div class="row"><div>pipe()</div><div>Permite encadenar operadores RxJS.</div></div>
+    <div class="row"><div>tap()</div><div>Ejecuta una acción cuando llega la respuesta.</div></div>
+  </div>
+
+  <div class="mission"><h3>Comprobación</h3><p>El proyecto debe seguir compilando antes de conectar el botón.</p><button class="finish" data-finish="17">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="estados" data-search="loading error subscribe next error api state">
+  <div class="section-head"><div class="num">18</div><div><h2>Manejar carga, éxito y error</h2><p class="subtitle">Una aplicación debe explicar al usuario qué está pasando.</p></div></div>
+
   <div class="filepath">src/app/pages/estudiantes/estudiantes.ts</div>
   <div class="codebox"><div class="codehead">Agregar a la clase <button class="copy-btn">Copiar</button></div><pre>cargando = signal(false);
 mensaje = signal('');
@@ -1385,90 +1050,135 @@ importar(): void {
   this.servicio.importarDesdeApi().subscribe({
     next: () =&gt; {
       this.cargando.set(false);
-      this.mensaje.set('Usuarios importados correctamente.');
+      this.mensaje.set(
+        'Usuarios importados correctamente.'
+      );
     },
     error: () =&gt; {
       this.cargando.set(false);
-      this.mensaje.set('No fue posible consultar la API.');
+      this.mensaje.set(
+        'No fue posible consultar la API.'
+      );
     }
   });
 }</pre></div>
 
   <div class="filepath">src/app/pages/estudiantes/estudiantes.html</div>
-  <div class="codebox"><div class="codehead">Agregar antes del buscador <button class="copy-btn">Copiar</button></div><pre>&lt;button
+  <div class="codebox"><div class="codehead">Agregar arriba del buscador <button class="copy-btn">Copiar</button></div><pre>&lt;button
   type="button"
   (click)="importar()"
   [disabled]="cargando()"&gt;
-  {{ cargando() ? 'Importando...' : 'Importar desde API' }}
+
+  {{ cargando()
+      ? 'Importando...'
+      : 'Importar desde API' }}
 &lt;/button&gt;
 
 @if (mensaje()) {
   &lt;p&gt;{{ mensaje() }}&lt;/p&gt;
 }</pre></div>
 
-  <h3>22.4 Diferencia entre fetch y HttpClient</h3>
-  <div class="concept-compare">
-    <div class="side"><b>Prototipo</b><p><code>fetch()</code> + <code>await respuesta.json()</code>.</p></div>
-    <div class="middle">→</div>
-    <div class="side"><b>Angular</b><p><code>HttpClient.get()</code> devuelve un Observable y usamos <code>subscribe()</code>.</p></div>
-  </div>
+  <div class="expected"><strong>Debes ver:</strong> el botón cambia a “Importando...” y luego aparecen usuarios nuevos.</div>
+  <div class="mission"><h3>Prueba</h3><p>Importa usuarios y después recarga la página para comprobar la persistencia.</p><button class="finish" data-finish="18">Marcar etapa terminada</button></div>
+</section>
 
-  <h3>22.5 Prueba de producción</h3>
+<div class="phase-title"><h2>FASE 6 · Terminar y entregar</h2><p>Mejoramos estilos, revisamos errores y construimos la versión final.</p></div>
+
+<section class="section station" id="acabado" data-search="css final responsive cards styles active nav">
+  <div class="section-head"><div class="num">19</div><div><h2>Acabado visual y responsive</h2><p class="subtitle">Ahora sí refinamos la interfaz completa.</p></div></div>
+
+  <div class="filepath">src/app/app.css</div>
+  <div class="codebox"><div class="codehead">Ejemplo de estilos finales <button class="copy-btn">Copiar</button></div><pre>.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 24px;
+  background: #512da8;
+  color: white;
+}
+
+.barra nav {
+  display: flex;
+  gap: 14px;
+}
+
+.barra a {
+  color: white;
+  text-decoration: none;
+  opacity: .8;
+}
+
+.barra a.activo {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.contenedor {
+  width: min(1000px, calc(100% - 32px));
+  margin: 28px auto;
+}
+
+@media (max-width: 650px) {
+  .barra {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .barra nav {
+    flex-wrap: wrap;
+  }
+}</pre></div>
+
+  <div class="filepath">src/app/components/estudiante-card/estudiante-card.css</div>
+  <div class="codebox"><div class="codehead">estudiante-card.css <button class="copy-btn">Copiar</button></div><pre>.tarjeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: white;
+}
+
+button {
+  border: 0;
+  border-radius: 9px;
+  padding: 9px 12px;
+  background: #b91c1c;
+  color: white;
+  cursor: pointer;
+}</pre></div>
+
+  <div class="mission"><h3>Prueba responsive</h3><p>Reduce el ancho del navegador y comprueba que el menú siga siendo usable.</p><button class="finish" data-finish="19">Marcar etapa terminada</button></div>
+</section>
+
+<section class="section station" id="build" data-search="ng build final production errors checklist">
+  <div class="section-head"><div class="num">20</div><div><h2>Build, revisión y entrega final</h2><p class="subtitle">La aplicación debe compilar y pasar una lista de pruebas.</p></div></div>
+
+  <h3>20.1 Ejecuta el build</h3>
   <div class="term"><div class="term-head">Terminal</div><pre>ng build</pre></div>
-  <p><code>ng build</code> compila una versión optimizada de la aplicación. Si termina sin errores, el proyecto está listo para desplegar.</p>
+  <p>Este comando genera una versión optimizada para producción.</p>
 
-  <h3>22.6 Checklist final</h3>
+  <h3>20.2 Checklist funcional</h3>
   <div class="table-wrap"><table><thead><tr><th>Prueba</th><th>Resultado esperado</th></tr></thead><tbody>
-    <tr><td><code>ng serve</code></td><td>Compila sin errores.</td></tr>
-    <tr><td>Inicio</td><td>Muestra el dashboard.</td></tr>
-    <tr><td>Estudiantes</td><td>Muestra las tarjetas.</td></tr>
-    <tr><td>Buscar</td><td>Filtra por nombre/programa.</td></tr>
-    <tr><td>Nuevo</td><td>Valida y agrega un estudiante.</td></tr>
-    <tr><td>Eliminar</td><td>El registro desaparece.</td></tr>
-    <tr><td>Recargar F5</td><td>Los datos persisten.</td></tr>
-    <tr><td>Importar API</td><td>Agrega cinco usuarios externos.</td></tr>
-    <tr><td>Navegación</td><td>Cambia de URL sin recargar toda la página.</td></tr>
+    <tr><td>Inicio</td><td>Muestra total de estudiantes.</td></tr>
+    <tr><td>Estudiantes</td><td>Lista tarjetas.</td></tr>
+    <tr><td>Buscar</td><td>Filtra por nombre o programa.</td></tr>
+    <tr><td>Nuevo</td><td>Valida y registra.</td></tr>
+    <tr><td>Eliminar</td><td>Quita el registro.</td></tr>
+    <tr><td>F5</td><td>Datos persisten.</td></tr>
+    <tr><td>Importar API</td><td>Agrega usuarios externos.</td></tr>
+    <tr><td>Router</td><td>Navega sin recargar toda la página.</td></tr>
+    <tr><td>Responsive</td><td>La interfaz sigue usable en móvil.</td></tr>
     <tr><td><code>ng build</code></td><td>Finaliza sin errores.</td></tr>
   </tbody></table></div>
 
-  <div class="checkpoint"><h3>Lo que construiste</h3><div class="build-list">
-    <div class="build-item">Una aplicación completa que comenzó como HTML/CSS/JavaScript.</div>
-    <div class="build-item">Modelo TypeScript reutilizable.</div>
-    <div class="build-item">Componentes con input y output.</div>
-    <div class="build-item">Signals y valores computados.</div>
-    <div class="build-item">Servicio centralizado con persistencia.</div>
-    <div class="build-item">Formulario con validación.</div>
-    <div class="build-item">Routing con varias páginas.</div>
-    <div class="build-item">Consumo HTTP y manejo de carga/error.</div>
-  </div></div>
-
-  <div class="mission"><h3>Aplicación terminada</h3><p>No marques esta etapa hasta haber realizado toda la checklist y ejecutar <code>ng build</code> correctamente.</p><button class="finish" data-finish="22">Marcar etapa terminada</button></div>
-</section>
-
-<section class="section" id="errores" data-search="errores comunes troubleshooting node npm ng ngmodel unknown router port">
-  <div class="section-head"><div class="num">!</div><div><h2>Errores comunes explicados en lenguaje simple</h2><p class="subtitle">Qué significa cada síntoma y qué revisar primero.</p></div></div>
-  <div class="table-wrap"><table><thead><tr><th>Síntoma</th><th>Qué significa</th><th>Qué revisar</th></tr></thead><tbody>
-    <tr><td><code>node is not recognized</code></td><td>Windows no encuentra Node.</td><td>Reinstala Node o abre una terminal nueva.</td></tr>
-    <tr><td><code>ng is not recognized</code></td><td>Angular CLI no está disponible.</td><td>Ejecuta <code>npm install -g @angular/cli</code>.</td></tr>
-    <tr><td>PowerShell bloquea scripts</td><td>Política de ejecución de Windows.</td><td>Usa la solución indicada en la etapa 1.</td></tr>
-    <tr><td>Puerto 4200 ocupado</td><td>Otro proceso usa ese puerto.</td><td><code>ng serve --port 4201</code>.</td></tr>
-    <tr><td><code>ngModel</code> desconocido</td><td>La directiva no fue importada.</td><td>Agrega <code>FormsModule</code> a <code>imports</code>.</td></tr>
-    <tr><td><code>routerLink</code> desconocido</td><td>Falta la directiva del Router.</td><td>Importa <code>RouterLink</code>.</td></tr>
-    <tr><td>Componente desconocido</td><td>El padre no puede usarlo.</td><td>Agrega el componente al array <code>imports</code>.</td></tr>
-    <tr><td>La pantalla queda en blanco</td><td>Puede existir error de compilación/runtime.</td><td>Lee la terminal y luego la consola del navegador.</td></tr>
-    <tr><td>Los datos desaparecen</td><td>No se guardó el estado.</td><td>Verifica llamadas a <code>guardar()</code> y Local Storage.</td></tr>
-    <tr><td>API no responde</td><td>Red, URL o respuesta HTTP.</td><td>Comprueba Internet y DevTools → Network.</td></tr>
-  </tbody></table></div>
-</section>
-
-<section class="section" id="mapa" data-search="final structure folder tree">
-  <div class="section-head"><div class="num">✓</div><div><h2>Mapa final del proyecto Angular</h2><p class="subtitle">Esta es la estructura que el estudiante debe reconocer al terminar.</p></div></div>
+  <h3>20.3 Estructura final</h3>
   <div class="folder">src/app/
 ├── components/
 │   └── estudiante-card/
-│       ├── estudiante-card.ts
-│       ├── estudiante-card.html
-│       └── estudiante-card.css
 ├── models/
 │   └── estudiante.ts
 ├── pages/
@@ -1483,24 +1193,56 @@ importar(): void {
 ├── app.css
 ├── app.routes.ts
 └── app.config.ts</div>
+
+  <div class="checkpoint"><h3>Qué aprendiste construyendo la app</h3><div class="build-list">
+    <div class="build-item">Crear y ejecutar proyectos Angular.</div>
+    <div class="build-item">Entender componentes y templates.</div>
+    <div class="build-item">Usar bindings y eventos.</div>
+    <div class="build-item">Trabajar con Signals.</div>
+    <div class="build-item">Usar @if y @for.</div>
+    <div class="build-item">Comunicar componentes.</div>
+    <div class="build-item">Centralizar datos en servicios.</div>
+    <div class="build-item">Crear formularios.</div>
+    <div class="build-item">Configurar rutas.</div>
+    <div class="build-item">Persistir datos.</div>
+    <div class="build-item">Consumir APIs con HttpClient.</div>
+    <div class="build-item">Generar un build final.</div>
+  </div></div>
+
+  <div class="mission"><h3>Entrega final</h3><p>No marques esta etapa hasta que <code>ng build</code> finalice correctamente y hayas probado toda la checklist.</p><button class="finish" data-finish="20">Marcar etapa terminada</button></div>
 </section>
 
-<section class="section" id="fuentes" data-search="official sources angular docs node">
-  <div class="section-head"><div class="num">i</div><div><h2>Referencias oficiales</h2><p class="subtitle">Versiones y comandos revisados para septiembre de 2026.</p></div></div>
+<section class="section" id="errores" data-search="errors common ngmodel routerlink unknown component port blank">
+  <div class="section-head"><div class="num">!</div><div><h2>Errores comunes</h2><p class="subtitle">Qué revisar primero cuando algo falla.</p></div></div>
+
+  <div class="table-wrap"><table><thead><tr><th>Error</th><th>Qué revisar</th></tr></thead><tbody>
+    <tr><td><code>ng is not recognized</code></td><td>Instalación de Angular CLI y terminal nueva.</td></tr>
+    <tr><td>Puerto 4200 ocupado</td><td>Usa <code>ng serve --port 4201</code>.</td></tr>
+    <tr><td><code>ngModel</code> desconocido</td><td>Importa <code>FormsModule</code>.</td></tr>
+    <tr><td><code>routerLink</code> desconocido</td><td>Importa <code>RouterLink</code>.</td></tr>
+    <tr><td>Componente desconocido</td><td>Agrega el componente al array <code>imports</code>.</td></tr>
+    <tr><td>Template no actualiza</td><td>Si usas Signal, lee con <code>()</code> y modifica con <code>set/update</code>.</td></tr>
+    <tr><td>Datos desaparecen</td><td>Verifica llamadas a <code>guardar()</code>.</td></tr>
+    <tr><td>Página en blanco</td><td>Lee primero la terminal de <code>ng serve</code> y luego Console del navegador.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="section" id="fuentes" data-search="references angular official">
+  <div class="section-head"><div class="num">i</div><div><h2>Referencias oficiales</h2><p class="subtitle">Para ampliar cada tema después del taller.</p></div></div>
   <ul>
-    <li><a href="https://angular.dev/installation" target="_blank" rel="noreferrer">Angular · Installation</a></li>
-    <li><a href="https://angular.dev/tools/cli/setup-local" target="_blank" rel="noreferrer">Angular · Local setup</a></li>
-    <li><a href="https://angular.dev/reference/versions" target="_blank" rel="noreferrer">Angular · Version compatibility</a></li>
-    <li><a href="https://angular.dev/cli/new" target="_blank" rel="noreferrer">Angular CLI · ng new</a></li>
-    <li><a href="https://angular.dev/guide/components" target="_blank" rel="noreferrer">Angular · Components</a></li>
-    <li><a href="https://angular.dev/guide/routing" target="_blank" rel="noreferrer">Angular · Routing</a></li>
-    <li><a href="https://angular.dev/guide/http/setup" target="_blank" rel="noreferrer">Angular · HttpClient</a></li>
-    <li><a href="https://angular.dev/guide/forms/signals/comparison" target="_blank" rel="noreferrer">Angular · Form approaches</a></li>
-    <li><a href="https://nodejs.org/en/about/previous-releases" target="_blank" rel="noreferrer">Node.js · Releases</a></li>
+    <li><a href="https://angular.dev/installation" target="_blank" rel="noreferrer">Installation</a></li>
+    <li><a href="https://angular.dev/cli/new" target="_blank" rel="noreferrer">ng new</a></li>
+    <li><a href="https://angular.dev/guide/components" target="_blank" rel="noreferrer">Components</a></li>
+    <li><a href="https://angular.dev/guide/templates" target="_blank" rel="noreferrer">Templates</a></li>
+    <li><a href="https://angular.dev/guide/signals" target="_blank" rel="noreferrer">Signals</a></li>
+    <li><a href="https://angular.dev/guide/routing" target="_blank" rel="noreferrer">Routing</a></li>
+    <li><a href="https://angular.dev/guide/forms" target="_blank" rel="noreferrer">Forms</a></li>
+    <li><a href="https://angular.dev/guide/http" target="_blank" rel="noreferrer">HTTP Client</a></li>
   </ul>
 </section>
 
-<div class="footer">Angular Aula · taller desde cero absoluto hasta una aplicación Angular completa.</div>
+<div class="footer">Angular Aula · repaso web breve + construcción completa netamente Angular.</div>
+
 </main>
 </div>
 <script src="script.js"></script>
