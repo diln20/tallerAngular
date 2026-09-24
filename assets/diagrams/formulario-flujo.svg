@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" role="img" aria-labelledby="t d">
+<title id="t">Flujo del formulario Angular</title><desc id="d">El usuario escribe, ngModel sincroniza, el formulario valida, guardar llama al servicio y el router navega.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#fffafd"/><stop offset="1" stop-color="#f7fbff"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#334155" flood-opacity=".12"/></filter>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+</defs>
+<rect width="1200" height="540" rx="34" fill="url(#bg)"/>
+<text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Flujo del formulario Angular</text>
+<text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Del teclado hasta el listado actualizado.</text>
+
+<g font-family="Inter,Arial">
+ <g filter="url(#s)"><rect x="55" y="190" width="165" height="145" rx="25" fill="#fff"/><circle cx="137" cy="225" r="23" fill="#eff6ff"/><text x="137" y="232" text-anchor="middle" font-size="20">⌨</text><text x="137" y="276" text-anchor="middle" font-size="15" font-weight="900" fill="#172033">Usuario escribe</text><text x="137" y="302" text-anchor="middle" font-size="12" fill="#64748b">inputs</text></g>
+ <g filter="url(#s)"><rect x="270" y="190" width="165" height="145" rx="25" fill="#f5f3ff" stroke="#c4b5fd"/><text x="352" y="237" text-anchor="middle" font-size="17" font-weight="900" fill="#6d28d9">ngModel</text><text x="352" y="270" text-anchor="middle" font-size="12" fill="#7c3aed">HTML ↔ TS</text><text x="352" y="298" text-anchor="middle" font-size="12" fill="#64748b">sincroniza</text></g>
+ <g filter="url(#s)"><rect x="485" y="190" width="165" height="145" rx="25" fill="#fffbeb" stroke="#fde68a"/><text x="567" y="237" text-anchor="middle" font-size="17" font-weight="900" fill="#b45309">Validación</text><text x="567" y="270" text-anchor="middle" font-size="12" fill="#92400e">required · email</text><text x="567" y="298" text-anchor="middle" font-size="12" fill="#64748b">form.invalid</text></g>
+ <g filter="url(#s)"><rect x="700" y="190" width="165" height="145" rx="25" fill="#fdf2f8" stroke="#f9a8d4"/><text x="782" y="237" text-anchor="middle" font-size="17" font-weight="900" fill="#be185d">ngSubmit</text><text x="782" y="270" text-anchor="middle" font-size="12" fill="#9d174d">guardar()</text><text x="782" y="298" text-anchor="middle" font-size="12" fill="#64748b">envía datos</text></g>
+ <g filter="url(#s)"><rect x="915" y="190" width="165" height="145" rx="25" fill="#ecfeff" stroke="#67e8f9"/><text x="997" y="237" text-anchor="middle" font-size="17" font-weight="900" fill="#0e7490">Servicio</text><text x="997" y="270" text-anchor="middle" font-size="12" fill="#155e75">agregar()</text><text x="997" y="298" text-anchor="middle" font-size="12" fill="#64748b">actualiza Signal</text></g>
+</g>
+<path d="M220 262H258M435 262H473M650 262H688M865 262H903" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path d="M997 335 C997 405 850 405 820 405" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<rect x="515" y="378" width="300" height="70" rx="22" fill="#ecfdf5" stroke="#86efac"/>
+<text x="665" y="407" text-anchor="middle" font-family="Inter,Arial" font-size="15" font-weight="900" fill="#166534">Router.navigate('/estudiantes')</text>
+<text x="665" y="432" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#15803d">muestra el listado actualizado</text>
+<rect x="55" y="474" width="1025" height="42" rx="16" fill="#fff"/>
+<text x="78" y="501" font-family="Inter,Arial" font-size="13" font-weight="700" fill="#172033">Regla:</text>
+<text x="132" y="501" font-family="Inter,Arial" font-size="13" fill="#64748b">si el formulario es inválido, el flujo se detiene antes de guardar.</text>
+</svg>
