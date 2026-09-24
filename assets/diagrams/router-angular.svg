@@ -3,7 +3,11 @@
 <defs>
  <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f6f8ff"/><stop offset="1" stop-color="#f8fbff"/></linearGradient>
  <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#334155" flood-opacity=".12"/></filter>
- <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path class="flow" d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+ <style>
+  .flow{stroke-dasharray:10 8;animation:dash 2.1s linear infinite}
+  @keyframes dash{to{stroke-dashoffset:-36}}
+ </style>
 </defs>
 <rect width="1200" height="560" rx="34" fill="url(#bg)"/>
 <text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Cómo funciona Angular Router</text>
@@ -15,7 +19,7 @@
  <rect x="88" y="245" width="154" height="44" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
  <text x="165" y="273" text-anchor="middle" font-family="monospace" font-size="14" fill="#1d4ed8">/estudiantes</text>
 </g>
-<path d="M270 255 H352" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M270 255 H352" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="365" y="155" width="250" height="200" rx="28" fill="#fff"/>
  <rect x="365" y="155" width="250" height="54" rx="28" fill="#8b5cf6"/>
@@ -24,14 +28,14 @@
  <text x="395" y="278" font-family="monospace" font-size="13" fill="#64748b">component:</text>
  <text x="395" y="307" font-family="monospace" font-size="13" font-weight="800" fill="#7c3aed">Estudiantes</text>
 </g>
-<path d="M615 255 H697" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M615 255 H697" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="710" y="180" width="210" height="150" rx="28" fill="#fff"/>
  <text x="815" y="225" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#172033">Componente</text>
  <text x="815" y="258" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#2563eb">Estudiantes</text>
  <text x="815" y="289" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#64748b">TS + HTML + CSS</text>
 </g>
-<path d="M920 255 H992" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path class="flow" d="M920 255 H992" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <g filter="url(#s)">
  <rect x="1005" y="180" width="145" height="150" rx="28" fill="#ecfdf5" stroke="#86efac"/>
  <text x="1077" y="225" text-anchor="middle" font-family="Inter,Arial" font-size="14" font-weight="900" fill="#166534">router-outlet</text>
