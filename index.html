@@ -314,7 +314,51 @@ ng serve --open</pre></div>
 <div class="phase-title"><h2>FASE 2 · Construir la interfaz Angular</h2><p>Empezamos con el componente raíz y después dividimos la aplicación.</p></div>
 
 <section class="section station" id="raiz" data-search="component decorator root app ts html css selector templateurl styleurl">
-  <div class="section-head"><div class="num">4</div><div><h2>Construir el componente raíz</h2><p class="subtitle">Primera pantalla real de Angular Aula.</p></div></div>
+  <div class="section-head"><div class="num">4</div><div><h2>Construir el componente raíz</h2><p class="subtitle">Primera pantalla real de Angular Aula.</p></div></div><div data-project-map="raiz">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>En esta lección trabajas por primera vez sobre el componente raíz y los estilos globales.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">src/</span></div>
+    <div class="project-tree__desc">Código fuente de la aplicación.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">styles.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estilos globales para toda la aplicación.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">app/</span></div>
+    <div class="project-tree__desc">Componente raíz de Angular Aula.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">app.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Lógica y configuración del componente raíz.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">app.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Template principal que se muestra en pantalla.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">app.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estilos exclusivos del componente raíz.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="filepath">src/app/app.ts</div>
   <div class="codebox"><div class="codehead">app.ts <button class="copy-btn">Copiar</button></div><pre>import { Component } from '@angular/core';
@@ -505,7 +549,47 @@ export class App {
 <div class="phase-title"><h2>FASE 3 · Convertir datos simples en una aplicación real</h2><p>Creamos modelo, componentes reutilizables y servicios.</p></div>
 
 <section class="section station" id="modelo" data-search="typescript interface model student">
-  <div class="section-head"><div class="num">8</div><div><h2>Crear el modelo Estudiante</h2><p class="subtitle">Dejamos de trabajar con nombres sueltos.</p></div></div>
+  <div class="section-head"><div class="num">8</div><div><h2>Crear el modelo Estudiante</h2><p class="subtitle">Dejamos de trabajar con nombres sueltos.</p></div></div><div data-project-map="modelo">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Vas a crear una carpeta nueva para definir la estructura TypeScript de un estudiante.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">app/</span></div>
+    <div class="project-tree__desc">Código principal de Angular Aula.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">models/</span></div>
+    <div class="project-tree__desc">Modelos e interfaces de datos.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Define la interface Estudiante.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">app.ts</span></div>
+    <div class="project-tree__desc">Componente raíz; ya existía.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">app.html</span></div>
+    <div class="project-tree__desc">Template raíz; ya existía.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <p>Crea manualmente la carpeta <code>models</code> dentro de <code>src/app</code>.</p>
   <div class="filepath">src/app/models/estudiante.ts</div>
@@ -528,7 +612,55 @@ export class App {
 </section>
 
 <section class="section station" id="tarjeta" data-search="generate component estudiante card cli">
-  <div class="section-head"><div class="num">9</div><div><h2>Crear el componente EstudianteCard</h2><p class="subtitle">Cada estudiante se mostrará mediante un componente reutilizable.</p></div></div>
+  <div class="section-head"><div class="num">9</div><div><h2>Crear el componente EstudianteCard</h2><p class="subtitle">Cada estudiante se mostrará mediante un componente reutilizable.</p></div></div><div data-project-map="tarjeta">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/components/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Angular CLI crea el componente. En verde están los archivos que empezarás a completar.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">components/</span></div>
+    <div class="project-tree__desc">Componentes reutilizables.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">estudiante-card/</span></div>
+    <div class="project-tree__desc">Tarjeta visual de un estudiante.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante-card.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Lógica, input y output del componente.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">estudiante-card.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estructura visual de la tarjeta.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">estudiante-card.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estilos propios de la tarjeta.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">models/</span></div>
+    <div class="project-tree__desc">Ya existe desde la lección anterior.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante.ts</span></div>
+    <div class="project-tree__desc">Modelo que usa la tarjeta.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component components/estudiante-card</pre></div>
 
@@ -590,7 +722,51 @@ export class EstudianteCard {
 </section>
 
 <section class="section station" id="servicio" data-search="service injectable state students">
-  <div class="section-head"><div class="num">11</div><div><h2>Crear el servicio de estudiantes</h2><p class="subtitle">Centralizamos el estado y las operaciones.</p></div></div>
+  <div class="section-head"><div class="num">11</div><div><h2>Crear el servicio de estudiantes</h2><p class="subtitle">Centralizamos el estado y las operaciones.</p></div></div><div data-project-map="servicio">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Ahora creas la capa que concentrará los estudiantes y las operaciones agregar/eliminar.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">services/</span></div>
+    <div class="project-tree__desc">Servicios compartidos de la aplicación.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estado centralizado y operaciones sobre estudiantes.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">models/</span></div>
+    <div class="project-tree__desc">Modelos existentes.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante.ts</span></div>
+    <div class="project-tree__desc">Tipo Estudiante usado por el servicio.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">components/</span></div>
+    <div class="project-tree__desc">Componentes existentes.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante-card/</span></div>
+    <div class="project-tree__desc">Tarjeta que consumirá datos del servicio indirectamente.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate service services/estudiantes</pre></div>
 
@@ -651,7 +827,55 @@ export class Estudiantes {
 </section>
 
 <section class="section station" id="listado" data-search="students page search filter computed ngmodel">
-  <div class="section-head"><div class="num">12</div><div><h2>Crear la página Estudiantes</h2><p class="subtitle">Listado, búsqueda y eliminación en una pantalla real.</p></div></div>
+  <div class="section-head"><div class="num">12</div><div><h2>Crear la página Estudiantes</h2><p class="subtitle">Listado, búsqueda y eliminación en una pantalla real.</p></div></div><div data-project-map="listado">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/pages/estudiantes/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Esta lección crea una página Angular completa: lógica, template y estilos del listado.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/</span></div>
+    <div class="project-tree__desc">Pantallas de Angular Aula.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">estudiantes/</span></div>
+    <div class="project-tree__desc">Página del listado.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Búsqueda, Signals y acceso al servicio.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">estudiantes.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Listado y uso de app-estudiante-card.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">estudiantes.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Diseño de la página.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">components/estudiante-card/</span></div>
+    <div class="project-tree__desc">Componente reutilizado por esta página.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante-card.ts</span></div>
+    <div class="project-tree__desc">Ya existía.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/estudiantes</pre></div>
 
@@ -713,7 +937,55 @@ export class Estudiantes {
 </section>
 
 <section class="section station" id="formulario" data-search="forms ngmodel ngform validation submit new student">
-  <div class="section-head"><div class="num">13</div><div><h2>Crear el formulario Nuevo estudiante</h2><p class="subtitle">El formulario agrega datos al servicio.</p></div></div>
+  <div class="section-head"><div class="num">13</div><div><h2>Crear el formulario Nuevo estudiante</h2><p class="subtitle">El formulario agrega datos al servicio.</p></div></div><div data-project-map="formulario">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/pages/nuevo-estudiante/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Vas a crear la página que captura datos y los envía al servicio.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/</span></div>
+    <div class="project-tree__desc">Pantallas de Angular Aula.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">nuevo-estudiante/</span></div>
+    <div class="project-tree__desc">Página para registrar estudiantes.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">nuevo-estudiante.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Modelo del formulario, guardar y navegación.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">nuevo-estudiante.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Campos, validaciones y submit.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-2 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">nuevo-estudiante.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Estilos del formulario.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">services/</span></div>
+    <div class="project-tree__desc">Servicio compartido.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span></div>
+    <div class="project-tree__desc">Recibe el nuevo estudiante; ya existía.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/nuevo-estudiante</pre></div>
 
@@ -807,7 +1079,59 @@ export class NuevoEstudiante {
 <div class="phase-title"><h2>FASE 4 · Convertir Angular Aula en una SPA completa</h2><p>Separamos pantallas con rutas y mejoramos la experiencia.</p></div>
 
 <section class="section station" id="rutas" data-search="router routes routerlink routeroutlet navigation">
-  <div class="section-head"><div class="num">14</div><div><h2>Configurar Angular Router</h2><p class="subtitle">Cada pantalla tendrá su URL.</p></div></div>
+  <div class="section-head"><div class="num">14</div><div><h2>Configurar Angular Router</h2><p class="subtitle">Cada pantalla tendrá su URL.</p></div></div><div data-project-map="rutas">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Aquí conectas las páginas con URLs y conviertes app.html en el marco de navegación.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">app.routes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Define /, /estudiantes, /nuevo y /acerca.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">app.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Importa RouterLink, RouterLinkActive y RouterOutlet.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">app.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Menú principal y router-outlet.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/</span></div>
+    <div class="project-tree__desc">Páginas que el Router mostrará.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">inicio/</span></div>
+    <div class="project-tree__desc">Página de inicio.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">estudiantes/</span></div>
+    <div class="project-tree__desc">Listado existente.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">nuevo-estudiante/</span></div>
+    <div class="project-tree__desc">Formulario existente.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">acerca/</span></div>
+    <div class="project-tree__desc">Página informativa.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="term"><div class="term-head">Terminal</div><pre>ng generate component pages/inicio
 ng generate component pages/acerca</pre></div>
@@ -919,7 +1243,43 @@ export class Inicio {
 </section>
 
 <section class="section station" id="storage" data-search="localstorage persistence json stringify parse service">
-  <div class="section-head"><div class="num">16</div><div><h2>Guardar datos con localStorage</h2><p class="subtitle">Los estudiantes sobrevivirán a una recarga.</p></div></div>
+  <div class="section-head"><div class="num">16</div><div><h2>Guardar datos con localStorage</h2><p class="subtitle">Los estudiantes sobrevivirán a una recarga.</p></div></div><div data-project-map="storage">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/services/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>La persistencia pertenece al servicio, por eso solo modificas este archivo.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">services/</span></div>
+    <div class="project-tree__desc">Servicios de datos.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Agrega clave, leer(), guardar() y localStorage.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/</span></div>
+    <div class="project-tree__desc">No necesitas modificar las páginas.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">components/</span></div>
+    <div class="project-tree__desc">No necesitas modificar los componentes.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <p>Modifica el servicio para inicializar desde almacenamiento y guardar después de cada cambio.</p>
 
@@ -977,7 +1337,43 @@ private leer(): Estudiante[] {
 <div class="phase-title"><h2>FASE 5 · Conectar Angular Aula con una API</h2><p>Usaremos HttpClient dentro del servicio, no fetch directo en el componente.</p></div>
 
 <section class="section station" id="http" data-search="httpclient provide http api get observable rxjs">
-  <div class="section-head"><div class="num">17</div><div><h2>Configurar HttpClient y consumir una API</h2><p class="subtitle">Importaremos usuarios externos.</p></div></div>
+  <div class="section-head"><div class="num">17</div><div><h2>Configurar HttpClient y consumir una API</h2><p class="subtitle">Importaremos usuarios externos.</p></div></div><div data-project-map="http">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>La configuración HTTP se habilita globalmente y la llamada a la API vive en el servicio.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">app.config.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Agrega provideHttpClient().</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">services/</span></div>
+    <div class="project-tree__desc">Servicios compartidos.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Inyecta HttpClient e importa usuarios.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/estudiantes/</span></div>
+    <div class="project-tree__desc">Se modificará en la siguiente etapa para mostrar estados.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="filepath">src/app/app.config.ts</div>
   <div class="codebox"><div class="codehead">app.config.ts <button class="copy-btn">Copiar</button></div><pre>import {
@@ -1052,7 +1448,51 @@ importarDesdeApi() {
 </section>
 
 <section class="section station" id="estados" data-search="loading error subscribe next error api state">
-  <div class="section-head"><div class="num">18</div><div><h2>Manejar carga, éxito y error</h2><p class="subtitle">Una aplicación debe explicar al usuario qué está pasando.</p></div></div>
+  <div class="section-head"><div class="num">18</div><div><h2>Manejar carga, éxito y error</h2><p class="subtitle">Una aplicación debe explicar al usuario qué está pasando.</p></div></div><div data-project-map="estados">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/pages/estudiantes/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Ahora la página reacciona a la petición mostrando carga, éxito o error.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">pages/estudiantes/</span></div>
+    <div class="project-tree__desc">Página del listado.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Agrega cargando, mensaje e importar().</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">estudiantes.html</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Muestra botón, estado de carga y mensaje.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">estudiantes.css</span></div>
+    <div class="project-tree__desc">Ya existía; puedes reutilizarlo.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">services/</span></div>
+    <div class="project-tree__desc">Servicio HTTP ya preparado.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiantes.ts</span></div>
+    <div class="project-tree__desc">Ya contiene importarDesdeApi().</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="filepath">src/app/pages/estudiantes/estudiantes.ts</div>
   <div class="codebox"><div class="codehead">Agregar a la clase <button class="copy-btn">Copiar</button></div><pre>cargando = signal(false);
@@ -1100,7 +1540,47 @@ importar(): void {
 <div class="phase-title"><h2>FASE 6 · Terminar y entregar</h2><p>Mejoramos estilos, revisamos errores y construimos la versión final.</p></div>
 
 <section class="section station" id="acabado" data-search="css final responsive cards styles active nav">
-  <div class="section-head"><div class="num">19</div><div><h2>Acabado visual y responsive</h2><p class="subtitle">Ahora sí refinamos la interfaz completa.</p></div></div>
+  <div class="section-head"><div class="num">19</div><div><h2>Acabado visual y responsive</h2><p class="subtitle">Ahora sí refinamos la interfaz completa.</p></div></div><div data-project-map="acabado">
+  <div class="project-map">
+    <div class="project-map__head">
+      <div class="project-map__caret">⌄</div>
+      <div class="project-map__title">
+        <strong>Explorador del proyecto</strong>
+        <span class="project-map__path">angular-aula/src/app/</span>
+      </div>
+      <div class="project-map__status">ESTADO<br>EN ESTA<br>LECCIÓN</div>
+    </div>
+    <div class="project-map__body">
+      <div class="project-map__note">
+        <b>📁 UBÍCATE ANTES DE ESCRIBIR CÓDIGO</b>
+        <p>Último retoque visual: editas estilos globales de navegación y estilos de la tarjeta.</p>
+      </div>
+      <div class="project-tree"><div class="project-tree__row project-tree__indent-0 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">app.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Menú, contenedor y responsive principal.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-0">
+    <div class="project-tree__main"><span class="project-tree__folder">📁</span><span class="project-tree__folder-name">components/estudiante-card/</span></div>
+    <div class="project-tree__desc">Componente visual reutilizable.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1 edit-now">
+    <div class="project-tree__main"><span class="project-tree__type css">CSS</span><span class="project-tree__name">estudiante-card.css</span><span class="project-tree__badge">EDITAS AHORA</span></div>
+    <div class="project-tree__desc">Diseño final de cada tarjeta.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type ts">TS</span><span class="project-tree__name">estudiante-card.ts</span></div>
+    <div class="project-tree__desc">No cambia.</div>
+  </div>
+<div class="project-tree__row project-tree__indent-1">
+    <div class="project-tree__main"><span class="project-tree__type html">HTML</span><span class="project-tree__name">estudiante-card.html</span></div>
+    <div class="project-tree__desc">No cambia.</div>
+  </div></div>
+    </div>
+    <div class="project-map__legend">
+      <span><i class="project-map__dot"></i> Lo modificas ahora</span>
+      <span><i class="project-map__dot old"></i> Ya existía</span>
+    </div>
+  </div></div>
 
   <div class="filepath">src/app/app.css</div>
   <div class="codebox"><div class="codehead">Ejemplo de estilos finales <button class="copy-btn">Copiar</button></div><pre>.barra {
