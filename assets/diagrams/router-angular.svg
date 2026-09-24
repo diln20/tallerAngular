@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Router Angular</title><desc id="d">La URL pasa por app.routes.ts, selecciona un componente y se muestra dentro de router-outlet.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f6f8ff"/><stop offset="1" stop-color="#f8fbff"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#334155" flood-opacity=".12"/></filter>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+</defs>
+<rect width="1200" height="560" rx="34" fill="url(#bg)"/>
+<text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Cómo funciona Angular Router</text>
+<text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Una URL no abre otro HTML: selecciona un componente.</text>
+
+<g filter="url(#s)">
+ <rect x="60" y="180" width="210" height="150" rx="28" fill="#fff"/>
+ <text x="165" y="222" text-anchor="middle" font-family="Inter,Arial" font-size="15" font-weight="800" fill="#172033">URL</text>
+ <rect x="88" y="245" width="154" height="44" rx="12" fill="#eff6ff" stroke="#bfdbfe"/>
+ <text x="165" y="273" text-anchor="middle" font-family="monospace" font-size="14" fill="#1d4ed8">/estudiantes</text>
+</g>
+<path d="M270 255 H352" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="365" y="155" width="250" height="200" rx="28" fill="#fff"/>
+ <rect x="365" y="155" width="250" height="54" rx="28" fill="#8b5cf6"/>
+ <text x="490" y="189" text-anchor="middle" font-family="monospace" font-size="16" font-weight="800" fill="#fff">app.routes.ts</text>
+ <text x="395" y="245" font-family="monospace" font-size="13" fill="#2563eb">path: 'estudiantes'</text>
+ <text x="395" y="278" font-family="monospace" font-size="13" fill="#64748b">component:</text>
+ <text x="395" y="307" font-family="monospace" font-size="13" font-weight="800" fill="#7c3aed">Estudiantes</text>
+</g>
+<path d="M615 255 H697" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="710" y="180" width="210" height="150" rx="28" fill="#fff"/>
+ <text x="815" y="225" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#172033">Componente</text>
+ <text x="815" y="258" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#2563eb">Estudiantes</text>
+ <text x="815" y="289" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#64748b">TS + HTML + CSS</text>
+</g>
+<path d="M920 255 H992" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="1005" y="180" width="145" height="150" rx="28" fill="#ecfdf5" stroke="#86efac"/>
+ <text x="1077" y="225" text-anchor="middle" font-family="Inter,Arial" font-size="14" font-weight="900" fill="#166534">router-outlet</text>
+ <rect x="1028" y="250" width="98" height="52" rx="10" fill="#fff" stroke="#bbf7d0"/>
+ <text x="1077" y="281" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#15803d">vista aquí</text>
+</g>
+
+<g>
+ <rect x="250" y="410" width="700" height="82" rx="24" fill="#fff"/>
+ <text x="280" y="442" font-family="Inter,Arial" font-size="14" font-weight="800" fill="#172033">La cabecera sigue visible.</text>
+ <text x="280" y="470" font-family="Inter,Arial" font-size="14" fill="#64748b">Solo cambia el componente insertado dentro de router-outlet.</text>
+</g>
+</svg>
