@@ -247,3 +247,55 @@ h1{font-size:clamp(36px,6vw,65px);line-height:1.03;margin:8px 0 14px;max-width:8
   .project-tree__indent-2 .project-tree__desc{padding-left:96px}
   .project-tree__indent-3 .project-tree__desc{padding-left:122px}
 }
+
+/* Guia detallada: para que sirve cada archivo */
+.file-purpose-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:18px 0;
+}
+.file-purpose{
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--bg);
+  padding:16px;
+}
+.file-purpose__top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+.file-purpose__name{
+  font:900 13px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--text);
+}
+.file-purpose__kind{
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.04em;
+}
+.file-purpose__kind.edit{background:#eafbef;border-color:#b9ebc8;color:#247746}
+.file-purpose__kind.system{background:#f1f5f9;color:#64748b}
+.file-purpose p{margin:7px 0;color:var(--muted);font-size:14px}
+.file-purpose dl{margin:10px 0 0;display:grid;gap:7px}
+.file-purpose dt{font-size:11px;font-weight:900;color:var(--brand);text-transform:uppercase;letter-spacing:.04em}
+.file-purpose dd{margin:0 0 4px;color:var(--text);font-size:13px}
+.file-category{
+  margin-top:24px;
+  padding:14px 16px;
+  border-radius:14px;
+  background:var(--panel2);
+  border:1px solid var(--line);
+}
+.file-category h3{margin:0 0 4px;font-size:18px}
+.file-category p{margin:0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.file-purpose-grid{grid-template-columns:1fr}}
