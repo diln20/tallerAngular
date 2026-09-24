@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Arquitectura con servicio compartido</title><desc id="d">Inicio, Estudiantes y Nuevo usan el mismo servicio, que mantiene un Signal compartido.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#f8f5ff"/></linearGradient>
+ <linearGradient id="srv" x1="0" x2="1"><stop stop-color="#06b6d4"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+ <linearGradient id="sig" x1="0" x2="1"><stop stop-color="#22c55e"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#334155" flood-opacity=".13"/></filter>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+</defs>
+<rect width="1200" height="560" rx="34" fill="url(#bg)"/>
+<text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Una sola fuente de verdad</text>
+<text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Las páginas no duplican la lista: comparten un servicio.</text>
+
+<g filter="url(#s)">
+ <rect x="70" y="155" width="230" height="115" rx="25" fill="#fff"/>
+ <text x="185" y="198" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#172033">🏠 Inicio</text>
+ <text x="185" y="229" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee total()</text>
+</g>
+<g filter="url(#s)">
+ <rect x="70" y="305" width="230" height="115" rx="25" fill="#fff"/>
+ <text x="185" y="348" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#172033">📋 Estudiantes</text>
+ <text x="185" y="379" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee lista · elimina</text>
+</g>
+<g filter="url(#s)">
+ <rect x="900" y="230" width="230" height="115" rx="25" fill="#fff"/>
+ <text x="1015" y="273" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#172033">📝 Nuevo</text>
+ <text x="1015" y="304" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">agrega estudiante</text>
+</g>
+
+<path d="M300 210 C380 210 390 255 440 255" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path d="M300 360 C380 360 390 315 440 315" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path d="M900 288 H770" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+
+<g filter="url(#s)">
+ <rect x="455" y="180" width="300" height="220" rx="34" fill="url(#srv)"/>
+ <text x="605" y="228" text-anchor="middle" font-family="Inter,Arial" font-size="22" font-weight="900" fill="#fff">Servicio Estudiantes</text>
+ <text x="605" y="260" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#dff8ff">responsabilidad central</text>
+ <rect x="495" y="292" width="220" height="72" rx="20" fill="url(#sig)"/>
+ <text x="605" y="322" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#fff">Signal compartido</text>
+ <text x="605" y="347" text-anchor="middle" font-family="monospace" font-size="12" fill="#ecfdf5">_estudiantes</text>
+</g>
+
+<rect x="70" y="465" width="1060" height="55" rx="20" fill="#fff"/>
+<text x="94" y="499" font-family="Inter,Arial" font-size="14" font-weight="800" fill="#172033">Ventaja:</text>
+<text x="160" y="499" font-family="Inter,Arial" font-size="14" fill="#64748b">cualquier pantalla ve el mismo estado y no necesita copiar ni sincronizar arrays manualmente.</text>
+</svg>
