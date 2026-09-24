@@ -541,3 +541,161 @@ h1{font-size:clamp(36px,6vw,65px);line-height:1.03;margin:8px 0 14px;max-width:8
   .preview-kpis{grid-template-columns:1fr}
   .preview-student{align-items:flex-start;flex-direction:column}
 }
+
+/* Codigo didactico: colores, lineas y explicaciones */
+.codebox{
+  position:relative;
+  box-shadow:0 10px 24px rgba(3,7,18,.16);
+}
+.codehead{
+  min-height:42px;
+  gap:10px;
+}
+.codehead::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#fb7185;
+  box-shadow:16px 0 0 #fbbf24,32px 0 0 #34d399;
+  margin-right:31px;
+  flex:0 0 auto;
+}
+.code-lang{
+  margin-left:auto;
+  margin-right:8px;
+  padding:3px 7px;
+  border:1px solid #34405a;
+  border-radius:7px;
+  color:#9fb0cc;
+  font:800 9px ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.codebox pre{
+  padding:0;
+  white-space:normal;
+  counter-reset:code-line;
+}
+.code-line{
+  display:grid;
+  grid-template-columns:44px minmax(0,1fr);
+  min-height:22px;
+  white-space:pre;
+}
+.code-line:hover{
+  background:rgba(148,163,184,.08);
+}
+.line-number{
+  user-select:none;
+  text-align:right;
+  padding:0 11px 0 5px;
+  color:#536078;
+  border-right:1px solid #202b3e;
+  font-size:11px;
+}
+.line-code{
+  padding:0 16px;
+  overflow:visible;
+}
+.code-line:first-child .line-number,
+.code-line:first-child .line-code{padding-top:15px}
+.code-line:last-child .line-number,
+.code-line:last-child .line-code{padding-bottom:15px}
+.tok-keyword{color:#c4b5fd;font-weight:700}
+.tok-string{color:#86efac}
+.tok-number{color:#fbbf24}
+.tok-comment{color:#71829f;font-style:italic}
+.tok-decorator{color:#f9a8d4}
+.tok-type{color:#7dd3fc}
+.tok-function{color:#f9a8d4}
+.tok-tag{color:#fb7185}
+.tok-attr{color:#c4b5fd}
+.tok-value{color:#86efac}
+.tok-selector{color:#7dd3fc}
+.tok-property{color:#c4b5fd}
+.tok-flag{color:#fbbf24}
+.tok-command{color:#7dd3fc;font-weight:700}
+.tok-punct{color:#9fb0cc}
+.code-explanation{
+  margin:16px 0 24px;
+  border:1px solid color-mix(in srgb,var(--brand) 24%,var(--line));
+  border-radius:17px;
+  overflow:hidden;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 4%,var(--panel)),var(--panel));
+}
+.code-explanation__head{
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  padding:15px 17px;
+  background:color-mix(in srgb,var(--brand) 7%,var(--panel));
+  border-bottom:1px solid var(--line);
+}
+.code-explanation__icon{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:10px;
+  background:color-mix(in srgb,var(--brand) 14%,var(--panel));
+}
+.code-explanation__head strong{
+  display:block;
+  margin-bottom:2px;
+  color:var(--text);
+}
+.code-explanation__head p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+.code-explanation__body{
+  display:grid;
+  gap:0;
+}
+.code-explain-row{
+  display:grid;
+  grid-template-columns:minmax(170px,.7fr) 1.6fr;
+  gap:15px;
+  padding:13px 17px;
+  border-bottom:1px solid var(--line);
+}
+.code-explain-row:last-child{border-bottom:0}
+.code-explain-row code{
+  align-self:start;
+  width:max-content;
+  max-width:100%;
+  padding:4px 7px;
+  border-radius:7px;
+  background:var(--panel2);
+  color:var(--brand);
+  font:800 12px ui-monospace,SFMono-Regular,Menlo,monospace;
+  overflow-wrap:anywhere;
+}
+.code-explain-row div{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+.code-explain-row div b{color:var(--text)}
+.simple-rule{
+  margin:12px 17px 16px;
+  padding:11px 13px;
+  border-radius:11px;
+  background:color-mix(in srgb,var(--ok) 8%,var(--panel));
+  border:1px solid color-mix(in srgb,var(--ok) 25%,var(--line));
+  color:var(--text);
+  font-size:13px;
+}
+.simple-rule b{color:var(--ok)}
+[data-theme="dark"] .code-explanation__head{
+  background:color-mix(in srgb,var(--brand) 10%,var(--panel));
+}
+@media(max-width:760px){
+  .code-explain-row{grid-template-columns:1fr;gap:7px}
+  .code-line{grid-template-columns:34px minmax(0,1fr)}
+  .line-number{padding-right:8px}
+  .line-code{padding-left:10px;padding-right:10px}
+}
