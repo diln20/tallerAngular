@@ -943,7 +943,22 @@ private leer(): Estudiante[] {
     return JSON.parse(guardados);
   }
 
-  return [];
+  return [
+    {
+      id: 1,
+      nombre: 'Ana Torres',
+      email: 'ana@correo.com',
+      programa: 'Ingeniería de Sistemas',
+      semestre: 4
+    },
+    {
+      id: 2,
+      nombre: 'Carlos Ruiz',
+      email: 'carlos@correo.com',
+      programa: 'Diseño',
+      semestre: 2
+    }
+  ];
 }</pre></div>
 
   <p>Después de <code>update()</code> en <code>agregar()</code> y <code>eliminar()</code>, agrega:</p>
