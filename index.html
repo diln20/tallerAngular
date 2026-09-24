@@ -7,7 +7,7 @@
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
-<link rel="stylesheet" href="styles.css?v=20260924-observer-deep-1">
+<link rel="stylesheet" href="styles.css?v=20260924-signals-hover-1">
 </head>
 <body>
 <header class="topbar">
@@ -1254,12 +1254,18 @@ export class App {
       <div><strong>Infografía SVG · Reactividad con Signals</strong><p>Qué cambia y qué se recalcula cuando el estado se modifica.</p></div>
       <a class="svg-diagram-card__action" href="assets/diagrams/signals-reactividad.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
     </div>
-    <div class="svg-diagram-card__stage">
-      <img class="svg-diagram-card__image" src="assets/diagrams/signals-reactividad.svg" alt="Infografía SVG · Reactividad con Signals" loading="lazy">
+    <div class="svg-diagram-card__stage svg-diagram-card__stage--interactive">
+      <object
+        class="svg-diagram-card__object"
+        type="image/svg+xml"
+        data="assets/diagrams/signals-reactividad.svg"
+        aria-label="Diagrama interactivo de reactividad con Signals">
+        <img class="svg-diagram-card__image" src="assets/diagrams/signals-reactividad.svg" alt="Infografía SVG · Reactividad con Signals">
+      </object>
     </div>
     <figcaption class="svg-diagram-card__caption">
       <span>↳</span>
-      <div><b>Cómo leerlo:</b> la acción modifica el Signal; de ahí salen dos dependencias: <code>computed()</code> y el listado. Ambas terminan actualizando el template.</div>
+      <div><b>Cómo leerlo:</b> la acción modifica el Signal; de ahí salen dos dependencias: <code>computed()</code> y el listado. Ambas terminan actualizando el template.<br><b>Interactivo:</b> pasa el mouse sobre Acción, Signal, computed(), Lista o Template para ver una explicación rápida.</div>
     </figcaption>
   </figure>
 <div data-edu-diagram="signals">
@@ -4137,7 +4143,7 @@ getItem('angular-aula-v2')</pre><div class="learning-actions"><button class="deb
 
 </main>
 </div>
-<script src="script.js?v=20260924-observer-deep-1"></script>\n<script src="learning.js?v=20260924-observer-deep-1"></script>
+<script src="script.js?v=20260924-signals-hover-1"></script>\n<script src="learning.js?v=20260924-signals-hover-1"></script>
 <script type="module">
   try {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs');
