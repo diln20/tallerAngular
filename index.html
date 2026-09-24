@@ -7,7 +7,7 @@
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
-<link rel="stylesheet" href="styles.css?v=20260924-mermaid-1">
+<link rel="stylesheet" href="styles.css?v=20260924-svg-1">
 </head>
 <body>
 <header class="topbar">
@@ -636,7 +636,20 @@ input {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> una cabecera morada y un panel blanco con “Bienvenido”.</div>
-  <div data-edu-diagram="raiz">
+  <figure class="svg-diagram-card" data-svg-diagram="raiz">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Anatomía de un componente Angular</strong><p>Lógica, vista y estilos convertidos en una sola unidad.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/componente-angular.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/componente-angular.svg" alt="Infografía SVG · Anatomía de un componente Angular" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> lee de izquierda a derecha: <code>app.ts</code>, <code>app.html</code> y <code>app.css</code> aportan responsabilidades distintas y <code>@Component</code> las reúne.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="raiz">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>🧩 Anatomía de un componente Angular</strong><p>Tres archivos distintos trabajan juntos como una sola pieza.</p></div>
@@ -898,7 +911,20 @@ export class App {
     <div class="row"><div>computed()</div><div>Calcula un valor derivado.</div></div>
   </div>
 
-  <div data-edu-diagram="signals">
+  <figure class="svg-diagram-card" data-svg-diagram="signals">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Reactividad con Signals</strong><p>Qué cambia y qué se recalcula cuando el estado se modifica.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/signals-reactividad.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/signals-reactividad.svg" alt="Infografía SVG · Reactividad con Signals" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> la acción modifica el Signal; de ahí salen dos dependencias: <code>computed()</code> y el listado. Ambas terminan actualizando el template.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="signals">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>📡 Qué ocurre cuando cambia un Signal</strong><p>El cambio se propaga únicamente hacia lo que depende de ese estado.</p></div>
@@ -1212,7 +1238,20 @@ export class EstudianteCard {
     <div class="side"><b>output()</b><p>Evento que el hijo comunica hacia afuera.</p></div>
   </div>
 
-  <div data-edu-diagram="comunicacion">
+  <figure class="svg-diagram-card" data-svg-diagram="comunicacion">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · input() y output()</strong><p>Datos hacia abajo, eventos hacia arriba.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/input-output.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/input-output.svg" alt="Infografía SVG · input() y output()" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> la página padre envía el estudiante con <code>[estudiante]</code>. La tarjeta devuelve únicamente el ID mediante <code>(eliminar)</code>.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="comunicacion">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>↕ Comunicación Padre ↔ Hijo</strong><p>La tarjeta recibe datos y devuelve eventos sin conocer el resto de la aplicación.</p></div>
@@ -1381,7 +1420,20 @@ export class Estudiantes {
     <div class="row"><div>asReadonly()</div><div>Permite leer el Signal sin modificarlo desde fuera.</div></div>
   </div>
 
-  <div data-edu-diagram="servicio">
+  <figure class="svg-diagram-card" data-svg-diagram="servicio">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Servicio compartido</strong><p>Una sola fuente de verdad para varias páginas.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/servicio-arquitectura.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/servicio-arquitectura.svg" alt="Infografía SVG · Servicio compartido" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> Inicio, Estudiantes y Nuevo no guardan copias separadas. Los tres se conectan al mismo servicio y al mismo Signal.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="servicio">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>🏗 Arquitectura simple de Angular Aula</strong><p>Las páginas no se pasan listas entre ellas: todas dependen del mismo servicio.</p></div>
@@ -1471,7 +1523,20 @@ export class Estudiantes {
   <h3>Una analogía muy sencilla</h3>
   <p>Piensa en un canal de noticias. El canal publica una noticia una sola vez y todos sus suscriptores reciben la actualización. No es necesario avisar manualmente a cada persona.</p>
 
-  <div class="observer-map">
+  <figure class="svg-diagram-card" data-svg-diagram="observer-svg">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Observer con Signals</strong><p>Una publicación, varios observadores.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/observer-signals.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/observer-signals.svg" alt="Infografía SVG · Observer con Signals" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> el servicio modifica el Signal una sola vez. <code>computed()</code>, el listado y el dashboard reaccionan porque dependen de ese mismo estado.</div>
+    </figcaption>
+  </figure>
+<div class="observer-map">
     <div class="observer-source">
       <b>📡 Fuente observada</b>
       <span><code>_estudiantes</code> en el servicio</span>
@@ -1987,7 +2052,20 @@ export class NuevoEstudiante {
     <div class="row"><div>[disabled]</div><div>Desactiva el botón si el formulario no es válido.</div></div>
   </div>
 
-  <div data-edu-diagram="formulario">
+  <figure class="svg-diagram-card" data-svg-diagram="formulario">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Flujo del formulario</strong><p>Desde el teclado hasta la navegación al listado.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/formulario-flujo.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/formulario-flujo.svg" alt="Infografía SVG · Flujo del formulario" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> sigue el recorrido: usuario → <code>ngModel</code> → validación → <code>ngSubmit</code> → servicio → Router.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="formulario">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>📝 Ciclo completo del formulario</strong><p>Desde que el usuario escribe hasta que termina viendo el nuevo estudiante en el listado.</p></div>
@@ -2214,7 +2292,20 @@ export class App {}</pre></div>
   &lt;router-outlet /&gt;
 &lt;/main&gt;</pre></div>
 
-  <div data-edu-diagram="rutas">
+  <figure class="svg-diagram-card" data-svg-diagram="rutas">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · Angular Router</strong><p>Cómo una URL termina mostrando un componente.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/router-angular.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/router-angular.svg" alt="Infografía SVG · Angular Router" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> la URL se compara con <code>app.routes.ts</code>; Angular selecciona el componente y lo coloca en <code>router-outlet</code>.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="rutas">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>🧭 Cómo Angular decide qué página mostrar</strong><p>El Router compara la URL con app.routes.ts y renderiza el componente correcto.</p></div>
@@ -2629,7 +2720,20 @@ importarDesdeApi() {
     <div class="row"><div>tap()</div><div>Ejecuta una acción cuando llega la respuesta.</div></div>
   </div>
 
-  <div data-edu-diagram="http">
+  <figure class="svg-diagram-card" data-svg-diagram="http">
+    <div class="svg-diagram-card__head">
+      <div><strong>Infografía SVG · HttpClient y API</strong><p>Petición, transformación y actualización de la interfaz.</p></div>
+      <a class="svg-diagram-card__action" href="assets/diagrams/http-api.svg" target="_blank" rel="noreferrer">↗ Abrir SVG</a>
+    </div>
+    <div class="svg-diagram-card__stage">
+      <img class="svg-diagram-card__image" src="assets/diagrams/http-api.svg" alt="Infografía SVG · HttpClient y API" loading="lazy">
+    </div>
+    <figcaption class="svg-diagram-card__caption">
+      <span>↳</span>
+      <div><b>Cómo leerlo:</b> la respuesta externa llega como <code>UsuarioApi[]</code>, el servicio la transforma a <code>Estudiante[]</code> y recién entonces actualiza el Signal.</div>
+    </figcaption>
+  </figure>
+<div data-edu-diagram="http">
 <div class="edu-diagram">
   <div class="edu-diagram__head">
     <div><strong>🌍 Viaje completo de una petición HTTP</strong><p>La página no llama directamente a la API: pasa por el servicio.</p></div>
@@ -3112,7 +3216,7 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-mermaid-1"></script>
+<script src="script.js?v=20260924-svg-1"></script>
 <script type="module">
   try {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs');
