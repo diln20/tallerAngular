@@ -57,23 +57,89 @@
     });
   }
 
+  function highlightAngularExpression(raw) {
+    const regex = /(\b(?:true|false|null|undefined)\b|\b\d+(?:\.\d+)?\b|'(?:\\.|[^'\\])*'|"(?:\\.|[^"\\])*"|\?\s*|:\s*|===|!==|==|!=|>=|<=|&&|\|\||=>|[+\-*\/%!<>])/g;
+    return tokenLoop(raw, regex, token => {
+      if (/^['"]/.test(token)) return 'tok-string';
+      if (/^(true|false|null|undefined)$/.test(token)) return 'tok-keyword';
+      if (/^\d/.test(token)) return 'tok-number';
+      return 'tok-operator';
+    });
+  }
+
+  function highlightAngularText(raw) {
+    const regex = /(\{\{[\s\S]*?\}\}|@(if|else|for|empty)\b[^\n{]*\{?)/g;
+    let result = '';
+    let last = 0;
+
+    raw.replace(regex, (match, _controlName, offset) => {
+      result += escapeHtml(raw.slice(last, offset));
+
+      if (match.startsWith('{{')) {
+        const inner = match.slice(2, -2);
+        result += '<span class="tok-interpolation">{{</span>' +
+          '<span class="tok-expression">' + highlightAngularExpression(inner) + '</span>' +
+          '<span class="tok-interpolation">}}</span>';
+      } else {
+        const control = match.match(/^@(if|else|for|empty)/)?.[0] || '';
+        const rest = match.slice(control.length);
+        result += '<span class="tok-control">' + escapeHtml(control) + '</span>' +
+          '<span class="tok-expression">' + highlightAngularExpression(rest) + '</span>';
+      }
+
+      last = offset + match.length;
+      return match;
+    });
+
+    result += escapeHtml(raw.slice(last));
+    return result;
+  }
+
+  function classifyAngularAttr(attr) {
+    if (/^\[\(.+\)\]$/.test(attr)) return 'tok-twoway';
+    if (/^\(.+\)$/.test(attr)) return 'tok-event';
+    if (/^\[.+\]$/.test(attr)) return 'tok-binding';
+    if (/^\*/.test(attr)) return 'tok-control';
+    if (/^#/.test(attr)) return 'tok-template-ref';
+    return 'tok-attr';
+  }
+
   function highlightHtmlTag(tag) {
     const match = tag.match(/^<(\/?)\s*([\w-]+)([\s\S]*?)(\/?)>$/);
     if (!match) return '<span class="tok-tag">' + escapeHtml(tag) + '</span>';
+
     const [, slash, name, rest, close] = match;
     let attrs = '';
     let last = 0;
     const attrRegex = /(\s+)([\w-:\[\]\(\)\*#]+)(\s*=\s*)("[^"]*"|'[^']*'|[^\s>]+)/g;
+
     rest.replace(attrRegex, (full, ws, attr, eq, value, offset) => {
       attrs += escapeHtml(rest.slice(last, offset));
       attrs += escapeHtml(ws);
-      attrs += '<span class="tok-attr">' + escapeHtml(attr) + '</span>';
+
+      const attrClass = classifyAngularAttr(attr);
+      attrs += '<span class="' + attrClass + '">' + escapeHtml(attr) + '</span>';
       attrs += '<span class="tok-punct">' + escapeHtml(eq) + '</span>';
-      attrs += '<span class="tok-value">' + escapeHtml(value) + '</span>';
+
+      const quote = value[0] === '"' || value[0] === "'" ? value[0] : '';
+      if (quote) {
+        const inner = value.slice(1, -1);
+        const isAngularExpr = attrClass !== 'tok-attr' || /\{\{|\$event|\w+\(\)/.test(inner);
+        attrs += '<span class="tok-string">' + escapeHtml(quote) + '</span>';
+        attrs += isAngularExpr
+          ? '<span class="tok-expression">' + highlightAngularExpression(inner) + '</span>'
+          : '<span class="tok-value">' + escapeHtml(inner) + '</span>';
+        attrs += '<span class="tok-string">' + escapeHtml(quote) + '</span>';
+      } else {
+        attrs += '<span class="tok-value">' + escapeHtml(value) + '</span>';
+      }
+
       last = offset + full.length;
       return full;
     });
+
     attrs += escapeHtml(rest.slice(last));
+
     return '<span class="tok-punct">&lt;' + escapeHtml(slash) + '</span>' +
       '<span class="tok-tag">' + escapeHtml(name) + '</span>' +
       attrs +
@@ -84,15 +150,17 @@
     const regex = /<!--[\s\S]*?-->|<\/?[A-Za-z][^>]*>/g;
     let result = '';
     let last = 0;
+
     raw.replace(regex, (match, offset) => {
-      result += escapeHtml(raw.slice(last, offset));
+      result += highlightAngularText(raw.slice(last, offset));
       result += match.startsWith('<!--')
         ? '<span class="tok-comment">' + escapeHtml(match) + '</span>'
         : highlightHtmlTag(match);
       last = offset + match.length;
       return match;
     });
-    result += escapeHtml(raw.slice(last));
+
+    result += highlightAngularText(raw.slice(last));
     return result;
   }
 
@@ -129,11 +197,37 @@
 
   function inferLanguage(box, raw) {
     const head = box.querySelector('.codehead')?.textContent.toLowerCase() || '';
-    if (head.includes('.html') || head.includes('html')) return ['html', 'HTML'];
-    if (head.includes('.css') || head.includes('css')) return ['css', 'CSS'];
+    const trimmed = raw.trim();
+
+    if (
+      head.includes('.html') ||
+      head.includes('html') ||
+      /^<\/?[A-Za-z]/.test(trimmed) ||
+      /<\/?(?:button|div|section|header|main|nav|form|input|label|article|p|h\d|router-outlet|app-[\w-]+)/.test(trimmed) ||
+      /@(if|for|empty)\s*\(|\{\{[\s\S]*?\}\}/.test(trimmed)
+    ) return ['html', 'Angular HTML'];
+
+    if (
+      head.includes('.css') ||
+      head.includes('css') ||
+      /(^|\n)\s*[.#][\w-]+\s*\{/.test(trimmed) ||
+      /(^|\n)\s*@media\b/.test(trimmed)
+    ) return ['css', 'CSS'];
+
     if (head.includes('.json') || head.includes('json')) return ['json', 'JSON'];
-    if (head.includes('terminal') || head.includes('powershell') || /^(ng|npm|node|cd|mkdir|code|git)\b/m.test(raw)) return ['shell', 'Terminal'];
-    if (head.includes('.ts') || head.includes('typescript') || /(^|\n)\s*(import|export|interface|@Component|const |let |class )/.test(raw)) return ['ts', 'TypeScript'];
+
+    if (
+      head.includes('terminal') ||
+      head.includes('powershell') ||
+      /^(ng|npm|node|cd|mkdir|code|git|Set-ExecutionPolicy)\b/m.test(trimmed)
+    ) return ['shell', 'Terminal'];
+
+    if (
+      head.includes('.ts') ||
+      head.includes('typescript') ||
+      /(^|\n)\s*(import|export|interface|@Component|@Injectable|const |let |class |private |readonly )/.test(trimmed)
+    ) return ['ts', 'TypeScript'];
+
     return ['text', 'Código'];
   }
 
