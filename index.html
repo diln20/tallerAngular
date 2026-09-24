@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Taller Angular desde Cero | Angular Aula paso a paso</title>
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
-<link rel="stylesheet" href="styles.css?v=20260924-observer-1">
+<link rel="stylesheet" href="styles.css?v=20260924-diagrams-2">
 </head>
 <body>
 <header class="topbar">
@@ -634,7 +634,41 @@ input {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> una cabecera morada y un panel blanco con “Bienvenido”.</div>
-  <div class="code-explanation" data-code-explanation="raiz">
+  <div data-edu-diagram="raiz">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🧩 Anatomía de un componente Angular</strong><p>Tres archivos distintos trabajan juntos como una sola pieza.</p></div>
+    <span class="edu-diagram__badge">Mapa mental</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-grid-3">
+      <div class="edu-file">
+        <div class="edu-file__top"><span class="edu-file__type ts">TS</span><b>app.ts</b></div>
+        <p>Contiene la lógica, propiedades, Signals, métodos e imports.</p>
+        <div class="edu-file__bottom">Pregunta que responde: <b>¿qué sabe y qué puede hacer?</b></div>
+      </div>
+      <div class="edu-file">
+        <div class="edu-file__top"><span class="edu-file__type html">HTML</span><b>app.html</b></div>
+        <p>Describe lo que Angular debe mostrar al usuario.</p>
+        <div class="edu-file__bottom">Pregunta que responde: <b>¿qué se ve?</b></div>
+      </div>
+      <div class="edu-file">
+        <div class="edu-file__top"><span class="edu-file__type css">CSS</span><b>app.css</b></div>
+        <p>Define la apariencia del componente.</p>
+        <div class="edu-file__bottom">Pregunta que responde: <b>¿cómo se ve?</b></div>
+      </div>
+    </div>
+    <div class="edu-flow" style="margin-top:14px">
+      <div class="edu-node purple"><span class="edu-node__icon">⚙</span><strong>@Component</strong><small>Une TS + HTML + CSS</small></div>
+      <div class="edu-arrow">→<small>configura</small></div>
+      <div class="edu-node blue"><span class="edu-node__icon">🧩</span><strong>Componente App</strong><small>Una unidad reutilizable</small></div>
+      <div class="edu-arrow">→<small>renderiza</small></div>
+      <div class="edu-node green"><span class="edu-node__icon">🖥</span><strong>Navegador</strong><small>El usuario ve el resultado</small></div>
+    </div>
+    <div class="edu-callout"><b>Lectura:</b> no pienses en tres archivos separados; piensa en un solo componente dividido en responsabilidades.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="raiz">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende el componente raíz</strong><p>Este bloque conecta una clase TypeScript con un archivo HTML y un archivo CSS.</p></div>
@@ -714,7 +748,49 @@ input {
     <div class="row"><div>(click)</div><div>Event binding: ejecuta código cuando ocurre un clic.</div></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="binding">
+  <div data-edu-diagram="binding">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🔄 Cómo viajan los datos entre TypeScript y HTML</strong><p>Angular usa distintas sintaxis según la dirección de la información.</p></div>
+    <span class="edu-diagram__badge">Dirección de datos</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-lanes">
+      <div class="edu-lane">
+        <div class="edu-lane__label">Interpolación</div>
+        <div class="edu-lane__track">
+          <div class="edu-mini read">TypeScript<br><code>titulo</code></div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini read"><code>{{ titulo }}</code></div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini read">Texto visible</div>
+        </div>
+      </div>
+      <div class="edu-lane">
+        <div class="edu-lane__label">Property binding</div>
+        <div class="edu-lane__track">
+          <div class="edu-mini read">Estado TS</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini read"><code>[disabled]</code></div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini read">Propiedad HTML</div>
+        </div>
+      </div>
+      <div class="edu-lane">
+        <div class="edu-lane__label">Event binding</div>
+        <div class="edu-lane__track">
+          <div class="edu-mini write">Usuario hace clic</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini write"><code>(click)</code></div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini write">Método TypeScript</div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-callout"><b>Regla visual:</b> <code>{{ }}</code> y <code>[ ]</code> llevan información hacia la vista; <code>( )</code> lleva eventos desde la vista hacia TypeScript.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="binding">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende cómo TypeScript se comunica con el HTML</strong><p>Aquí aparecen tres formas fundamentales de conexión entre el componente y su template.</p></div>
@@ -797,7 +873,31 @@ export class App {
     <div class="row"><div>computed()</div><div>Calcula un valor derivado.</div></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="signals">
+  <div data-edu-diagram="signals">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>📡 Qué ocurre cuando cambia un Signal</strong><p>El cambio se propaga únicamente hacia lo que depende de ese estado.</p></div>
+    <span class="edu-diagram__badge">Reactividad</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">👤</span><strong>Acción</strong><small>Agregar Laura</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">📡</span><strong>Signal</strong><small><code>estudiantes.update()</code></small></div>
+      <div class="edu-arrow">→<small>avisa</small></div>
+      <div class="edu-node purple"><span class="edu-node__icon">🧮</span><strong>computed()</strong><small>Recalcula total</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node pink"><span class="edu-node__icon">👁</span><strong>Template</strong><small>Actualiza lo visible</small></div>
+    </div>
+    <div class="edu-diagram__legend">
+      <span class="edu-chip">Signal = fuente de estado</span>
+      <span class="edu-chip">computed = dato derivado</span>
+      <span class="edu-chip">template = consumidor</span>
+    </div>
+    <div class="edu-callout"><b>Detalle interesante:</b> no tienes que llamar manualmente a “actualizarTotal()”. Angular conoce la dependencia porque <code>computed()</code> leyó el Signal.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="signals">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende Signals sin complicaciones</strong><p>Un Signal guarda un valor y avisa a Angular cuando ese valor cambia.</p></div>
@@ -1087,7 +1187,28 @@ export class EstudianteCard {
     <div class="side"><b>output()</b><p>Evento que el hijo comunica hacia afuera.</p></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="comunicacion">
+  <div data-edu-diagram="comunicacion">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>↕ Comunicación Padre ↔ Hijo</strong><p>La tarjeta recibe datos y devuelve eventos sin conocer el resto de la aplicación.</p></div>
+    <span class="edu-diagram__badge">input / output</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">📄</span><strong>Estudiantes</strong><small>Componente padre</small></div>
+      <div class="edu-arrow">→<small>[estudiante]</small></div>
+      <div class="edu-node green"><span class="edu-node__icon">📥</span><strong>input()</strong><small>Entra el objeto Estudiante</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">🪪</span><strong>EstudianteCard</strong><small>Muestra una tarjeta</small></div>
+      <div class="edu-arrow">→<small>clic</small></div>
+      <div class="edu-node pink"><span class="edu-node__icon">📤</span><strong>output()</strong><small>Emite el ID</small></div>
+      <div class="edu-arrow">→<small>(eliminar)</small></div>
+      <div class="edu-node blue"><span class="edu-node__icon">🗑</span><strong>Padre</strong><small>Llama al servicio</small></div>
+    </div>
+    <div class="edu-callout"><b>Idea de diseño:</b> la tarjeta no sabe cómo se guarda la lista. Solo recibe un estudiante y avisa cuando el usuario quiere eliminarlo.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="comunicacion">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende input() y output()</strong><p>El componente tarjeta no debe conocer toda la aplicación. Solo recibe un estudiante y comunica acciones.</p></div>
@@ -1235,7 +1356,28 @@ export class Estudiantes {
     <div class="row"><div>asReadonly()</div><div>Permite leer el Signal sin modificarlo desde fuera.</div></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="servicio">
+  <div data-edu-diagram="servicio">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🏗 Arquitectura simple de Angular Aula</strong><p>Las páginas no se pasan listas entre ellas: todas dependen del mismo servicio.</p></div>
+    <span class="edu-diagram__badge">Arquitectura</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">🏠</span><strong>Inicio</strong><small>Lee el total</small></div>
+      <div class="edu-arrow">↘</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">⚙</span><strong>Servicio Estudiantes</strong><small>Agregar · eliminar · importar · guardar</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">📡</span><strong>Signal</strong><small>Estado único compartido</small></div>
+      <div class="edu-arrow">←</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">📋</span><strong>Estudiantes</strong><small>Lee lista y elimina</small></div>
+      <div class="edu-arrow">↖</div>
+      <div class="edu-node blue"><span class="edu-node__icon">📝</span><strong>Nuevo</strong><small>Agrega estudiantes</small></div>
+    </div>
+    <div class="edu-callout"><b>Separación de responsabilidades:</b> las páginas se encargan de interacción y presentación; el servicio se encarga de los datos compartidos.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="servicio">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende por qué usamos un servicio</strong><p>El servicio concentra los estudiantes para que varias páginas trabajen con el mismo estado.</p></div>
@@ -1771,7 +1913,30 @@ export class NuevoEstudiante {
     <div class="row"><div>[disabled]</div><div>Desactiva el botón si el formulario no es válido.</div></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="formulario">
+  <div data-edu-diagram="formulario">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>📝 Ciclo completo del formulario</strong><p>Desde que el usuario escribe hasta que termina viendo el nuevo estudiante en el listado.</p></div>
+    <span class="edu-diagram__badge">Formulario</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">⌨</span><strong>Usuario escribe</strong><small>Inputs del formulario</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">🔁</span><strong>ngModel</strong><small>Sincroniza HTML ↔ TS</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node amber"><span class="edu-node__icon">✅</span><strong>Validación</strong><small>required · email · min/max</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node pink"><span class="edu-node__icon">📨</span><strong>ngSubmit</strong><small>Ejecuta guardar()</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">⚙</span><strong>Servicio</strong><small>agregar()</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">🧭</span><strong>Router</strong><small>Navega a /estudiantes</small></div>
+    </div>
+    <div class="edu-callout"><b>Punto clave:</b> el botón puede depender de <code>form.invalid</code>; así la propia validación controla si el usuario puede enviar.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="formulario">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende el formulario Angular</strong><p>El formulario captura datos, valida y llama al servicio sin manipular el DOM manualmente.</p></div>
@@ -1949,7 +2114,34 @@ export class App {}</pre></div>
   &lt;router-outlet /&gt;
 &lt;/main&gt;</pre></div>
 
-  <div class="code-explanation" data-code-explanation="rutas">
+  <div data-edu-diagram="rutas">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🧭 Cómo Angular decide qué página mostrar</strong><p>El Router compara la URL con app.routes.ts y renderiza el componente correcto.</p></div>
+    <span class="edu-diagram__badge">Router</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">🌐</span><strong>URL</strong><small>/estudiantes</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">🗺</span><strong>app.routes.ts</strong><small>Busca path: 'estudiantes'</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">🧩</span><strong>Componente</strong><small>Estudiantes</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">🪟</span><strong>router-outlet</strong><small>Inserta la página</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node pink"><span class="edu-node__icon">👤</span><strong>Usuario</strong><small>Ve el listado</small></div>
+    </div>
+    <div class="edu-diagram__legend">
+      <span class="edu-chip">/ → Inicio</span>
+      <span class="edu-chip">/estudiantes → Estudiantes</span>
+      <span class="edu-chip">/nuevo → NuevoEstudiante</span>
+      <span class="edu-chip">/acerca → Acerca</span>
+    </div>
+    <div class="edu-callout"><b>SPA:</b> la cabecera puede permanecer en pantalla mientras Angular cambia únicamente el componente colocado en <code>router-outlet</code>.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="rutas">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende Angular Router</strong><p>El Router decide qué componente debe aparecer según la URL.</p></div>
@@ -2153,7 +2345,39 @@ private leer(): Estudiante[] {
     <div class="side"><b>JSON.parse</b><p>Texto → objeto/array.</p></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="storage">
+  <div data-edu-diagram="storage">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>💾 Ciclo de persistencia con localStorage</strong><p>Hay un camino para guardar y otro para recuperar al iniciar.</p></div>
+    <span class="edu-diagram__badge">Persistencia</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-lanes">
+      <div class="edu-lane">
+        <div class="edu-lane__label">Al modificar</div>
+        <div class="edu-lane__track">
+          <div class="edu-mini state">Signal cambia</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini storage">JSON.stringify()</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini storage">localStorage.setItem()</div>
+        </div>
+      </div>
+      <div class="edu-lane">
+        <div class="edu-lane__label">Al iniciar</div>
+        <div class="edu-lane__track">
+          <div class="edu-mini storage">localStorage.getItem()</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini storage">JSON.parse()</div>
+          <div class="edu-mini-arrow">→</div>
+          <div class="edu-mini state">signal(this.leer())</div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-callout"><b>Por qué JSON:</b> localStorage guarda texto. Por eso convertimos objetos → texto al guardar y texto → objetos al leer.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="storage">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende la persistencia con localStorage</strong><p>Hasta este punto, un F5 perdería el estado. localStorage permite conservarlo en ese navegador.</p></div>
@@ -2276,7 +2500,37 @@ importarDesdeApi() {
     <div class="row"><div>tap()</div><div>Ejecuta una acción cuando llega la respuesta.</div></div>
   </div>
 
-  <div class="code-explanation" data-code-explanation="http">
+  <div data-edu-diagram="http">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🌍 Viaje completo de una petición HTTP</strong><p>La página no llama directamente a la API: pasa por el servicio.</p></div>
+    <span class="edu-diagram__badge">HTTP + API</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">🖱</span><strong>Botón</strong><small>Importar desde API</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">📄</span><strong>Página</strong><small>importar()</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">⚙</span><strong>Servicio</strong><small>importarDesdeApi()</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">📡</span><strong>HttpClient</strong><small>GET /users</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node amber"><span class="edu-node__icon">☁</span><strong>API</strong><small>JSONPlaceholder</small></div>
+    </div>
+    <div class="edu-flow" style="margin-top:10px">
+      <div class="edu-node amber"><span class="edu-node__icon">📦</span><strong>UsuarioApi[]</strong><small>Respuesta externa</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">🔄</span><strong>map()</strong><small>Transforma al modelo interno</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">📡</span><strong>Signal</strong><small>Agrega estudiantes</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node pink"><span class="edu-node__icon">🖥</span><strong>Template</strong><small>Muestra nuevas tarjetas</small></div>
+    </div>
+    <div class="edu-callout"><b>Frontera importante:</b> <code>UsuarioApi</code> representa datos externos; <code>Estudiante</code> representa el modelo que entiende nuestra aplicación.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="http">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende HttpClient y la petición a la API</strong><p>La petición HTTP vive en el servicio para mantener la página enfocada en la interfaz.</p></div>
@@ -2613,7 +2867,28 @@ button {
     <div class="build-item">Generar un build final.</div>
   </div></div>
 
-  <div class="code-explanation" data-code-explanation="build">
+  <div data-edu-diagram="build">
+<div class="edu-diagram">
+  <div class="edu-diagram__head">
+    <div><strong>🏭 Qué hace Angular cuando ejecutas ng build</strong><p>El código fuente pasa por varias etapas antes de convertirse en archivos publicables.</p></div>
+    <span class="edu-diagram__badge">Build</span>
+  </div>
+  <div class="edu-diagram__body">
+    <div class="edu-flow">
+      <div class="edu-node blue"><span class="edu-node__icon">🧑‍💻</span><strong>Código fuente</strong><small>TS + HTML + CSS</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node purple"><span class="edu-node__icon">🔍</span><strong>Compilación</strong><small>TypeScript y templates</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node cyan"><span class="edu-node__icon">⚡</span><strong>Optimización</strong><small>Reduce y prepara recursos</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node green"><span class="edu-node__icon">📦</span><strong>dist/</strong><small>Archivos finales</small></div>
+      <div class="edu-arrow">→</div>
+      <div class="edu-node pink"><span class="edu-node__icon">🚀</span><strong>Hosting</strong><small>Aplicación publicada</small></div>
+    </div>
+    <div class="edu-callout"><b>Diferencia:</b> <code>ng serve</code> está pensado para desarrollar localmente; <code>ng build</code> prepara la aplicación para distribuirla.</div>
+  </div>
+</div></div>
+<div class="code-explanation" data-code-explanation="build">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
       <div><strong>Entiende qué hace ng build</strong><p>El servidor de desarrollo no es la versión que se publica. El build genera archivos optimizados para producción.</p></div>
@@ -2659,6 +2934,6 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-observer-1"></script>
+<script src="script.js?v=20260924-diagrams-2"></script>
 </body>
 </html>
