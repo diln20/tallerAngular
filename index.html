@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Taller Angular desde Cero | Angular Aula paso a paso</title>
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
-<link rel="stylesheet" href="styles.css?v=20260924-diagrams-2">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
+<link rel="stylesheet" href="styles.css?v=20260924-mermaid-1">
 </head>
 <body>
 <header class="topbar">
@@ -668,6 +670,29 @@ input {
     <div class="edu-callout"><b>Lectura:</b> no pienses en tres archivos separados; piensa en un solo componente dividido en responsabilidades.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="raiz">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama técnico: anatomía del componente raíz</strong><p>Vista estructural de cómo Angular conecta clase, template y estilos.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">flowchart LR
+  A["app.ts<br/>Lógica y @Component"] --> D["@Component"]
+  B["app.html<br/>Template"] --> D
+  C["app.css<br/>Estilos"] --> D
+  D --> E["Componente App"]
+  E --> F["Navegador"]
+  classDef ts fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+  classDef html fill:#fff1f2,stroke:#e11d48,color:#881337
+  classDef css fill:#f3e8ff,stroke:#9333ea,color:#581c87
+  classDef core fill:#ecfdf5,stroke:#16a34a,color:#14532d
+  class A ts
+  class B html
+  class C css
+  class D,E,F core</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> las tres piezas llegan a <code>@Component</code>; Angular las trata como una sola unidad y la renderiza en el navegador.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="raiz">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -1377,6 +1402,30 @@ export class Estudiantes {
     <div class="edu-callout"><b>Separación de responsabilidades:</b> las páginas se encargan de interacción y presentación; el servicio se encarga de los datos compartidos.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="servicio">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama técnico: arquitectura con servicio compartido</strong><p>Varias páginas usan una sola fuente de estado en vez de duplicar datos.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">flowchart TB
+  I["Inicio"] --> S["Servicio Estudiantes"]
+  L["Página Estudiantes"] --> S
+  N["Nuevo estudiante"] --> S
+  S --> G["Signal _estudiantes"]
+  G --> C["computed(total)"]
+  G --> T["Lista de tarjetas"]
+  C --> I
+  T --> L
+  classDef page fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
+  classDef service fill:#ecfeff,stroke:#06b6d4,color:#164e63
+  classDef state fill:#ecfdf5,stroke:#22c55e,color:#14532d
+  class I,L,N page
+  class S service
+  class G,C,T state</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> las páginas no se pasan el array entre ellas. Todas leen o modifican el mismo servicio, que mantiene el Signal compartido.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="servicio">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -1613,7 +1662,32 @@ readonly total = computed(() =&gt;
     <b>No confundas Observer con un archivo nuevo.</b> Es un patrón de organización. En Angular Aula lo aplicamos usando el servicio, Signals, <code>computed()</code> y templates reactivos.
   </div>
 
-  <div class="mission">
+  <div class="mermaid-card" data-mermaid-diagram="observer-pro">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama reactivo: Observer aplicado con Signals</strong><p>Muestra quién publica el cambio y quién reacciona.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">flowchart LR
+  A["Formulario / acciones"] --> S["Servicio Estudiantes"]
+  S --> G["Signal _estudiantes"]
+  G --> C["computed(total)"]
+  G --> L["Página Estudiantes"]
+  C --> I["Dashboard Inicio"]
+  L --> V1["Tarjetas actualizadas"]
+  I --> V2["Total actualizado"]
+  classDef action fill:#fff7ed,stroke:#f59e0b,color:#78350f
+  classDef service fill:#ecfeff,stroke:#06b6d4,color:#164e63
+  classDef state fill:#ecfdf5,stroke:#22c55e,color:#14532d
+  classDef observer fill:#fdf2f8,stroke:#ec4899,color:#831843
+  class A action
+  class S service
+  class G state
+  class C,L,I,V1,V2 observer</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> el Signal es la fuente observada. <code>computed()</code> y los templates dependen de él, por lo que reaccionan cuando cambia.</div></div>
+  </div>
+<div class="mission">
     <h3>Comprueba que entendiste</h3>
     <p>Si agregas un estudiante desde el formulario, explica por qué no necesitas llamar manualmente a una función para actualizar el total del Dashboard.</p>
   </div>
@@ -1936,6 +2010,32 @@ export class NuevoEstudiante {
     <div class="edu-callout"><b>Punto clave:</b> el botón puede depender de <code>form.invalid</code>; así la propia validación controla si el usuario puede enviar.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="formulario">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama de secuencia: registrar un estudiante</strong><p>Sigue el recorrido exacto desde el teclado hasta volver al listado.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">sequenceDiagram
+  autonumber
+  actor U as Usuario
+  participant F as Formulario
+  participant C as NuevoEstudiante
+  participant S as Servicio
+  participant G as Signal
+  participant R as Router
+  U->>F: Escribe nombre, correo, programa y semestre
+  F->>C: ngModel actualiza formulario
+  U->>F: Pulsa Guardar
+  F->>C: ngSubmit → guardar()
+  C->>S: agregar(datos)
+  S->>G: update([...actuales, nuevo])
+  G-->>S: Estado actualizado
+  C->>R: navigate(['/estudiantes'])
+  R-->>U: Muestra listado actualizado</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> cada flecha representa una responsabilidad distinta: el formulario captura, el componente coordina, el servicio modifica datos y el Router cambia de pantalla.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="formulario">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -2141,6 +2241,35 @@ export class App {}</pre></div>
     <div class="edu-callout"><b>SPA:</b> la cabecera puede permanecer en pantalla mientras Angular cambia únicamente el componente colocado en <code>router-outlet</code>.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="rutas">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama técnico: resolución de rutas</strong><p>Cómo una URL termina convirtiéndose en un componente dentro de router-outlet.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">flowchart LR
+  U["URL del navegador"] --> R["app.routes.ts"]
+  R --> A{"¿Qué path coincide?"}
+  A -->|"/"| I["Inicio"]
+  A -->|"/estudiantes"| E["Estudiantes"]
+  A -->|"/nuevo"| N["NuevoEstudiante"]
+  A -->|"/acerca"| C["Acerca"]
+  A -->|"otro"| X["** → redirección"]
+  I --> O["router-outlet"]
+  E --> O
+  N --> O
+  C --> O
+  X --> O
+  O --> V["Vista visible"]
+  classDef route fill:#f3e8ff,stroke:#8b5cf6,color:#4c1d95
+  classDef page fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
+  classDef view fill:#ecfdf5,stroke:#22c55e,color:#14532d
+  class U,R,A route
+  class I,E,N,C,X page
+  class O,V view</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> el Router compara la URL con las reglas de <code>app.routes.ts</code> y coloca el componente seleccionado dentro de <code>router-outlet</code>.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="rutas">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -2530,6 +2659,33 @@ importarDesdeApi() {
     <div class="edu-callout"><b>Frontera importante:</b> <code>UsuarioApi</code> representa datos externos; <code>Estudiante</code> representa el modelo que entiende nuestra aplicación.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="http">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama de secuencia: importar estudiantes desde una API</strong><p>Incluye ida, respuesta, transformación y actualización del estado local.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">sequenceDiagram
+  autonumber
+  actor U as Usuario
+  participant P as Página Estudiantes
+  participant S as Servicio
+  participant H as HttpClient
+  participant A as API externa
+  participant G as Signal
+  U->>P: Clic en Importar
+  P->>S: importarDesdeApi()
+  S->>H: GET /users
+  H->>A: Petición HTTP
+  A-->>H: JSON UsuarioApi[]
+  H-->>S: Observable con respuesta
+  S->>S: map() transforma UsuarioApi → Estudiante
+  S->>G: agregarVarios(nuevos)
+  G-->>P: Estado reactivo actualizado
+  P-->>U: Nuevas tarjetas + mensaje</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> la API nunca conoce nuestro modelo <code>Estudiante</code>. El servicio actúa como frontera y transforma la respuesta externa antes de guardarla.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="http">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -2888,6 +3044,28 @@ button {
     <div class="edu-callout"><b>Diferencia:</b> <code>ng serve</code> está pensado para desarrollar localmente; <code>ng build</code> prepara la aplicación para distribuirla.</div>
   </div>
 </div></div>
+<div class="mermaid-card" data-mermaid-diagram="build">
+    <div class="mermaid-card__head">
+      <div><strong>Diagrama técnico: del código fuente al sitio publicado</strong><p>Qué ocurre conceptualmente al ejecutar ng build.</p></div>
+      <span class="mermaid-card__badge">Mermaid</span>
+    </div>
+    <div class="mermaid-card__canvas">
+      <pre class="mermaid">flowchart LR
+  S["src/<br/>TS + HTML + CSS"] --> C["Compilación"]
+  C --> T["Comprobación de tipos y templates"]
+  T --> O["Optimización"]
+  O --> D["dist/"]
+  D --> H["Hosting / GitHub Pages"]
+  H --> B["Navegador del usuario"]
+  classDef source fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
+  classDef process fill:#f3e8ff,stroke:#8b5cf6,color:#4c1d95
+  classDef output fill:#ecfdf5,stroke:#22c55e,color:#14532d
+  class S source
+  class C,T,O process
+  class D,H,B output</pre>
+    </div>
+    <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> <code>ng serve</code> sirve para desarrollar; <code>ng build</code> prepara archivos optimizados que luego puede servir un hosting.</div></div>
+  </div>
 <div class="code-explanation" data-code-explanation="build">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -2934,6 +3112,37 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-diagrams-2"></script>
+<script src="script.js?v=20260924-mermaid-1"></script>
+<script type="module">
+  try {
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'strict',
+      theme: 'base',
+      fontFamily: 'Open Sans, Arial, sans-serif',
+      flowchart: { curve: 'basis', htmlLabels: true, useMaxWidth: true },
+      sequence: { showSequenceNumbers: true, useMaxWidth: true },
+      themeVariables: {
+        primaryColor: '#eef2ff',
+        primaryTextColor: '#172033',
+        primaryBorderColor: '#8b5cf6',
+        lineColor: '#7c3aed',
+        secondaryColor: '#ecfeff',
+        tertiaryColor: '#fdf2f8',
+        background: '#fbfcff',
+        mainBkg: '#ffffff',
+        fontSize: '14px'
+      }
+    });
+    await mermaid.run({
+      nodes: document.querySelectorAll('.mermaid'),
+      suppressErrors: true
+    });
+  } catch (error) {
+    document.documentElement.classList.add('mermaid-unavailable');
+    console.warn('Mermaid no pudo cargarse; se conserva el diagrama como texto.', error);
+  }
+</script>
 </body>
 </html>
