@@ -7,7 +7,7 @@
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
-<link rel="stylesheet" href="styles.css?v=20260924-signals-hover-1">
+<link rel="stylesheet" href="styles.css?v=20260924-growth-preview-1">
 </head>
 <body>
 <header class="topbar">
@@ -130,11 +130,178 @@
       <button class="preview-tab" data-preview-target="p15" type="button">Etapa 15</button>
       <button class="preview-tab" data-preview-target="pfinal" type="button">Resultado final</button>
     </div>
+
     <div class="preview-evolution__body">
-      <div class="preview-stage active" data-preview-stage="p5"><div class="preview-mock"><h4>Etapa 5 · Componente interactivo</h4><p>Título, ayuda y botones ya reaccionan a TypeScript.</p><div class="preview-wire"><span class="medium"></span><span></span><span class="short"></span></div></div></div>
-      <div class="preview-stage" data-preview-stage="p10"><div class="preview-mock"><h4>Etapa 10 · Componentes conectados</h4><p>Ya existen tarjetas reutilizables con input/output.</p><div class="preview-wire"><span></span><span></span><span class="medium"></span></div></div></div>
-      <div class="preview-stage" data-preview-stage="p15"><div class="preview-mock"><h4>Etapa 15 · SPA con dashboard</h4><p>Router, páginas, formulario y métricas trabajan sobre el mismo servicio.</p><div class="preview-wire"><span class="short"></span><span></span><span></span><span class="medium"></span></div></div></div>
-      <div class="preview-stage" data-preview-stage="pfinal"><div class="preview-mock"><h4>Resultado final</h4><p>CRUD, búsqueda, persistencia, API, estados de carga y build.</p><div class="preview-wire"><span></span><span class="medium"></span><span></span><span></span></div></div></div>
+
+      <div class="preview-stage active" data-preview-stage="p5">
+        <div class="preview-mock growth-preview">
+          <div class="growth-preview__intro">
+            <div><h4>Etapa 5 · Componente interactivo</h4><p>El template ya lee datos de TypeScript y responde a eventos.</p></div>
+            <span class="growth-preview__status">Bindings + eventos</span>
+          </div>
+
+          <div class="growth-browser">
+            <div class="growth-browser__bar">
+              <span></span><span></span><span></span>
+              <div>localhost:4200</div>
+            </div>
+            <div class="growth-app">
+              <header class="growth-app__nav">
+                <b>Angular Aula</b>
+                <nav><span class="active">Inicio</span><span>Estudiantes</span></nav>
+              </header>
+              <main class="growth-app__content">
+                <section class="growth-hero">
+                  <span class="growth-kicker">MI PRIMERA INTERACCIÓN</span>
+                  <h5>Bienvenido a Angular Aula</h5>
+                  <p>Aprende a conectar TypeScript con el template.</p>
+                  <button type="button">Mostrar ayuda</button>
+                </section>
+                <div class="growth-help">
+                  <b>💡 Ayuda visible</b>
+                  <span>Este bloque aparece porque <code>mostrarAyuda</code> cambió a true.</span>
+                </div>
+              </main>
+            </div>
+          </div>
+
+          <div class="growth-preview__checks">
+            <span>✓ interpolación</span><span>✓ (click)</span><span>✓ @if</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-stage" data-preview-stage="p10">
+        <div class="preview-mock growth-preview">
+          <div class="growth-preview__intro">
+            <div><h4>Etapa 10 · Componentes conectados</h4><p>El listado ya reutiliza tarjetas y maneja comunicación padre-hijo.</p></div>
+            <span class="growth-preview__status">input + output</span>
+          </div>
+
+          <div class="growth-browser">
+            <div class="growth-browser__bar">
+              <span></span><span></span><span></span>
+              <div>localhost:4200/estudiantes</div>
+            </div>
+            <div class="growth-app">
+              <header class="growth-app__nav">
+                <b>Angular Aula</b>
+                <nav><span>Inicio</span><span class="active">Estudiantes</span><span>Nuevo</span></nav>
+              </header>
+              <main class="growth-app__content">
+                <div class="growth-page-title">
+                  <div><span class="growth-kicker">ESTUDIANTES</span><h5>Listado reutilizable</h5></div>
+                  <span class="growth-count">2 estudiantes</span>
+                </div>
+                <div class="growth-student-grid">
+                  <article class="growth-student-card">
+                    <div class="growth-avatar">AT</div>
+                    <div><b>Ana Torres</b><small>Ingeniería de Sistemas · Semestre 4</small></div>
+                    <button class="danger" type="button">Eliminar</button>
+                  </article>
+                  <article class="growth-student-card">
+                    <div class="growth-avatar">CR</div>
+                    <div><b>Carlos Rojas</b><small>Diseño · Semestre 2</small></div>
+                    <button class="danger" type="button">Eliminar</button>
+                  </article>
+                </div>
+              </main>
+            </div>
+          </div>
+
+          <div class="growth-preview__checks">
+            <span>✓ EstudianteCard</span><span>✓ input()</span><span>✓ output()</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-stage" data-preview-stage="p15">
+        <div class="preview-mock growth-preview">
+          <div class="growth-preview__intro">
+            <div><h4>Etapa 15 · SPA con dashboard</h4><p>Router, páginas, servicio y métricas ya trabajan juntos.</p></div>
+            <span class="growth-preview__status">Router + servicio</span>
+          </div>
+
+          <div class="growth-browser">
+            <div class="growth-browser__bar">
+              <span></span><span></span><span></span>
+              <div>localhost:4200/</div>
+            </div>
+            <div class="growth-app">
+              <header class="growth-app__nav">
+                <b>Angular Aula</b>
+                <nav><span class="active">Inicio</span><span>Estudiantes</span><span>Nuevo</span></nav>
+              </header>
+              <main class="growth-app__content">
+                <div class="growth-page-title">
+                  <div><span class="growth-kicker">DASHBOARD</span><h5>Resumen del aula</h5></div>
+                  <button type="button">+ Nuevo estudiante</button>
+                </div>
+                <div class="growth-kpis">
+                  <div><small>Total estudiantes</small><strong>12</strong><span>↑ estado compartido</span></div>
+                  <div><small>Semestre promedio</small><strong>4.2</strong><span>computed()</span></div>
+                  <div><small>Programas</small><strong>5</strong><span>datos derivados</span></div>
+                </div>
+                <div class="growth-dashboard-row">
+                  <div class="growth-chart"><b>Actividad</b><div class="growth-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+                  <div class="growth-recent"><b>Últimos estudiantes</b><span>Laura Gómez</span><span>Ana Torres</span><span>Carlos Rojas</span></div>
+                </div>
+              </main>
+            </div>
+          </div>
+
+          <div class="growth-preview__checks">
+            <span>✓ rutas</span><span>✓ dashboard</span><span>✓ servicio compartido</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview-stage" data-preview-stage="pfinal">
+        <div class="preview-mock growth-preview">
+          <div class="growth-preview__intro">
+            <div><h4>Resultado final · Angular Aula completa</h4><p>CRUD, búsqueda, persistencia, API, estados y diseño responsive.</p></div>
+            <span class="growth-preview__status final">Proyecto terminado</span>
+          </div>
+
+          <div class="growth-browser">
+            <div class="growth-browser__bar">
+              <span></span><span></span><span></span>
+              <div>localhost:4200/estudiantes</div>
+            </div>
+            <div class="growth-app">
+              <header class="growth-app__nav">
+                <b>Angular Aula</b>
+                <nav><span>Inicio</span><span class="active">Estudiantes</span><span>Nuevo</span><span>Acerca</span></nav>
+              </header>
+              <main class="growth-app__content">
+                <div class="growth-page-title">
+                  <div><span class="growth-kicker">GESTIÓN</span><h5>Estudiantes</h5></div>
+                  <div class="growth-final-actions"><button type="button" class="secondary">Importar API</button><button type="button">+ Nuevo</button></div>
+                </div>
+                <div class="growth-search-row">
+                  <div class="growth-search">🔎 Buscar por nombre, programa o correo...</div>
+                  <span class="growth-api-ok">● API lista</span>
+                </div>
+                <div class="growth-student-grid final-grid">
+                  <article class="growth-student-card"><div class="growth-avatar">LG</div><div><b>Laura Gómez</b><small>Sistemas · Semestre 6</small></div><span class="growth-pill">Local</span></article>
+                  <article class="growth-student-card"><div class="growth-avatar">AT</div><div><b>Ana Torres</b><small>Sistemas · Semestre 4</small></div><span class="growth-pill api">API</span></article>
+                  <article class="growth-student-card"><div class="growth-avatar">CR</div><div><b>Carlos Rojas</b><small>Diseño · Semestre 2</small></div><span class="growth-pill">Local</span></article>
+                </div>
+                <div class="growth-final-footer">
+                  <span>💾 Datos persistidos</span>
+                  <span>📡 Signals activos</span>
+                  <span>✓ Build listo</span>
+                </div>
+              </main>
+            </div>
+          </div>
+
+          <div class="growth-preview__checks">
+            <span>✓ CRUD</span><span>✓ búsqueda</span><span>✓ localStorage</span><span>✓ HttpClient</span><span>✓ responsive</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -4143,7 +4310,7 @@ getItem('angular-aula-v2')</pre><div class="learning-actions"><button class="deb
 
 </main>
 </div>
-<script src="script.js?v=20260924-signals-hover-1"></script>\n<script src="learning.js?v=20260924-signals-hover-1"></script>
+<script src="script.js?v=20260924-growth-preview-1"></script>\n<script src="learning.js?v=20260924-growth-preview-1"></script>
 <script type="module">
   try {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs');
