@@ -787,3 +787,98 @@ h1{font-size:clamp(36px,6vw,65px);line-height:1.03;margin:8px 0 14px;max-width:8
 .tree-file-generic{
   color:#dbe7f7;
 }
+
+/* Arbol estatico: colores visibles incluso sin JavaScript */
+.folder[data-tree-highlighted="true"]{
+  padding:14px 14px 16px;
+}
+.folder[data-tree-highlighted="true"] .folder-line{
+  display:flex;
+  align-items:center;
+  min-height:30px;
+  min-width:max-content;
+  gap:8px;
+  padding:2px 7px;
+}
+.folder[data-tree-highlighted="true"] .tree-guides{
+  white-space:pre;
+  color:#64748b;
+}
+.tree-entry-badge{
+  min-width:38px;
+  height:22px;
+  padding:0 6px;
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 auto;
+  border-radius:7px;
+  border:1px solid rgba(255,255,255,.12);
+  background:#273449;
+  color:#e5edf9;
+  font:900 8px ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.02em;
+}
+.tree-entry-badge.root-folder,
+.tree-entry-badge.folder-name{
+  min-width:26px;
+  background:#123b5b;
+  color:#7dd3fc;
+}
+.tree-entry-badge.ts{
+  background:#083c5a;
+  color:#67e8f9;
+  border-color:#155e75;
+}
+.tree-entry-badge.html{
+  background:#4c1d2f;
+  color:#fda4af;
+  border-color:#881337;
+}
+.tree-entry-badge.css{
+  background:#3b1d63;
+  color:#d8b4fe;
+  border-color:#6b21a8;
+}
+.tree-entry-badge.json{
+  background:#4a3510;
+  color:#fde68a;
+  border-color:#854d0e;
+}
+.tree-entry-badge.js{
+  background:#4a3f0f;
+  color:#fef08a;
+  border-color:#a16207;
+}
+.tree-entry-badge.md{
+  background:#153c2a;
+  color:#86efac;
+  border-color:#166534;
+}
+.folder[data-tree-highlighted="true"] .tree-root-folder{
+  color:#60a5fa !important;
+  text-shadow:0 0 14px rgba(96,165,250,.18);
+}
+.folder[data-tree-highlighted="true"] .tree-folder-name{
+  color:#38bdf8 !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-ts{
+  color:#67e8f9 !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-html{
+  color:#fda4af !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-css{
+  color:#d8b4fe !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-json{
+  color:#fde68a !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-js{
+  color:#fef08a !important;
+}
+.folder[data-tree-highlighted="true"] .tree-file-md{
+  color:#86efac !important;
+}
+.folder[data-tree-highlighted="true"] .folder-line:hover{
+  background:rgba(59,130,246,.08);
+}
