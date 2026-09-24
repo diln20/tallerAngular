@@ -267,6 +267,48 @@
     });
   }
 
+
+  function enhanceFolderTrees() {
+    document.querySelectorAll('.folder').forEach(tree => {
+      if (tree.dataset.treeHighlighted === 'true') return;
+
+      const raw = tree.textContent.replace(/^\n|\n$/g, '');
+      tree.dataset.rawTree = raw;
+
+      tree.innerHTML = raw.split('\n').map((line, index) => {
+        const match = line.match(/^([\s│├└─]*)(.*)$/u);
+        const guides = match ? match[1] : '';
+        const name = match ? match[2] : line;
+        const lower = name.toLowerCase();
+
+        let cls = 'tree-file-generic';
+        if (name.endsWith('/')) cls = index === 0 ? 'tree-root-folder' : 'tree-folder-name';
+        else if (lower.endsWith('.ts')) cls = 'tree-file-ts';
+        else if (lower.endsWith('.html')) cls = 'tree-file-html';
+        else if (lower.endsWith('.css')) cls = 'tree-file-css';
+        else if (lower.endsWith('.json')) cls = 'tree-file-json';
+        else if (lower.endsWith('.js') || lower.endsWith('.cjs') || lower.endsWith('.mjs')) cls = 'tree-file-js';
+        else if (lower.endsWith('.md')) cls = 'tree-file-md';
+
+        const icon =
+          name.endsWith('/') ? '📁 ' :
+          lower.endsWith('.ts') ? '◆ ' :
+          lower.endsWith('.html') ? '◇ ' :
+          lower.endsWith('.css') ? '● ' :
+          lower.endsWith('.json') ? '▣ ' :
+          '';
+
+        return '<span class="folder-line">' +
+          '<span class="tree-guides">' + escapeHtml(guides) + '</span>' +
+          '<span class="tree-entry-icon">' + icon + '</span>' +
+          '<span class="' + cls + '">' + escapeHtml(name) + '</span>' +
+        '</span>';
+      }).join('');
+
+      tree.dataset.treeHighlighted = 'true';
+    });
+  }
+
   function renderProgress() {
     buttons.forEach(btn => {
       const done = completed.has(btn.dataset.finish);
@@ -322,5 +364,6 @@
   targets.forEach(t => observer.observe(t));
 
   enhanceCodeBlocks();
+  enhanceFolderTrees();
   renderProgress();
 })();
