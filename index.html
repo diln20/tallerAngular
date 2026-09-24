@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Taller Angular desde Cero | Angular Aula paso a paso</title>
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
-<link rel="stylesheet" href="styles.css?v=20260924-tree-static-3">
+<link rel="stylesheet" href="styles.css?v=20260924-observer-1">
 </head>
 <body>
 <header class="topbar">
@@ -42,6 +42,7 @@
     <a href="#tarjeta"><span class="dot">9</span>Componente tarjeta</a>
     <a href="#comunicacion"><span class="dot">10</span>input y output</a>
     <a href="#servicio"><span class="dot">11</span>Servicio</a>
+    <a href="#patron-observer"><span class="dot">P</span>Patrón Observer</a>
     <a href="#listado"><span class="dot">12</span>Página estudiantes</a>
     <a href="#formulario"><span class="dot">13</span>Formulario</a>
     <a href="#rutas"><span class="dot">14</span>Rutas</a>
@@ -1247,6 +1248,235 @@ export class Estudiantes {
 <div class="mission"><h3>Comprobación</h3><p>El servicio debe compilar sin errores.</p><button class="finish" data-finish="11">Marcar etapa terminada</button></div>
 </section>
 
+
+<section class="section" id="patron-observer" data-search="patron diseño observer observador signals servicio estado reactivo diagrama flujo">
+  <div class="section-head">
+    <div class="num">P</div>
+    <div>
+      <h2>Patrón de diseño fácil: Observer (Observador)</h2>
+      <p class="subtitle">Cuando cambia el estado, las partes que dependen de él se actualizan automáticamente.</p>
+    </div>
+  </div>
+
+  <span class="phase">PATRÓN DE DISEÑO</span>
+  <span class="phase">Aplicado con Signals</span>
+
+  <div class="pattern-intro">
+    <div class="pattern-card">
+      <h3>¿Qué es un patrón de diseño?</h3>
+      <p>Es una forma conocida de organizar código para resolver un problema que aparece muchas veces. No es una librería ni un comando: es una <b>idea de organización</b>.</p>
+    </div>
+
+    <div class="pattern-card">
+      <h3>¿Por qué Observer?</h3>
+      <p>Angular Aula tiene un estado compartido: los estudiantes. Cuando agregamos o eliminamos uno, varias partes de la interfaz necesitan enterarse del cambio. Observer encaja muy bien con esa situación.</p>
+    </div>
+  </div>
+
+  <div class="callout ok">
+    <b>Idea en una frase:</b> un objeto mantiene el estado y otras partes lo observan. Cuando el estado cambia, los observadores reaccionan.
+  </div>
+
+  <h3>Una analogía muy sencilla</h3>
+  <p>Piensa en un canal de noticias. El canal publica una noticia una sola vez y todos sus suscriptores reciben la actualización. No es necesario avisar manualmente a cada persona.</p>
+
+  <div class="observer-map">
+    <div class="observer-source">
+      <b>📡 Fuente observada</b>
+      <span><code>_estudiantes</code> en el servicio</span>
+    </div>
+
+    <div class="observer-targets">
+      <div class="observer-target">
+        <div><b>Dashboard</b><span>Observa el total de estudiantes.</span></div>
+      </div>
+      <div class="observer-target">
+        <div><b>Página Estudiantes</b><span>Observa la lista para mostrar tarjetas.</span></div>
+      </div>
+      <div class="observer-target">
+        <div><b>Valores computed()</b><span>Se recalculan cuando cambia el Signal.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Cómo se aplica en Angular Aula</h3>
+
+  <div class="pattern-role-grid">
+    <div class="pattern-role">
+      <b>1. Estado observado</b>
+      <span>El Signal privado <code>_estudiantes</code>.</span>
+    </div>
+    <div class="pattern-role">
+      <b>2. Publicador</b>
+      <span>El servicio <code>Estudiantes</code> modifica ese estado.</span>
+    </div>
+    <div class="pattern-role">
+      <b>3. Observadores</b>
+      <span>Componentes, templates y <code>computed()</code> que leen el Signal.</span>
+    </div>
+    <div class="pattern-role">
+      <b>4. Reacción</b>
+      <span>Angular actualiza las partes de la interfaz que dependen del estado.</span>
+    </div>
+  </div>
+
+  <h3>Código del estado observado</h3>
+  <div class="filepath">src/app/services/estudiantes.ts</div>
+  <div class="codebox">
+    <div class="codehead">estudiantes.ts · parte Observer <button class="copy-btn">Copiar</button></div>
+    <pre>private readonly _estudiantes = signal&lt;Estudiante[]&gt;([
+  {
+    id: 1,
+    nombre: 'Ana Torres',
+    email: 'ana@correo.com',
+    programa: 'Ingeniería de Sistemas',
+    semestre: 4
+  }
+]);
+
+readonly estudiantes = this._estudiantes.asReadonly();
+
+readonly total = computed(() =&gt;
+  this._estudiantes().length
+);</pre>
+  </div>
+
+  <div class="code-explanation">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div>
+        <strong>Entiende la relación con Observer</strong>
+        <p>No necesitas programar notificaciones manuales. Signals realiza el seguimiento reactivo de las dependencias.</p>
+      </div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row">
+        <code>signal&lt;Estudiante[]&gt;(...)</code>
+        <div>Es la <b>fuente de estado</b>. Su valor puede cambiar durante la ejecución.</div>
+      </div>
+      <div class="code-explain-row">
+        <code>asReadonly()</code>
+        <div>Permite que otros componentes <b>observen</b> la lista sin modificar el Signal directamente.</div>
+      </div>
+      <div class="code-explain-row">
+        <code>computed(...)</code>
+        <div>Depende del Signal. Cuando cambia la lista, Angular vuelve a calcular automáticamente el total.</div>
+      </div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> el servicio controla el cambio; los demás leen y reaccionan.</div>
+  </div>
+
+  <h3>¿Qué ocurre cuando agregamos un estudiante?</h3>
+  <div class="codebox">
+    <div class="codehead">estudiantes.ts · cambio de estado <button class="copy-btn">Copiar</button></div>
+    <pre>agregar(datos: Omit&lt;Estudiante, 'id'&gt;): void {
+  const nuevo: Estudiante = {
+    id: Date.now(),
+    ...datos
+  };
+
+  this._estudiantes.update(actuales =&gt; [
+    ...actuales,
+    nuevo
+  ]);
+}</pre>
+  </div>
+
+  <div class="pattern-steps">
+    <div class="pattern-step">
+      <span class="pattern-step__num">1</span>
+      <div class="pattern-step__text"><b>El usuario guarda.</b> El formulario llama al servicio.</div>
+    </div>
+    <div class="pattern-step">
+      <span class="pattern-step__num">2</span>
+      <div class="pattern-step__text"><b>El servicio cambia el Signal.</b> <code>update()</code> crea la nueva lista.</div>
+    </div>
+    <div class="pattern-step">
+      <span class="pattern-step__num">3</span>
+      <div class="pattern-step__text"><b>Las dependencias detectan el cambio.</b> El total y la lista dependen del Signal.</div>
+    </div>
+    <div class="pattern-step">
+      <span class="pattern-step__num">4</span>
+      <div class="pattern-step__text"><b>Angular actualiza la pantalla.</b> El estudiante nuevo aparece sin manipular el DOM manualmente.</div>
+    </div>
+  </div>
+
+  <h3>Diagrama de flujo del patrón dentro de Angular Aula</h3>
+  <div class="flow-diagram">
+    <div class="flow-diagram__title">Flujo al registrar un estudiante</div>
+    <div class="flow-track">
+      <div class="flow-node user">
+        <strong>👤 Usuario</strong>
+        <small>Presiona Guardar</small>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-node component">
+        <strong>🧩 Componente</strong>
+        <small>guardar()</small>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-node service">
+        <strong>⚙ Servicio</strong>
+        <small>agregar()</small>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-node state">
+        <strong>📡 Signal</strong>
+        <small>_estudiantes.update()</small>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-node view">
+        <strong>👁 Observadores</strong>
+        <small>computed + template</small>
+      </div>
+      <div class="flow-arrow">→</div>
+
+      <div class="flow-node user">
+        <strong>🖥 Interfaz</strong>
+        <small>La lista se actualiza</small>
+      </div>
+    </div>
+  </div>
+
+  <h3>Flujo completo explicado</h3>
+  <div class="line-guide">
+    <div class="row"><div>Usuario → guardar()</div><div>El usuario envía el formulario. El componente recibe el evento.</div></div>
+    <div class="row"><div>guardar() → servicio.agregar()</div><div>El componente no modifica la lista directamente. Delega esa responsabilidad al servicio.</div></div>
+    <div class="row"><div>servicio → Signal</div><div>El servicio modifica <code>_estudiantes</code> mediante <code>update()</code>.</div></div>
+    <div class="row"><div>Signal → observadores</div><div>Las expresiones que dependen del Signal quedan vinculadas reactivamente a ese estado.</div></div>
+    <div class="row"><div>observadores → pantalla</div><div>Angular refleja el nuevo estado en el template sin usar <code>querySelector</code> ni <code>innerHTML</code>.</div></div>
+  </div>
+
+  <h3>¿Qué problema nos evita este patrón?</h3>
+  <div class="grid3">
+    <div class="card">
+      <h4>Sin Observer</h4>
+      <p>Tendríamos que recordar actualizar manualmente el total, el listado y cualquier otra pantalla después de cada cambio.</p>
+    </div>
+    <div class="card">
+      <h4>Con Observer + Signals</h4>
+      <p>Las partes dependientes reaccionan al estado. El código queda más desacoplado y fácil de seguir.</p>
+    </div>
+    <div class="card">
+      <h4>En Angular Aula</h4>
+      <p>El servicio cambia los estudiantes; Inicio y Estudiantes muestran automáticamente el estado actualizado.</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <b>No confundas Observer con un archivo nuevo.</b> Es un patrón de organización. En Angular Aula lo aplicamos usando el servicio, Signals, <code>computed()</code> y templates reactivos.
+  </div>
+
+  <div class="mission">
+    <h3>Comprueba que entendiste</h3>
+    <p>Si agregas un estudiante desde el formulario, explica por qué no necesitas llamar manualmente a una función para actualizar el total del Dashboard.</p>
+  </div>
+</section>
+
 <section class="section station" id="listado" data-search="students page search filter computed ngmodel">
   <div class="section-head"><div class="num">12</div><div><h2>Crear la página Estudiantes</h2><p class="subtitle">Listado, búsqueda y eliminación en una pantalla real.</p></div></div><div data-project-map="listado">
   <div class="project-map">
@@ -2429,6 +2659,6 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-tree-static-3"></script>
+<script src="script.js?v=20260924-observer-1"></script>
 </body>
 </html>
