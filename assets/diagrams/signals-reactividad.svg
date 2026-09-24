@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+<title id="t">Reactividad con Signals</title><desc id="d">Un evento actualiza un Signal, computed se recalcula y el template se actualiza.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#f8f5ff"/></linearGradient>
+ <linearGradient id="sig" x1="0" x2="1"><stop stop-color="#10b981"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+ <linearGradient id="cmp" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+ <linearGradient id="view" x1="0" x2="1"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e293b" flood-opacity=".13"/></filter>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#7c3aed"/></marker>
+</defs>
+<rect width="1200" height="520" rx="34" fill="url(#bg)"/>
+<text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Reactividad con Signals</text>
+<text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Angular actualiza solo lo que depende del estado que cambió.</text>
+
+<g filter="url(#s)">
+ <rect x="70" y="190" width="190" height="150" rx="28" fill="#fff"/>
+ <circle cx="165" cy="222" r="26" fill="#eff6ff"/>
+ <path d="M151 222h28M165 208v28" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+ <text x="165" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="800" fill="#172033">Acción</text>
+ <text x="165" y="305" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">Agregar estudiante</text>
+</g>
+<path d="M260 265 H348" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="360" y="170" width="220" height="190" rx="30" fill="url(#sig)"/>
+ <circle cx="470" cy="218" r="30" fill="#fff" opacity=".2"/>
+ <circle cx="470" cy="218" r="8" fill="#fff"/>
+ <path d="M470 226v24M452 242h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+ <text x="470" y="292" text-anchor="middle" font-family="Inter,Arial" font-size="21" font-weight="900" fill="#fff">Signal</text>
+ <text x="470" y="320" text-anchor="middle" font-family="monospace" font-size="13" fill="#ecfdf5">_estudiantes</text>
+</g>
+<path d="M580 235 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path d="M580 295 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="680" y="145" width="200" height="130" rx="24" fill="url(#cmp)"/>
+ <text x="780" y="188" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#fff">computed()</text>
+ <text x="780" y="220" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#ede9fe">recalcula total</text>
+ <text x="780" y="246" text-anchor="middle" font-family="monospace" font-size="13" fill="#fff">total()</text>
+</g>
+<g filter="url(#s)">
+ <rect x="680" y="295" width="200" height="130" rx="24" fill="#fff"/>
+ <text x="780" y="340" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#172033">Lista</text>
+ <text x="780" y="370" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee estudiantes()</text>
+ <text x="780" y="397" text-anchor="middle" font-family="monospace" font-size="13" fill="#2563eb">@for</text>
+</g>
+<path d="M880 210 C930 210 925 260 965 260" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path d="M880 360 C930 360 925 300 965 300" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="975" y="205" width="160" height="150" rx="28" fill="url(#view)"/>
+ <text x="1055" y="248" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#fff">Template</text>
+ <text x="1055" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff5f7">interfaz visible</text>
+ <text x="1055" y="311" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff">se actualiza sola</text>
+</g>
+<rect x="70" y="448" width="1065" height="46" rx="18" fill="#fff"/>
+<text x="92" y="477" font-family="Inter,Arial" font-size="14" font-weight="800" fill="#16a34a">No necesitas llamar manualmente a “refrescar()”.</text>
+<text x="435" y="477" font-family="Inter,Arial" font-size="14" fill="#64748b">Angular conoce las dependencias del Signal.</text>
+</svg>
