@@ -7,7 +7,7 @@
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5/400.css">
-<link rel="stylesheet" href="styles.css?v=20260924-svg-1">
+<link rel="stylesheet" href="styles.css?v=20260924-syntax-1">
 </head>
 <body>
 <header class="topbar">
@@ -33,6 +33,7 @@
     <a href="#repaso-html"><span class="dot">R</span>Repaso HTML</a>
     <a href="#repaso-css"><span class="dot">R</span>Repaso CSS</a>
     <a href="#repaso-js"><span class="dot">R</span>Repaso JavaScript</a>
+    <a href="#sintaxis-principiante"><span class="dot">S</span>Sintaxis para empezar</a>
     <a href="#instalacion"><span class="dot">1</span>Instalación</a>
     <a href="#crear"><span class="dot">2</span>Crear Angular Aula</a>
     <a href="#estructura"><span class="dot">3</span>Estructura Angular</a>
@@ -207,6 +208,236 @@ const estudiantes = [
 );</pre></div>
 
   <div class="callout ok"><b>Con esto basta para comenzar.</b> No necesitas dominar JavaScript completo antes de Angular. Los conceptos se reforzarán cuando aparezcan dentro del proyecto.</div>
+</section>
+
+
+<section class="section" id="sintaxis-principiante" data-search="sintaxis principiante this arrow function spread generics corchetes llaves parentesis template binding event optional">
+  <div class="section-head">
+    <div class="num">S</div>
+    <div>
+      <h2>Sintaxis que debes reconocer antes de Angular</h2>
+      <p class="subtitle">No necesitas memorizarla. La meta es que cuando la veas, sepas qué está intentando decir el código.</p>
+    </div>
+  </div>
+
+  <div class="callout ok">
+    <b>Regla para principiantes:</b> no intentes leer una línea completa de golpe. Divídela en piezas pequeñas: variable, tipo, función, parámetro y resultado.
+  </div>
+
+  <h3>1. Símbolos que vas a encontrar todo el tiempo</h3>
+  <div class="syntax-lab">
+    <div class="syntax-lab__head">
+      <div><strong>Diccionario visual de símbolos</strong><p>El mismo símbolo puede cambiar de significado según el contexto.</p></div>
+      <span class="syntax-lab__badge">chuleta rápida</span>
+    </div>
+    <div class="syntax-lab__body">
+      <div class="syntax-symbol-grid">
+        <div class="syntax-symbol"><code>()</code><b>Paréntesis</b><p>Llaman una función: <code>guardar()</code>. También contienen parámetros: <code>eliminar(id)</code>.</p></div>
+        <div class="syntax-symbol"><code>[]</code><b>Corchetes</b><p>En TypeScript crean arrays: <code>Estudiante[]</code>. En templates Angular hacen property binding: <code>[disabled]</code>.</p></div>
+        <div class="syntax-symbol"><code>{}</code><b>Llaves</b><p>Crean objetos o delimitan bloques de código. Ejemplo: <code>{ nombre: 'Ana' }</code>.</p></div>
+        <div class="syntax-symbol"><code>&lt;&gt;</code><b>Genéricos</b><p>Indican el tipo con el que trabaja algo: <code>signal&lt;Estudiante[]&gt;</code>.</p></div>
+        <div class="syntax-symbol"><code>=&gt;</code><b>Arrow function</b><p>Es una función corta. Ejemplo: <code>x =&gt; x.id</code>.</p></div>
+        <div class="syntax-symbol"><code>...</code><b>Spread</b><p>Copia elementos o propiedades: <code>[...actuales, nuevo]</code>.</p></div>
+        <div class="syntax-symbol"><code>.</code><b>Punto</b><p>Accede a algo que pertenece a un objeto: <code>estudiante.nombre</code>.</p></div>
+        <div class="syntax-symbol"><code>:</code><b>Dos puntos</b><p>En TypeScript separa nombre y tipo: <code>id: number</code>.</p></div>
+        <div class="syntax-symbol"><code>?</code><b>Interrogación</b><p>Puede significar “opcional” en <code>externo?: boolean</code> o formar parte de un ternario.</p></div>
+        <div class="syntax-symbol"><code>@</code><b>Angular</b><p>Lo verás en <code>@Component</code>, <code>@if</code> y <code>@for</code>. No todos significan exactamente lo mismo.</p></div>
+        <div class="syntax-symbol"><code>#</code><b>Referencia template</b><p>Ejemplo: <code>#form="ngForm"</code>. Crea un nombre local dentro del HTML.</p></div>
+        <div class="syntax-symbol"><code>$event</code><b>Dato del evento</b><p>Angular coloca aquí el valor que produjo un evento: <code>eliminar($event)</code>.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <h3>2. Aprende a desarmar una línea difícil</h3>
+  <div class="syntax-breakdown">
+    <div class="syntax-breakdown__code">private readonly _estudiantes = signal&lt;Estudiante[]&gt;([]);</div>
+    <div class="syntax-breakdown__parts">
+      <div class="syntax-part"><code>private</code><div>Solo la clase del servicio puede acceder directamente a esta propiedad.</div></div>
+      <div class="syntax-part"><code>readonly</code><div>No podremos hacer otra asignación como <code>_estudiantes = otraCosa</code>. El Signal sí puede cambiar internamente con <code>set()</code> o <code>update()</code>.</div></div>
+      <div class="syntax-part"><code>_estudiantes</code><div>Es el nombre de la propiedad. El guion bajo es una convención para indicar que es interna.</div></div>
+      <div class="syntax-part"><code>=</code><div>Asigna a la propiedad el resultado de lo que está a la derecha.</div></div>
+      <div class="syntax-part"><code>signal</code><div>Función de Angular que crea estado reactivo.</div></div>
+      <div class="syntax-part"><code>&lt;Estudiante[]&gt;</code><div>Le dice a TypeScript: “este Signal guardará un array de estudiantes”.</div></div>
+      <div class="syntax-part"><code>([])</code><div>Valor inicial: un array vacío.</div></div>
+    </div>
+  </div>
+
+  <div class="beginner-note"><b>No leas:</b> “private readonly underscore estudiantes igual signal menor que…”. <b>Lee la intención:</b> “Creo una lista privada y reactiva de estudiantes, inicialmente vacía”.</div>
+
+  <h3>3. ¿Qué significa <code>this</code>?</h3>
+  <div class="mini-example">
+    <div class="mini-example__title">🧠 Ejemplo sencillo</div>
+    <div class="mini-example__body">
+      <div class="mini-example__side">
+        <b>Clase</b>
+        <pre>export class App {
+  titulo = 'Angular Aula';
+
+  mostrarTitulo() {
+    return this.titulo;
+  }
+}</pre>
+        <p><code>this</code> significa “esta instancia de App”.</p>
+      </div>
+      <div class="mini-example__side">
+        <b>Cómo leerlo</b>
+        <pre>this.titulo
+↓
+el titulo que pertenece
+a este componente</pre>
+        <p>Cuando ves <code>this.algo</code>, busca <code>algo</code> dentro de la misma clase.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>4. Función normal vs arrow function</h3>
+  <div class="syntax-compare">
+    <div class="syntax-compare__box">
+      <b>Función normal</b>
+      <code>function duplicar(numero) { return numero * 2; }</code>
+    </div>
+    <div class="syntax-compare__arrow">→</div>
+    <div class="syntax-compare__box">
+      <b>Arrow function</b>
+      <code>numero =&gt; numero * 2</code>
+    </div>
+  </div>
+
+  <div class="mini-example">
+    <div class="mini-example__title">🔎 Ejemplo real que verás en el taller</div>
+    <div class="mini-example__body">
+      <div class="mini-example__side">
+        <b>Código</b>
+        <pre>estudiantes.filter(
+  estudiante =&gt;
+    estudiante.semestre &gt; 1
+);</pre>
+      </div>
+      <div class="mini-example__side">
+        <b>Traducción a español</b>
+        <pre>Para cada estudiante:
+¿su semestre es mayor que 1?
+
+Sí → conservarlo
+No → descartarlo</pre>
+      </div>
+    </div>
+  </div>
+
+  <h3>5. El operador spread <code>...</code></h3>
+  <div class="mini-example">
+    <div class="mini-example__title">📦 Copiar sin destruir lo anterior</div>
+    <div class="mini-example__body">
+      <div class="mini-example__side">
+        <b>Array anterior</b>
+        <pre>const actuales = ['Ana', 'Carlos'];
+
+const nuevos = [
+  ...actuales,
+  'Laura'
+];</pre>
+        <p><code>...actuales</code> coloca dentro del array nuevo todos los elementos que ya existían.</p>
+      </div>
+      <div class="mini-example__side">
+        <b>Resultado</b>
+        <pre>[
+  'Ana',
+  'Carlos',
+  'Laura'
+]</pre>
+        <p>Esto aparece mucho con Signals porque solemos crear un array nuevo.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>6. Genéricos: lo que aparece entre <code>&lt; &gt;</code></h3>
+  <div class="syntax-breakdown">
+    <div class="syntax-breakdown__code">signal&lt;Estudiante[]&gt;([])</div>
+    <div class="syntax-breakdown__parts">
+      <div class="syntax-part"><code>signal</code><div>La herramienta que vamos a utilizar.</div></div>
+      <div class="syntax-part"><code>&lt;Estudiante[]&gt;</code><div>El tipo de datos que esperamos guardar.</div></div>
+      <div class="syntax-part"><code>([])</code><div>El valor inicial concreto.</div></div>
+    </div>
+  </div>
+
+  <div class="syntax-compare">
+    <div class="syntax-compare__box"><b>Piensa en una caja</b><code>signal&lt;number&gt;(0)</code><p class="small">Una caja reactiva para números.</p></div>
+    <div class="syntax-compare__arrow">→</div>
+    <div class="syntax-compare__box"><b>Ahora una lista</b><code>signal&lt;Estudiante[]&gt;([])</code><p class="small">Una caja reactiva para una lista de estudiantes.</p></div>
+  </div>
+
+  <h3>7. Sintaxis propia de templates Angular</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Sintaxis</th><th>Cómo leerla</th><th>Ejemplo</th></tr></thead>
+      <tbody>
+        <tr><td><code>{{ valor }}</code></td><td>“Muestra este valor como texto”.</td><td><code>{{ estudiante.nombre }}</code></td></tr>
+        <tr><td><code>[propiedad]</code></td><td>“Controla esta propiedad HTML desde TypeScript”.</td><td><code>[disabled]="form.invalid"</code></td></tr>
+        <tr><td><code>(evento)</code></td><td>“Cuando ocurra esto, ejecuta esta acción”.</td><td><code>(click)="eliminar()"</code></td></tr>
+        <tr><td><code>[(ngModel)]</code></td><td>“El HTML y TypeScript se mantienen sincronizados”.</td><td><code>[(ngModel)]="formulario.nombre"</code></td></tr>
+        <tr><td><code>@if</code></td><td>“Muestra este bloque solo si se cumple una condición”.</td><td><code>@if (cargando())</code></td></tr>
+        <tr><td><code>@for</code></td><td>“Repite este bloque por cada elemento”.</td><td><code>@for (e of estudiantes(); track e.id)</code></td></tr>
+        <tr><td><code>#nombre</code></td><td>“Guarda una referencia local del template”.</td><td><code>#form="ngForm"</code></td></tr>
+        <tr><td><code>$event</code></td><td>“El dato producido por el evento”.</td><td><code>eliminar($event)</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8. Tres conexiones que debes reconocer de memoria visual</h3>
+  <div class="mini-example">
+    <div class="mini-example__title">🔌 TypeScript ↔ Template</div>
+    <div class="mini-example__body">
+      <div class="mini-example__side">
+        <b>Desde TypeScript hacia HTML</b>
+        <pre>nombre = 'Ana';
+
+{{ nombre }}
+
+[disabled]="cargando()"</pre>
+        <p>El componente entrega información a la vista.</p>
+      </div>
+      <div class="mini-example__side">
+        <b>Desde HTML hacia TypeScript</b>
+        <pre>(click)="guardar()"
+
+(ngSubmit)="guardar()"
+
+(eliminar)="eliminar($event)"</pre>
+        <p>El usuario hace algo y el template avisa al componente.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>9. Palabras de TypeScript que pueden parecer extrañas</h3>
+  <div class="syntax-symbol-grid">
+    <div class="syntax-symbol"><code>export</code><b>Compartir</b><p>Permite importar una clase o interface desde otro archivo.</p></div>
+    <div class="syntax-symbol"><code>import</code><b>Traer</b><p>Hace disponible algo que fue exportado desde otro módulo.</p></div>
+    <div class="syntax-symbol"><code>interface</code><b>Forma de un objeto</b><p>Describe qué propiedades y tipos debe tener.</p></div>
+    <div class="syntax-symbol"><code>private</code><b>Solo aquí</b><p>Limita el acceso a esa propiedad o método dentro de la clase.</p></div>
+    <div class="syntax-symbol"><code>readonly</code><b>No reasignar</b><p>Impide cambiar la referencia por otra después de crearla.</p></div>
+    <div class="syntax-symbol"><code>void</code><b>No devuelve valor</b><p>Ejemplo: <code>guardar(): void</code>.</p></div>
+    <div class="syntax-symbol"><code>Omit&lt;T, K&gt;</code><b>Tipo menos campos</b><p><code>Omit&lt;Estudiante, 'id'&gt;</code> significa Estudiante sin id.</p></div>
+    <div class="syntax-symbol"><code>inject()</code><b>Pedir dependencia</b><p>Angular entrega una instancia de un servicio o Router.</p></div>
+    <div class="syntax-symbol"><code>computed()</code><b>Dato calculado</b><p>Su resultado depende de otros Signals.</p></div>
+  </div>
+
+  <h3>10. Un ejemplo completo leído de izquierda a derecha</h3>
+  <div class="syntax-breakdown">
+    <div class="syntax-breakdown__code">filtrados = computed(() =&gt; this.estudiantes().filter(e =&gt; e.semestre &gt; 2));</div>
+    <div class="syntax-breakdown__parts">
+      <div class="syntax-part"><code>filtrados =</code><div>Creo una propiedad llamada <b>filtrados</b>.</div></div>
+      <div class="syntax-part"><code>computed(...)</code><div>Su valor será calculado y podrá cambiar automáticamente.</div></div>
+      <div class="syntax-part"><code>() =&gt;</code><div>Función sin parámetros que indica cómo calcular el valor.</div></div>
+      <div class="syntax-part"><code>this.estudiantes()</code><div>Leo el Signal de estudiantes.</div></div>
+      <div class="syntax-part"><code>.filter(...)</code><div>Creo una lista nueva conservando solo algunos elementos.</div></div>
+      <div class="syntax-part"><code>e =&gt;</code><div><code>e</code> representa cada estudiante durante el recorrido.</div></div>
+      <div class="syntax-part"><code>e.semestre &gt; 2</code><div>Solo conserva estudiantes con semestre mayor que 2.</div></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>Cómo estudiar esta sintaxis:</b> cuando aparezca algo desconocido en una etapa del taller, vuelve a esta sección. No necesitas aprenderla toda antes de continuar.
+  </div>
 </section>
 
 <div class="phase-title"><h2>FASE 1 · Instalar y crear Angular Aula</h2><p>Aquí comienza el proyecto real. Desde este punto todo lo que construyas será Angular.</p></div>
@@ -828,6 +1059,23 @@ input {
     <div class="edu-callout"><b>Regla visual:</b> <code>{{ }}</code> y <code>[ ]</code> llevan información hacia la vista; <code>( )</code> lleva eventos desde la vista hacia TypeScript.</div>
   </div>
 </div></div>
+<div data-beginner-example="binding">
+<div class="mini-example">
+  <div class="mini-example__title">🧪 Ejemplo mínimo antes del código real</div>
+  <div class="mini-example__body">
+    <div class="mini-example__side"><b>TypeScript</b><pre>nombre = 'Ana';
+
+saludar() {
+  alert('Hola');
+}</pre><p>Una propiedad y un método.</p></div>
+    <div class="mini-example__side"><b>Template</b><pre>&lt;p&gt;{{ nombre }}&lt;/p&gt;
+
+&lt;button
+  (click)="saludar()"&gt;
+  Saludar
+&lt;/button&gt;</pre><p>La vista lee <code>nombre</code> y ejecuta <code>saludar()</code>.</p></div>
+  </div>
+</div></div>
 <div class="code-explanation" data-code-explanation="binding">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -946,6 +1194,20 @@ export class App {
       <span class="edu-chip">template = consumidor</span>
     </div>
     <div class="edu-callout"><b>Detalle interesante:</b> no tienes que llamar manualmente a “actualizarTotal()”. Angular conoce la dependencia porque <code>computed()</code> leyó el Signal.</div>
+  </div>
+</div></div>
+<div data-beginner-example="signals">
+<div class="mini-example">
+  <div class="mini-example__title">🧪 Variable normal vs Signal</div>
+  <div class="mini-example__body">
+    <div class="mini-example__side"><b>Variable</b><pre>contador = 0;
+
+contador = contador + 1;</pre><p>Es un valor normal de TypeScript.</p></div>
+    <div class="mini-example__side"><b>Signal</b><pre>contador = signal(0);
+
+contador.update(
+  actual =&gt; actual + 1
+);</pre><p>Se lee con <code>contador()</code> y Angular puede reaccionar a sus cambios.</p></div>
   </div>
 </div></div>
 <div class="code-explanation" data-code-explanation="signals">
@@ -1270,6 +1532,14 @@ export class EstudianteCard {
       <div class="edu-node blue"><span class="edu-node__icon">🗑</span><strong>Padre</strong><small>Llama al servicio</small></div>
     </div>
     <div class="edu-callout"><b>Idea de diseño:</b> la tarjeta no sabe cómo se guarda la lista. Solo recibe un estudiante y avisa cuando el usuario quiere eliminarlo.</div>
+  </div>
+</div></div>
+<div data-beginner-example="inputoutput">
+<div class="mini-example">
+  <div class="mini-example__title">🧪 Piensa en input/output como una conversación</div>
+  <div class="mini-example__body">
+    <div class="mini-example__side"><b>Padre → hijo</b><pre>[estudiante]="ana"</pre><p>“Tarjeta, toma este estudiante y muéstralo”.</p></div>
+    <div class="mini-example__side"><b>Hijo → padre</b><pre>(eliminar)="eliminar($event)"</pre><p>“Padre, el usuario pidió eliminar este ID”.</p></div>
   </div>
 </div></div>
 <div class="code-explanation" data-code-explanation="comunicacion">
@@ -2114,6 +2384,16 @@ export class NuevoEstudiante {
     </div>
     <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> cada flecha representa una responsabilidad distinta: el formulario captura, el componente coordina, el servicio modifica datos y el Router cambia de pantalla.</div></div>
   </div>
+<div data-beginner-example="formulario">
+<div class="mini-example">
+  <div class="mini-example__title">🧪 Qué hace realmente [(ngModel)]</div>
+  <div class="mini-example__body">
+    <div class="mini-example__side"><b>El usuario escribe</b><pre>Laura</pre><p>El texto del input cambia.</p></div>
+    <div class="mini-example__side"><b>Angular mantiene</b><pre>formulario.nombre
+// ahora vale:
+'Laura'</pre><p>HTML y TypeScript quedan sincronizados sin usar <code>querySelector</code>.</p></div>
+  </div>
+</div></div>
 <div class="code-explanation" data-code-explanation="formulario">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -2790,6 +3070,22 @@ importarDesdeApi() {
     </div>
     <div class="mermaid-card__read"><span>↳</span><div><b>Cómo leerlo:</b> la API nunca conoce nuestro modelo <code>Estudiante</code>. El servicio actúa como frontera y transforma la respuesta externa antes de guardarla.</div></div>
   </div>
+<div data-beginner-example="http">
+<div class="mini-example">
+  <div class="mini-example__title">🧪 Modelo externo vs modelo interno</div>
+  <div class="mini-example__body">
+    <div class="mini-example__side"><b>La API entrega</b><pre>{
+  name: 'Leanne',
+  email: 'leanne@api.com'
+}</pre><p>Es la forma de <code>UsuarioApi</code>.</p></div>
+    <div class="mini-example__side"><b>Nuestra app necesita</b><pre>{
+  nombre: 'Leanne',
+  email: 'leanne@api.com',
+  programa: 'Importado',
+  semestre: 1
+}</pre><p>Por eso usamos <code>map()</code> para transformar los datos.</p></div>
+  </div>
+</div></div>
 <div class="code-explanation" data-code-explanation="http">
     <div class="code-explanation__head">
       <span class="code-explanation__icon">💡</span>
@@ -3216,7 +3512,7 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-svg-1"></script>
+<script src="script.js?v=20260924-syntax-1"></script>
 <script type="module">
   try {
     const { default: mermaid } = await import('https://cdn.jsdelivr.net/npm/mermaid@12/dist/mermaid.esm.min.mjs');
