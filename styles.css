@@ -1283,3 +1283,108 @@ h1{font-size:clamp(36px,6vw,65px);line-height:1.03;margin:8px 0 14px;max-width:8
   .edu-diagram__head{flex-direction:column}
   .edu-diagram__badge{align-self:flex-start}
 }
+
+/* Diagramas avanzados con Mermaid */
+.mermaid-card{
+  margin:22px 0 28px;
+  border:1px solid color-mix(in srgb,var(--brand) 24%,var(--line));
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--panel);
+  box-shadow:0 12px 30px rgba(24,36,64,.07);
+}
+.mermaid-card__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 7%,var(--panel)),var(--panel));
+}
+.mermaid-card__head strong{
+  display:block;
+  color:var(--text);
+  font-size:15px;
+}
+.mermaid-card__head p{
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:12px;
+}
+.mermaid-card__badge{
+  flex:0 0 auto;
+  padding:5px 9px;
+  border-radius:999px;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+  color:#c2410c;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+}
+.mermaid-card__canvas{
+  padding:18px;
+  overflow:auto;
+  background:
+    radial-gradient(circle at 14% 10%,rgba(124,58,237,.06),transparent 28%),
+    radial-gradient(circle at 88% 88%,rgba(2,132,199,.05),transparent 24%),
+    #fbfcff;
+}
+.mermaid-card pre.mermaid{
+  margin:0;
+  min-width:640px;
+  display:flex;
+  justify-content:center;
+  background:transparent;
+  color:#172033;
+  border:0;
+  font:13px/1.45 "Open Sans",Inter,system-ui,sans-serif;
+  white-space:pre;
+}
+.mermaid-card .mermaid svg{
+  max-width:100% !important;
+  height:auto !important;
+}
+.mermaid-card__read{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:10px;
+  align-items:start;
+  padding:14px 18px 17px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+}
+.mermaid-card__read b{color:var(--text)}
+.mermaid-card__read span:first-child{
+  width:28px;
+  height:28px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--panel2);
+  color:var(--brand);
+  font-weight:900;
+}
+.mermaid-unavailable .mermaid-card__canvas{
+  background:var(--code);
+}
+.mermaid-unavailable .mermaid-card pre.mermaid{
+  color:#dbe7f7;
+}
+[data-theme="dark"] .mermaid-card__canvas{
+  background:#f7f9fd;
+}
+[data-theme="dark"] .mermaid-card__badge{
+  background:#3c2414;
+  border-color:#6f3c18;
+  color:#fdba74;
+}
+@media(max-width:760px){
+  .mermaid-card__head{flex-direction:column}
+  .mermaid-card__badge{align-self:flex-start}
+  .mermaid-card__canvas{padding:12px}
+}
