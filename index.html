@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Taller Angular desde Cero | Angular Aula paso a paso</title>
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
-<link rel="stylesheet" href="styles.css?v=20260924-explorer-2">
+<link rel="stylesheet" href="styles.css?v=20260924-preview-1">
 </head>
 <body>
 <header class="topbar">
@@ -646,7 +646,37 @@ input {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> una cabecera morada y un panel blanco con “Bienvenido”.</div>
-  <div class="mission"><h3>Prueba</h3><p>Cambia “Gestor de estudiantes” por otro texto y guarda. El navegador debe actualizarse.</p><button class="finish" data-finish="4">Marcar etapa terminada</button></div>
+  <div data-preview="raiz">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Componente raíz · Primera pantalla real</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel"><h3>Bienvenido</h3><p>Nuestra aplicación Angular ya está funcionando.</p></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ cabecera morada</span><span class="lesson-preview__check">✓ panel blanco</span><span class="lesson-preview__check">✓ sin errores de compilación</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Cambia “Gestor de estudiantes” por otro texto y guarda. El navegador debe actualizarse.</p><button class="finish" data-finish="4">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="binding" data-search="interpolation property binding event binding click title disabled">
@@ -686,7 +716,38 @@ input {
     <div class="row"><div>(click)</div><div>Event binding: ejecuta código cuando ocurre un clic.</div></div>
   </div>
 
-  <div class="mission"><h3>Prueba</h3><p>El botón debe mostrar/ocultar la ayuda.</p><button class="finish" data-finish="5">Marcar etapa terminada</button></div>
+  <div data-preview="binding">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Bindings y eventos · Botón de ayuda</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-help">Esta aplicación permitirá gestionar estudiantes.</div>
+     <div class="preview-code-state"><span class="preview-pill">Ayuda visible</span><span>El botón cambia el estado del template.</span></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ el texto sale desde TypeScript</span><span class="lesson-preview__check">✓ el clic muestra/oculta ayuda</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>El botón debe mostrar/ocultar la ayuda.</p><button class="finish" data-finish="5">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="signals" data-search="signals signal computed state reactive">
@@ -728,7 +789,37 @@ export class App {
     <div class="row"><div>computed()</div><div>Calcula un valor derivado.</div></div>
   </div>
 
-  <div class="mission"><h3>Prueba</h3><p>El total debe cambiar al pulsar el botón.</p><button class="finish" data-finish="6">Marcar etapa terminada</button></div>
+  <div data-preview="signals">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Signals · Estado reactivo</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel"><h3>Total: 2</h3><p>El total cambia automáticamente cuando cambia el Signal.</p><span class="preview-btn">Agregar Laura</span></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ total calculado</span><span class="lesson-preview__check">✓ botón modifica el Signal</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>El total debe cambiar al pulsar el botón.</p><button class="finish" data-finish="6">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="control" data-search="if for angular control flow empty track">
@@ -753,7 +844,41 @@ export class App {
 
   <div class="why"><strong>@if:</strong> decide si una parte del HTML existe. <strong>@for:</strong> repite una parte del template por cada elemento.</div>
 
-  <div class="mission"><h3>Prueba</h3><p>Debes ver una tarjeta por cada nombre.</p><button class="finish" data-finish="7">Marcar etapa terminada</button></div>
+  <div data-preview="control">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>@if y @for · Lista renderizada</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel"><h3>Estudiantes</h3><p>Hay 2 estudiantes.</p></div>
+     <div class="preview-list">
+       <div class="preview-student"><div><b>Ana</b><small>Elemento creado por @for</small></div></div>
+       <div class="preview-student"><div><b>Carlos</b><small>Elemento creado por @for</small></div></div>
+     </div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ @if muestra el estado</span><span class="lesson-preview__check">✓ @for repite elementos</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Debes ver una tarjeta por cada nombre.</p><button class="finish" data-finish="7">Marcar etapa terminada</button></div>
 </section>
 
 <div class="phase-title"><h2>FASE 3 · Convertir datos simples en una aplicación real</h2><p>Creamos modelo, componentes reutilizables y servicios.</p></div>
@@ -928,7 +1053,40 @@ export class EstudianteCard {
     <div class="side"><b>output()</b><p>Evento que el hijo comunica hacia afuera.</p></div>
   </div>
 
-  <div class="mission"><h3>Comprobación</h3><p>La tarjeta ya está lista para recibir un objeto Estudiante.</p><button class="finish" data-finish="10">Marcar etapa terminada</button></div>
+  <div data-preview="comunicacion">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>EstudianteCard · Componente reutilizable</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/estudiantes</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="active">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-student">
+       <div><b>Ana Torres</b><small>Ingeniería de Sistemas · Semestre 4</small><small>ana@correo.com</small></div>
+       <span class="preview-btn danger">Eliminar</span>
+     </div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ datos llegan por input()</span><span class="lesson-preview__check">✓ Eliminar emite output()</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Comprobación</h3><p>La tarjeta ya está lista para recibir un objeto Estudiante.</p><button class="finish" data-finish="10">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="servicio" data-search="service injectable state students">
@@ -1143,7 +1301,44 @@ export class Estudiantes {
 &lt;/section&gt;</pre></div>
 
   <div class="expected"><strong>Debes lograr:</strong> escribir “Ana” y dejar únicamente la tarjeta de Ana.</div>
-  <div class="mission"><h3>Prueba</h3><p>Busca por nombre y por programa.</p><button class="finish" data-finish="12">Marcar etapa terminada</button></div>
+  <div data-preview="listado">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Página Estudiantes · Listado + búsqueda</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/estudiantes</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="active">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel">
+       <h3>Estudiantes</h3>
+       <div class="preview-input">Buscar por nombre o programa</div>
+     </div>
+     <div class="preview-list">
+       <div class="preview-student"><div><b>Ana Torres</b><small>Ingeniería de Sistemas · Semestre 4</small></div><span class="preview-btn danger">Eliminar</span></div>
+       <div class="preview-student"><div><b>Carlos Ruiz</b><small>Diseño · Semestre 2</small></div><span class="preview-btn danger">Eliminar</span></div>
+     </div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ buscador visible</span><span class="lesson-preview__check">✓ tarjetas reutilizables</span><span class="lesson-preview__check">✓ eliminar disponible</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Busca por nombre y por programa.</p><button class="finish" data-finish="12">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="formulario" data-search="forms ngmodel ngform validation submit new student">
@@ -1283,7 +1478,46 @@ export class NuevoEstudiante {
     <div class="row"><div>[disabled]</div><div>Desactiva el botón si el formulario no es válido.</div></div>
   </div>
 
-  <div class="mission"><h3>Prueba</h3><p>El botón debe estar deshabilitado si faltan campos.</p><button class="finish" data-finish="13">Marcar etapa terminada</button></div>
+  <div data-preview="formulario">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Nuevo estudiante · Formulario Angular</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/nuevo</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="active">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel">
+       <h3>Registrar estudiante</h3>
+       <div class="preview-form">
+         <label>Nombre</label><div class="preview-input">Laura Gómez</div>
+         <label>Correo</label><div class="preview-input">laura@correo.com</div>
+         <label>Programa</label><div class="preview-input">Ingeniería de Sistemas</div>
+         <label>Semestre</label><div class="preview-input">3</div>
+         <span class="preview-btn">Guardar estudiante</span>
+       </div>
+     </div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ campos alineados</span><span class="lesson-preview__check">✓ validación activa</span><span class="lesson-preview__check">✓ botón guardar</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>El botón debe estar deshabilitado si faltan campos.</p><button class="finish" data-finish="13">Marcar etapa terminada</button></div>
 </section>
 
 <div class="phase-title"><h2>FASE 4 · Convertir Angular Aula en una SPA completa</h2><p>Separamos pantallas con rutas y mejoramos la experiencia.</p></div>
@@ -1412,7 +1646,37 @@ export class App {}</pre></div>
   &lt;router-outlet /&gt;
 &lt;/main&gt;</pre></div>
 
-  <div class="mission"><h3>Prueba</h3><p>Navega por las cuatro rutas sin recargar manualmente.</p><button class="finish" data-finish="14">Marcar etapa terminada</button></div>
+  <div data-preview="rutas">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Angular Router · Navegación SPA</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/estudiantes</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="active">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel"><h3>Estudiantes</h3><p>El enlace activo se resalta y router-outlet muestra esta página.</p></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ menú persistente</span><span class="lesson-preview__check">✓ ruta activa</span><span class="lesson-preview__check">✓ contenido cambia en router-outlet</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Navega por las cuatro rutas sin recargar manualmente.</p><button class="finish" data-finish="14">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="inicio-page" data-search="dashboard total computed service inject home">
@@ -1449,7 +1713,42 @@ export class Inicio {
   &lt;/a&gt;
 &lt;/section&gt;</pre></div>
 
-  <div class="mission"><h3>Prueba</h3><p>Agrega un estudiante y vuelve a Inicio: el total debe aumentar.</p><button class="finish" data-finish="15">Marcar etapa terminada</button></div>
+  <div data-preview="inicio-page">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Dashboard · Página Inicio</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="active">Inicio</span>
+      <span class="">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-kpis">
+       <div class="preview-kpi"><b>2</b><span>Estudiantes</span></div>
+       <div class="preview-kpi"><b>2</b><span>Programas</span></div>
+       <div class="preview-kpi"><b>1</b><span>Nuevos</span></div>
+     </div>
+     <div class="preview-panel"><h3>Panel principal</h3><span class="preview-btn">Registrar estudiante</span></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ total visible</span><span class="lesson-preview__check">✓ enlace a Nuevo</span><span class="lesson-preview__check">✓ Inicio activo</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Agrega un estudiante y vuelve a Inicio: el total debe aumentar.</p><button class="finish" data-finish="15">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="storage" data-search="localstorage persistence json stringify parse service">
@@ -1744,7 +2043,43 @@ importar(): void {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> el botón cambia a “Importando...” y luego aparecen usuarios nuevos.</div>
-  <div class="mission"><h3>Prueba</h3><p>Importa usuarios y después recarga la página para comprobar la persistencia.</p><button class="finish" data-finish="18">Marcar etapa terminada</button></div>
+  <div data-preview="estados">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>API · Carga, éxito y error</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/estudiantes</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="active">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel">
+       <h3>Estudiantes</h3>
+       <span class="preview-btn disabled">Importando...</span>
+       <p>Mientras llega la respuesta, el botón queda deshabilitado.</p>
+     </div>
+     <div class="preview-message">Usuarios importados correctamente.</div>
+     <div class="preview-student"><div><b>Leanne Graham</b><small>Importado desde API · Semestre 1</small></div></div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ estado cargando</span><span class="lesson-preview__check">✓ mensaje de éxito</span><span class="lesson-preview__check">✓ usuario importado</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba</h3><p>Importa usuarios y después recarga la página para comprobar la persistencia.</p><button class="finish" data-finish="18">Marcar etapa terminada</button></div>
 </section>
 
 <div class="phase-title"><h2>FASE 6 · Terminar y entregar</h2><p>Mejoramos estilos, revisamos errores y construimos la versión final.</p></div>
@@ -1856,7 +2191,44 @@ button {
   cursor: pointer;
 }</pre></div>
 
-  <div class="mission"><h3>Prueba responsive</h3><p>Reduce el ancho del navegador y comprueba que el menú siga siendo usable.</p><button class="finish" data-finish="19">Marcar etapa terminada</button></div>
+  <div data-preview="acabado">
+  <div class="lesson-preview">
+    <div class="lesson-preview__head">
+      <strong>👀 Así debería verse</strong>
+      <span>Resultado final · Aplicación terminada</span>
+    </div>
+    <div class="browser">
+      <div class="browser__bar">
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <span class="browser__dot"></span>
+        <div class="browser__url">http://localhost:4200/estudiantes</div>
+      </div>
+      <div class="preview-app"><div class="preview-app__top">
+    <div class="preview-app__brand"><b>Angular Aula</b><small>Gestor de estudiantes</small></div>
+    <div class="preview-app__nav">
+      <span class="">Inicio</span>
+      <span class="active">Estudiantes</span>
+      <span class="">Nuevo</span>
+      <span class="">Acerca de</span>
+    </div>
+  </div>
+   <div class="preview-app__main">
+     <div class="preview-panel">
+       <h3>Estudiantes</h3>
+       <div class="preview-input">Buscar por nombre o programa</div>
+     </div>
+     <div class="preview-list">
+       <div class="preview-student"><div><b>Ana Torres</b><small>Ingeniería de Sistemas · Semestre 4</small></div><span class="preview-btn danger">Eliminar</span></div>
+       <div class="preview-student"><div><b>Carlos Ruiz</b><small>Diseño · Semestre 2</small></div><span class="preview-btn danger">Eliminar</span></div>
+     </div>
+   </div></div>
+    </div>
+    <div class="lesson-preview__checks">
+      <span class="lesson-preview__check">✓ responsive</span><span class="lesson-preview__check">✓ navegación clara</span><span class="lesson-preview__check">✓ estilos consistentes</span>
+    </div>
+  </div></div>
+<div class="mission"><h3>Prueba responsive</h3><p>Reduce el ancho del navegador y comprueba que el menú siga siendo usable.</p><button class="finish" data-finish="19">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="build" data-search="ng build final production errors checklist">
@@ -1950,6 +2322,6 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-explorer-2"></script>
+<script src="script.js?v=20260924-preview-1"></script>
 </body>
 </html>
