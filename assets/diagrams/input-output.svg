@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
+<title id="t">Comunicación input output</title><desc id="d">El padre envía datos al componente hijo mediante input y el hijo devuelve eventos mediante output.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f8fbff"/><stop offset="1" stop-color="#fff7fb"/></linearGradient>
+ <linearGradient id="p" x1="0" x2="1"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+ <linearGradient id="h" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#334155" flood-opacity=".13"/></filter>
+ <marker id="a1" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#16a34a"/></marker>
+ <marker id="a2" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#ec4899"/></marker>
+</defs>
+<rect width="1200" height="520" rx="34" fill="url(#bg)"/>
+<text x="58" y="68" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Comunicación Padre ↔ Hijo</text>
+<text x="58" y="103" font-family="Inter,Arial" font-size="16" fill="#64748b">Los datos bajan; los eventos suben.</text>
+
+<g filter="url(#s)">
+ <rect x="80" y="165" width="350" height="235" rx="30" fill="#fff"/>
+ <rect x="80" y="165" width="350" height="58" rx="30" fill="url(#p)"/>
+ <text x="110" y="202" font-family="Inter,Arial" font-size="19" font-weight="900" fill="#fff">Página Estudiantes</text>
+ <text x="110" y="262" font-family="Inter,Arial" font-size="15" font-weight="800" fill="#172033">Responsabilidades</text>
+ <text x="110" y="294" font-family="Inter,Arial" font-size="14" fill="#64748b">• tiene la lista</text>
+ <text x="110" y="322" font-family="Inter,Arial" font-size="14" fill="#64748b">• llama al servicio</text>
+ <text x="110" y="350" font-family="Inter,Arial" font-size="14" fill="#64748b">• decide qué hacer al eliminar</text>
+</g>
+
+<g filter="url(#s)">
+ <rect x="770" y="165" width="350" height="235" rx="30" fill="#fff"/>
+ <rect x="770" y="165" width="350" height="58" rx="30" fill="url(#h)"/>
+ <text x="800" y="202" font-family="Inter,Arial" font-size="19" font-weight="900" fill="#fff">EstudianteCard</text>
+ <text x="800" y="262" font-family="Inter,Arial" font-size="15" font-weight="800" fill="#172033">Responsabilidades</text>
+ <text x="800" y="294" font-family="Inter,Arial" font-size="14" fill="#64748b">• muestra un estudiante</text>
+ <text x="800" y="322" font-family="Inter,Arial" font-size="14" fill="#64748b">• detecta clic en eliminar</text>
+ <text x="800" y="350" font-family="Inter,Arial" font-size="14" fill="#64748b">• emite el ID</text>
+</g>
+
+<path d="M440 230 C560 175 640 175 758 230" stroke="#16a34a" stroke-width="5" fill="none" marker-end="url(#a1)"/>
+<rect x="505" y="150" width="190" height="52" rx="16" fill="#ecfdf5" stroke="#86efac"/>
+<text x="600" y="172" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="900" fill="#166534">[estudiante]</text>
+<text x="600" y="190" text-anchor="middle" font-family="Inter,Arial" font-size="11" fill="#15803d">input() → datos</text>
+
+<path d="M758 340 C640 395 560 395 440 340" stroke="#ec4899" stroke-width="5" fill="none" marker-end="url(#a2)"/>
+<rect x="505" y="348" width="190" height="52" rx="16" fill="#fdf2f8" stroke="#f9a8d4"/>
+<text x="600" y="370" text-anchor="middle" font-family="Inter,Arial" font-size="13" font-weight="900" fill="#9d174d">(eliminar)</text>
+<text x="600" y="388" text-anchor="middle" font-family="Inter,Arial" font-size="11" fill="#be185d">output() → evento</text>
+
+<text x="600" y="468" text-anchor="middle" font-family="Inter,Arial" font-size="15" font-weight="800" fill="#172033">El hijo no conoce el servicio: permanece reutilizable.</text>
+</svg>
