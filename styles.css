@@ -1388,3 +1388,106 @@ h1{font-size:clamp(36px,6vw,65px);line-height:1.03;margin:8px 0 14px;max-width:8
   .mermaid-card__badge{align-self:flex-start}
   .mermaid-card__canvas{padding:12px}
 }
+
+/* Infografias SVG propias */
+.svg-diagram-card{
+  margin:22px 0 28px;
+  border:1px solid color-mix(in srgb,var(--brand) 22%,var(--line));
+  border-radius:22px;
+  overflow:hidden;
+  background:var(--panel);
+  box-shadow:0 14px 34px rgba(24,36,64,.08);
+}
+.svg-diagram-card__head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px 18px;
+  border-bottom:1px solid var(--line);
+  background:linear-gradient(135deg,color-mix(in srgb,var(--brand) 7%,var(--panel)),color-mix(in srgb,var(--accent) 4%,var(--panel)));
+}
+.svg-diagram-card__head strong{
+  display:block;
+  color:var(--text);
+  font-size:15px;
+}
+.svg-diagram-card__head p{
+  margin:3px 0 0;
+  color:var(--muted);
+  font-size:12px;
+}
+.svg-diagram-card__action{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--panel);
+  color:var(--brand);
+  font-size:11px;
+  font-weight:900;
+  text-decoration:none;
+}
+.svg-diagram-card__action:hover{
+  text-decoration:none;
+  transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(35,49,80,.08);
+}
+.svg-diagram-card__stage{
+  position:relative;
+  padding:18px;
+  overflow:auto;
+  background:
+    linear-gradient(45deg,rgba(148,163,184,.035) 25%,transparent 25%,transparent 75%,rgba(148,163,184,.035) 75%),
+    linear-gradient(45deg,rgba(148,163,184,.035) 25%,transparent 25%,transparent 75%,rgba(148,163,184,.035) 75%),
+    #fbfcff;
+  background-size:24px 24px;
+  background-position:0 0,12px 12px;
+}
+.svg-diagram-card__image{
+  display:block;
+  width:100%;
+  min-width:760px;
+  height:auto;
+  border-radius:16px;
+  box-shadow:0 10px 26px rgba(30,41,59,.08);
+}
+.svg-diagram-card__caption{
+  display:grid;
+  grid-template-columns:32px 1fr;
+  gap:10px;
+  align-items:start;
+  padding:14px 18px 17px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55;
+}
+.svg-diagram-card__caption span:first-child{
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:9px;
+  background:var(--panel2);
+  color:var(--brand);
+  font-weight:900;
+}
+.svg-diagram-card__caption b{color:var(--text)}
+[data-theme="dark"] .svg-diagram-card__stage{
+  background:
+    linear-gradient(45deg,rgba(148,163,184,.04) 25%,transparent 25%,transparent 75%,rgba(148,163,184,.04) 75%),
+    linear-gradient(45deg,rgba(148,163,184,.04) 25%,transparent 25%,transparent 75%,rgba(148,163,184,.04) 75%),
+    #e9eef7;
+  background-size:24px 24px;
+  background-position:0 0,12px 12px;
+}
+@media(max-width:760px){
+  .svg-diagram-card__head{flex-direction:column}
+  .svg-diagram-card__action{align-self:flex-start}
+  .svg-diagram-card__stage{padding:12px}
+  .svg-diagram-card__image{min-width:680px}
+}
