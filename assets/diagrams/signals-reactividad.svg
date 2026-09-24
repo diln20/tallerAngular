@@ -1,60 +1,164 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="t d">
-<title id="t">Reactividad con Signals</title><desc id="d">Un evento actualiza un Signal, computed se recalcula y el template se actualiza.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 610" role="img" aria-labelledby="t d">
+<title id="t">Reactividad con Signals</title>
+<desc id="d">Diagrama interactivo. Una acción actualiza un Signal, computed y la lista reaccionan, y el template se actualiza.</desc>
 <defs>
- <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#f8f5ff"/></linearGradient>
- <linearGradient id="sig" x1="0" x2="1"><stop stop-color="#10b981"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
- <linearGradient id="cmp" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
- <linearGradient id="view" x1="0" x2="1"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
- <filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e293b" flood-opacity=".13"/></filter>
- <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#7c3aed"/></marker>
- <style>
-  .flow{stroke-dasharray:10 8;animation:dash 2.1s linear infinite}
-  @keyframes dash{to{stroke-dashoffset:-36}}
- </style>
+  <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#f7fbff"/><stop offset="1" stop-color="#f8f5ff"/></linearGradient>
+  <linearGradient id="sig" x1="0" x2="1"><stop stop-color="#10b981"/><stop offset="1" stop-color="#22c55e"/></linearGradient>
+  <linearGradient id="cmp" x1="0" x2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#6366f1"/></linearGradient>
+  <linearGradient id="view" x1="0" x2="1"><stop stop-color="#ec4899"/><stop offset="1" stop-color="#f43f5e"/></linearGradient>
+  <filter id="s" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#1e293b" flood-opacity=".13"/></filter>
+  <filter id="hoverShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="11" flood-color="#7c3aed" flood-opacity=".24"/></filter>
+  <filter id="tooltipShadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="10" flood-color="#0f172a" flood-opacity=".2"/></filter>
+  <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12Z" fill="#7c3aed"/></marker>
+  <style>
+    .flow{stroke-dasharray:10 8;animation:dash 2.1s linear infinite}
+    @keyframes dash{to{stroke-dashoffset:-36}}
+
+    .hover-node{cursor:help;outline:none}
+    .node-shell{
+      transition:transform .18s ease,filter .18s ease,stroke-width .18s ease;
+      transform-box:fill-box;
+      transform-origin:center;
+    }
+    .hover-node:hover .node-shell,
+    .hover-node:focus .node-shell{
+      transform:scale(1.035);
+      filter:url(#hoverShadow);
+      stroke:#7c3aed;
+      stroke-width:3;
+    }
+
+    .tooltip{
+      opacity:0;
+      transform:translateY(7px);
+      transition:opacity .16s ease,transform .16s ease;
+      pointer-events:none;
+    }
+    #actionNode:hover ~ #tooltipLayer #actionTip,
+    #actionNode:focus ~ #tooltipLayer #actionTip,
+    #signalNode:hover ~ #tooltipLayer #signalTip,
+    #signalNode:focus ~ #tooltipLayer #signalTip,
+    #computedNode:hover ~ #tooltipLayer #computedTip,
+    #computedNode:focus ~ #tooltipLayer #computedTip,
+    #listNode:hover ~ #tooltipLayer #listTip,
+    #listNode:focus ~ #tooltipLayer #listTip,
+    #templateNode:hover ~ #tooltipLayer #templateTip,
+    #templateNode:focus ~ #tooltipLayer #templateTip{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .tip-title{font:800 15px Inter,Arial,sans-serif;fill:#fff}
+    .tip-text{font:500 12px Inter,Arial,sans-serif;fill:#dbeafe}
+    .tip-code{font:700 11px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#c4b5fd}
+  </style>
 </defs>
-<rect width="1200" height="520" rx="34" fill="url(#bg)"/>
+
+<rect width="1200" height="610" rx="34" fill="url(#bg)"/>
 <text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Reactividad con Signals</text>
 <text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Angular actualiza solo lo que depende del estado que cambió.</text>
 
-<g filter="url(#s)">
- <rect x="70" y="190" width="190" height="150" rx="28" fill="#fff"/>
- <circle cx="165" cy="222" r="26" fill="#eff6ff"/>
- <path d="M151 222h28M165 208v28" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
- <text x="165" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="800" fill="#172033">Acción</text>
- <text x="165" y="305" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">Agregar estudiante</text>
+<g transform="translate(870 38)">
+  <rect width="270" height="42" rx="14" fill="#fff" stroke="#ddd6fe"/>
+  <circle cx="23" cy="21" r="8" fill="#8b5cf6"/>
+  <text x="43" y="26" font-family="Inter,Arial" font-size="12" font-weight="800" fill="#6d28d9">Pasa el mouse sobre cada bloque</text>
 </g>
+
+<g id="actionNode" class="hover-node" tabindex="0">
+  <title>Acción: el usuario provoca un cambio, por ejemplo al agregar un estudiante.</title>
+  <rect class="node-shell" x="70" y="190" width="190" height="150" rx="28" fill="#fff" stroke="#e2e8f0" filter="url(#s)"/>
+  <circle cx="165" cy="222" r="26" fill="#eff6ff"/>
+  <path d="M151 222h28M165 208v28" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+  <text x="165" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="800" fill="#172033">Acción</text>
+  <text x="165" y="305" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">Agregar estudiante</text>
+</g>
+
 <path class="flow" d="M260 265 H348" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
-<g filter="url(#s)">
- <rect x="360" y="170" width="220" height="190" rx="30" fill="url(#sig)"/>
- <circle cx="470" cy="218" r="30" fill="#fff" opacity=".2"/>
- <circle cx="470" cy="218" r="8" fill="#fff"/>
- <path d="M470 226v24M452 242h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
- <text x="470" y="292" text-anchor="middle" font-family="Inter,Arial" font-size="21" font-weight="900" fill="#fff">Signal</text>
- <text x="470" y="320" text-anchor="middle" font-family="monospace" font-size="13" fill="#ecfdf5">_estudiantes</text>
+
+<g id="signalNode" class="hover-node" tabindex="0">
+  <title>Signal: almacena la lista reactiva de estudiantes. Se lee con estudiantes().</title>
+  <rect class="node-shell" x="360" y="170" width="220" height="190" rx="30" fill="url(#sig)" stroke="#10b981" filter="url(#s)"/>
+  <circle cx="470" cy="218" r="30" fill="#fff" opacity=".2"/>
+  <circle cx="470" cy="218" r="8" fill="#fff"/>
+  <path d="M470 226v24M452 242h36" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <text x="470" y="292" text-anchor="middle" font-family="Inter,Arial" font-size="21" font-weight="900" fill="#fff">Signal</text>
+  <text x="470" y="320" text-anchor="middle" font-family="monospace" font-size="13" fill="#ecfdf5">_estudiantes</text>
 </g>
+
 <path class="flow" d="M580 235 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
 <path class="flow" d="M580 295 H668" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
-<g filter="url(#s)">
- <rect x="680" y="145" width="200" height="130" rx="24" fill="url(#cmp)"/>
- <text x="780" y="188" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#fff">computed()</text>
- <text x="780" y="220" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#ede9fe">recalcula total</text>
- <text x="780" y="246" text-anchor="middle" font-family="monospace" font-size="13" fill="#fff">total()</text>
+
+<g id="computedNode" class="hover-node" tabindex="0">
+  <title>computed(): calcula total() a partir del Signal y se recalcula cuando cambia la lista.</title>
+  <rect class="node-shell" x="680" y="145" width="200" height="130" rx="24" fill="url(#cmp)" stroke="#8b5cf6" filter="url(#s)"/>
+  <text x="780" y="188" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#fff">computed()</text>
+  <text x="780" y="220" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#ede9fe">recalcula total</text>
+  <text x="780" y="246" text-anchor="middle" font-family="monospace" font-size="13" fill="#fff">total()</text>
 </g>
-<g filter="url(#s)">
- <rect x="680" y="295" width="200" height="130" rx="24" fill="#fff"/>
- <text x="780" y="340" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#172033">Lista</text>
- <text x="780" y="370" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee estudiantes()</text>
- <text x="780" y="397" text-anchor="middle" font-family="monospace" font-size="13" fill="#2563eb">@for</text>
+
+<g id="listNode" class="hover-node" tabindex="0">
+  <title>Lista: lee estudiantes() y @for crea una tarjeta por cada elemento.</title>
+  <rect class="node-shell" x="680" y="295" width="200" height="130" rx="24" fill="#fff" stroke="#e2e8f0" filter="url(#s)"/>
+  <text x="780" y="340" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#172033">Lista</text>
+  <text x="780" y="370" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">lee estudiantes()</text>
+  <text x="780" y="397" text-anchor="middle" font-family="monospace" font-size="13" fill="#2563eb">@for</text>
 </g>
+
 <path class="flow" d="M880 210 C930 210 925 260 965 260" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
 <path class="flow" d="M880 360 C930 360 925 300 965 300" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
-<g filter="url(#s)">
- <rect x="975" y="205" width="160" height="150" rx="28" fill="url(#view)"/>
- <text x="1055" y="248" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#fff">Template</text>
- <text x="1055" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff5f7">interfaz visible</text>
- <text x="1055" y="311" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff">se actualiza sola</text>
+
+<g id="templateNode" class="hover-node" tabindex="0">
+  <title>Template: muestra la información visible y Angular actualiza las partes que dependen del estado.</title>
+  <rect class="node-shell" x="975" y="205" width="160" height="150" rx="28" fill="url(#view)" stroke="#ec4899" filter="url(#s)"/>
+  <text x="1055" y="248" text-anchor="middle" font-family="Inter,Arial" font-size="18" font-weight="900" fill="#fff">Template</text>
+  <text x="1055" y="278" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff5f7">interfaz visible</text>
+  <text x="1055" y="311" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#fff">se actualiza sola</text>
 </g>
-<rect x="70" y="448" width="1065" height="46" rx="18" fill="#fff"/>
-<text x="92" y="477" font-family="Inter,Arial" font-size="14" font-weight="800" fill="#16a34a">No necesitas llamar manualmente a “refrescar()”.</text>
-<text x="435" y="477" font-family="Inter,Arial" font-size="14" fill="#64748b">Angular conoce las dependencias del Signal.</text>
+
+<g id="tooltipLayer">
+  <g id="actionTip" class="tooltip" filter="url(#tooltipShadow)">
+    <rect x="45" y="112" width="285" height="92" rx="16" fill="#0f172a"/>
+    <text x="64" y="140" class="tip-title">1 · Acción del usuario</text>
+    <text x="64" y="163" class="tip-text">Ejemplo: presiona “Agregar Laura”.</text>
+    <text x="64" y="184" class="tip-text">Esa acción inicia el cambio de estado.</text>
+  </g>
+
+  <g id="signalTip" class="tooltip" filter="url(#tooltipShadow)">
+    <rect x="310" y="92" width="325" height="102" rx="16" fill="#0f172a"/>
+    <text x="330" y="120" class="tip-title">2 · Signal = fuente reactiva</text>
+    <text x="330" y="144" class="tip-text">Guarda la lista actual de estudiantes.</text>
+    <text x="330" y="166" class="tip-code">_estudiantes.update(...)</text>
+    <text x="330" y="185" class="tip-text">Al cambiar, sus dependencias pueden reaccionar.</text>
+  </g>
+
+  <g id="computedTip" class="tooltip" filter="url(#tooltipShadow)">
+    <rect x="625" y="86" width="310" height="104" rx="16" fill="#0f172a"/>
+    <text x="645" y="115" class="tip-title">3 · computed() = dato derivado</text>
+    <text x="645" y="139" class="tip-text">Lee el Signal para calcular otro valor.</text>
+    <text x="645" y="161" class="tip-code">total = computed(() =&gt; ...length)</text>
+    <text x="645" y="181" class="tip-text">No necesitas actualizar total manualmente.</text>
+  </g>
+
+  <g id="listTip" class="tooltip" filter="url(#tooltipShadow)">
+    <rect x="615" y="418" width="325" height="88" rx="16" fill="#0f172a"/>
+    <text x="635" y="446" class="tip-title">4 · Lista = otra dependencia</text>
+    <text x="635" y="469" class="tip-text">El template lee estudiantes() y @for</text>
+    <text x="635" y="490" class="tip-text">crea una tarjeta por cada estudiante.</text>
+  </g>
+
+  <g id="templateTip" class="tooltip" filter="url(#tooltipShadow)">
+    <rect x="885" y="105" width="270" height="92" rx="16" fill="#0f172a"/>
+    <text x="905" y="133" class="tip-title">5 · Template = resultado visible</text>
+    <text x="905" y="156" class="tip-text">Angular refleja el nuevo estado</text>
+    <text x="905" y="177" class="tip-text">sin usar innerHTML ni refrescar().</text>
+  </g>
+</g>
+
+<g transform="translate(70 525)">
+  <rect width="1065" height="58" rx="18" fill="#fff" stroke="#dcfce7"/>
+  <circle cx="27" cy="29" r="13" fill="#dcfce7"/>
+  <path d="M20 29l5 5 10-12" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="52" y="25" font-family="Inter,Arial" font-size="14" font-weight="900" fill="#16a34a">No necesitas llamar manualmente a “refrescar()”.</text>
+  <text x="52" y="45" font-family="Inter,Arial" font-size="13" fill="#64748b">Angular conoce las dependencias del Signal y actualiza únicamente las partes que lo usan.</text>
+</g>
 </svg>
