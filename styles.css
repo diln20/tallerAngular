@@ -1830,3 +1830,26 @@ body[data-learning-mode="normal"] .beginner-extra{display:none!important}
  .origin-flow{grid-template-columns:1fr}.origin-flow>span{text-align:center;transform:rotate(90deg)}
  .glossary-launch{right:12px;bottom:12px}
 }
+
+/* SVG interactivo: Reactividad con Signals */
+.svg-diagram-card__stage--interactive{
+  overflow:auto;
+}
+.svg-diagram-card__object{
+  display:block;
+  width:100%;
+  min-width:760px;
+  aspect-ratio:1200 / 610;
+  border:0;
+  border-radius:16px;
+  background:#fbfcff;
+  box-shadow:0 10px 26px rgba(30,41,59,.08);
+}
+[data-theme="dark"] .svg-diagram-card__object{
+  background:#e9eef7;
+}
+@media(max-width:760px){
+  .svg-diagram-card__object{
+    min-width:680px;
+  }
+}
