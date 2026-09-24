@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Taller Angular desde Cero | Angular Aula paso a paso</title>
 <meta name="description" content="Taller de Angular 22 desde cero: repaso breve de HTML, CSS y JavaScript y construcción completa de una aplicación netamente Angular.">
-<link rel="stylesheet" href="styles.css?v=20260924-preview-1">
+<link rel="stylesheet" href="styles.css?v=20260924-code-2">
 </head>
 <body>
 <header class="topbar">
@@ -646,7 +646,17 @@ input {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> una cabecera morada y un panel blanco con “Bienvenido”.</div>
-  <div data-preview="raiz">
+  <div class="code-explanation" data-code-explanation="raiz">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende el componente raíz</strong><p>Este bloque conecta una clase TypeScript con un archivo HTML y un archivo CSS.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>import { Component }</code><div>Trae <b>Component</b> desde Angular. Sin este import, TypeScript no sabría qué significa <code>@Component</code>.</div></div><div class="code-explain-row"><code>@Component({...})</code><div>Es un <b>decorador</b>. Le entrega a Angular información sobre la clase que aparece debajo.</div></div><div class="code-explain-row"><code>selector: 'app-root'</code><div>Define la etiqueta que representa este componente. Angular monta este componente como raíz de la aplicación.</div></div><div class="code-explain-row"><code>imports: []</code><div>Lista lo que el template puede utilizar. Más adelante aquí aparecerán RouterLink, RouterOutlet u otros componentes.</div></div><div class="code-explain-row"><code>templateUrl: './app.html'</code><div>Le dice a Angular: «la parte visual de este componente está en app.html».</div></div><div class="code-explain-row"><code>styleUrl: './app.css'</code><div>Conecta los estilos propios del componente. No son los estilos globales de toda la aplicación.</div></div><div class="code-explain-row"><code>export class App {}</code><div>Es la clase TypeScript del componente. Aquí irán variables, Signals y métodos que el template necesite.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> un componente Angular normalmente tiene <b>lógica (TS)</b>, <b>vista (HTML)</b> y <b>estilos (CSS)</b>.</div>
+  </div>
+<div data-preview="raiz">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -716,7 +726,17 @@ input {
     <div class="row"><div>(click)</div><div>Event binding: ejecuta código cuando ocurre un clic.</div></div>
   </div>
 
-  <div data-preview="binding">
+  <div class="code-explanation" data-code-explanation="binding">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende cómo TypeScript se comunica con el HTML</strong><p>Aquí aparecen tres formas fundamentales de conexión entre el componente y su template.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>titulo = 'Angular Aula'</code><div>Es una propiedad de la clase. El HTML puede leerla mediante interpolación.</div></div><div class="code-explain-row"><code>{{ titulo }}</code><div>La doble llave es <b>interpolación</b>. Angular reemplaza esa expresión por su valor.</div></div><div class="code-explain-row"><code>[title]="..."</code><div>Los corchetes indican <b>property binding</b>: TypeScript controla una propiedad del elemento HTML.</div></div><div class="code-explain-row"><code>(click)="cambiarAyuda()"</code><div>Los paréntesis indican <b>event binding</b>: cuando ocurre el clic, Angular ejecuta el método.</div></div><div class="code-explain-row"><code>this.mostrarAyuda</code><div><code>this</code> significa «esta instancia del componente». Permite acceder a sus propiedades.</div></div><div class="code-explain-row"><code>!this.mostrarAyuda</code><div>El signo <code>!</code> niega un booleano. Si era <code>false</code> pasa a <code>true</code> y viceversa.</div></div><div class="code-explain-row"><code>@if (mostrarAyuda)</code><div>Angular agrega o quita ese fragmento del template según el valor de la condición.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> <code>{{ }}</code> muestra datos, <code>[ ]</code> controla propiedades y <code>( )</code> escucha eventos.</div>
+  </div>
+<div data-preview="binding">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -789,7 +809,17 @@ export class App {
     <div class="row"><div>computed()</div><div>Calcula un valor derivado.</div></div>
   </div>
 
-  <div data-preview="signals">
+  <div class="code-explanation" data-code-explanation="signals">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende Signals sin complicaciones</strong><p>Un Signal guarda un valor y avisa a Angular cuando ese valor cambia.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>signal(['Ana', 'Carlos'])</code><div>Crea un estado reactivo. Aquí el valor inicial es un array con dos nombres.</div></div><div class="code-explain-row"><code>this.estudiantes()</code><div>Los paréntesis sirven para <b>leer</b> el valor actual de un Signal.</div></div><div class="code-explain-row"><code>update(actuales => ...)</code><div>Actualiza el Signal usando su valor anterior. <code>actuales</code> representa el array que existe en ese momento.</div></div><div class="code-explain-row"><code>...actuales</code><div>El operador spread copia los elementos existentes a un nuevo array.</div></div><div class="code-explain-row"><code>computed(() => ...)</code><div>Crea un valor calculado a partir de otros Signals. Si cambia <code>estudiantes</code>, <code>total</code> se recalcula.</div></div><div class="code-explain-row"><code>this.estudiantes().length</code><div>Lee el array y obtiene cuántos elementos contiene.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> Signal = estado; <code>computed()</code> = valor que depende de ese estado.</div>
+  </div>
+<div data-preview="signals">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -844,7 +874,17 @@ export class App {
 
   <div class="why"><strong>@if:</strong> decide si una parte del HTML existe. <strong>@for:</strong> repite una parte del template por cada elemento.</div>
 
-  <div data-preview="control">
+  <div class="code-explanation" data-code-explanation="control">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende @if, @for y @empty</strong><p>Estas instrucciones controlan qué HTML crea Angular.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>@if (total() > 0)</code><div>Solo crea el bloque si la condición es verdadera.</div></div><div class="code-explain-row"><code>@else</code><div>Se utiliza cuando la condición anterior es falsa.</div></div><div class="code-explain-row"><code>@for (nombre of estudiantes(); ...)</code><div>Recorre la colección. En cada vuelta, <code>nombre</code> representa un elemento.</div></div><div class="code-explain-row"><code>track nombre</code><div>Ayuda a Angular a identificar cada elemento y actualizar solo lo necesario.</div></div><div class="code-explain-row"><code>@empty</code><div>Se muestra cuando la colección del <code>@for</code> está vacía.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> no necesitas crear HTML manualmente con <code>innerHTML</code>; Angular lo genera a partir del estado.</div>
+  </div>
+<div data-preview="control">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -943,7 +983,17 @@ export class App {
     <div class="row"><div>externo?</div><div>El signo ? indica que la propiedad es opcional.</div></div>
   </div>
 
-  <div class="mission"><h3>Comprobación</h3><p>Debes tener <code>src/app/models/estudiante.ts</code>.</p><button class="finish" data-finish="8">Marcar etapa terminada</button></div>
+  <div class="code-explanation" data-code-explanation="modelo">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende la interface Estudiante</strong><p>La interface funciona como un contrato: define qué forma deben tener los objetos estudiante.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>export interface Estudiante</code><div><code>export</code> permite usar este tipo en otros archivos mediante <code>import</code>.</div></div><div class="code-explain-row"><code>id: number</code><div>La propiedad <code>id</code> debe ser numérica.</div></div><div class="code-explain-row"><code>nombre: string</code><div>La propiedad <code>nombre</code> debe ser texto.</div></div><div class="code-explain-row"><code>semestre: number</code><div>Evita guardar accidentalmente algo como <code>'cuarto'</code> si esperas un número.</div></div><div class="code-explain-row"><code>externo?: boolean</code><div>El <code>?</code> indica que la propiedad es opcional. <code>boolean</code> solo admite true/false.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> la interface no guarda datos; solamente describe cómo deben ser.</div>
+  </div>
+<div class="mission"><h3>Comprobación</h3><p>Debes tener <code>src/app/models/estudiante.ts</code>.</p><button class="finish" data-finish="8">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="tarjeta" data-search="generate component estudiante card cli">
@@ -1053,7 +1103,17 @@ export class EstudianteCard {
     <div class="side"><b>output()</b><p>Evento que el hijo comunica hacia afuera.</p></div>
   </div>
 
-  <div data-preview="comunicacion">
+  <div class="code-explanation" data-code-explanation="comunicacion">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende input() y output()</strong><p>El componente tarjeta no debe conocer toda la aplicación. Solo recibe un estudiante y comunica acciones.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>input.required<Estudiante>()</code><div>Declara una entrada obligatoria. El padre debe enviar un objeto que cumpla la interface Estudiante.</div></div><div class="code-explain-row"><code>estudiante()</code><div>Como <code>input()</code> es Signal-based, se lee utilizando paréntesis.</div></div><div class="code-explain-row"><code>output<number>()</code><div>Declara un evento que enviará un número. En este caso será el ID.</div></div><div class="code-explain-row"><code>eliminar.emit(id)</code><div>Emite el ID hacia el componente padre. La tarjeta no elimina directamente el registro.</div></div><div class="code-explain-row"><code>[estudiante]="estudiante"</code><div>En el padre, los corchetes envían datos hacia el hijo.</div></div><div class="code-explain-row"><code>(eliminar)="eliminar($event)"</code><div>El padre escucha el evento del hijo. <code>$event</code> contiene el valor emitido.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> datos bajan con <code>input()</code>; eventos suben con <code>output()</code>.</div>
+  </div>
+<div data-preview="comunicacion">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -1191,7 +1251,17 @@ export class Estudiantes {
     <div class="row"><div>asReadonly()</div><div>Permite leer el Signal sin modificarlo desde fuera.</div></div>
   </div>
 
-  <div class="mission"><h3>Comprobación</h3><p>El servicio debe compilar sin errores.</p><button class="finish" data-finish="11">Marcar etapa terminada</button></div>
+  <div class="code-explanation" data-code-explanation="servicio">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende por qué usamos un servicio</strong><p>El servicio concentra los estudiantes para que varias páginas trabajen con el mismo estado.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>@Injectable({ providedIn: 'root' })</code><div>Le indica a Angular que el servicio puede inyectarse y que habrá una instancia compartida en la aplicación.</div></div><div class="code-explain-row"><code>private readonly _estudiantes</code><div>El guion bajo ayuda a distinguir el Signal interno. <code>private</code> evita modificarlo directamente desde otros archivos.</div></div><div class="code-explain-row"><code>asReadonly()</code><div>Expone el Signal para lectura, pero protege su modificación directa.</div></div><div class="code-explain-row"><code>computed(() => ...)</code><div>Calcula el total a partir de la lista actual.</div></div><div class="code-explain-row"><code>Omit<Estudiante, 'id'></code><div>Acepta todos los campos de Estudiante excepto <code>id</code>, porque el servicio genera ese valor.</div></div><div class="code-explain-row"><code>{ id: Date.now(), ...datos }</code><div>Crea un objeto nuevo: genera el ID y copia después nombre, email, programa, semestre, etc.</div></div><div class="code-explain-row"><code>update(actuales => [...actuales, nuevo])</code><div>No muta directamente el array anterior; crea uno nuevo con los registros existentes y el nuevo.</div></div><div class="code-explain-row"><code>filter(estudiante => estudiante.id !== id)</code><div>Crea un array sin el estudiante cuyo ID se desea eliminar.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> los componentes muestran e interactúan; el servicio administra los datos compartidos.</div>
+  </div>
+<div class="mission"><h3>Comprobación</h3><p>El servicio debe compilar sin errores.</p><button class="finish" data-finish="11">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="listado" data-search="students page search filter computed ngmodel">
@@ -1301,7 +1371,17 @@ export class Estudiantes {
 &lt;/section&gt;</pre></div>
 
   <div class="expected"><strong>Debes lograr:</strong> escribir “Ana” y dejar únicamente la tarjeta de Ana.</div>
-  <div data-preview="listado">
+  <div class="code-explanation" data-code-explanation="listado">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende la página de estudiantes</strong><p>La página combina el servicio, un Signal de búsqueda y el componente reutilizable.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>inject(EstudiantesService)</code><div>Pide a Angular la instancia compartida del servicio.</div></div><div class="code-explain-row"><code>texto = signal('')</code><div>Guarda el texto actual escrito en el buscador.</div></div><div class="code-explain-row"><code>filtrados = computed(...)</code><div>La lista filtrada se recalcula cuando cambia el texto o la lista de estudiantes.</div></div><div class="code-explain-row"><code>toLowerCase().trim()</code><div>Normaliza el texto: elimina espacios externos y evita diferencias entre mayúsculas/minúsculas.</div></div><div class="code-explain-row"><code>filter(...)</code><div>Conserva únicamente estudiantes cuyo nombre o programa contiene el texto buscado.</div></div><div class="code-explain-row"><code>[ngModel]="texto()"</code><div>Envía el valor actual del Signal al input.</div></div><div class="code-explain-row"><code>(ngModelChange)="texto.set($event)"</code><div>Cada vez que el usuario escribe, actualiza el Signal.</div></div><div class="code-explain-row"><code><app-estudiante-card ...></code><div>Utiliza el componente tarjeta en vez de repetir todo su HTML.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> la página coordina; el servicio posee los datos; la tarjeta presenta cada estudiante.</div>
+  </div>
+<div data-preview="listado">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -1478,7 +1558,17 @@ export class NuevoEstudiante {
     <div class="row"><div>[disabled]</div><div>Desactiva el botón si el formulario no es válido.</div></div>
   </div>
 
-  <div data-preview="formulario">
+  <div class="code-explanation" data-code-explanation="formulario">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende el formulario Angular</strong><p>El formulario captura datos, valida y llama al servicio sin manipular el DOM manualmente.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>imports: [FormsModule]</code><div>Habilita directivas de formularios como <code>ngModel</code> y <code>ngForm</code>.</div></div><div class="code-explain-row"><code>inject(Estudiantes)</code><div>Obtiene el servicio donde se guardará el estudiante.</div></div><div class="code-explain-row"><code>inject(Router)</code><div>Obtiene el Router para navegar después de guardar.</div></div><div class="code-explain-row"><code>[(ngModel)]="formulario.nombre"</code><div>Two-way binding: el input muestra el valor y también actualiza la propiedad al escribir.</div></div><div class="code-explain-row"><code>#form="ngForm"</code><div>Crea una referencia al estado general del formulario.</div></div><div class="code-explain-row"><code>required / email</code><div>Son validaciones. Angular sabe si el formulario cumple esas reglas.</div></div><div class="code-explain-row"><code>[disabled]="form.invalid"</code><div>Desactiva el botón mientras exista algún campo inválido.</div></div><div class="code-explain-row"><code>...this.formulario</code><div>Copia todos los campos del objeto en el dato que se envía al servicio.</div></div><div class="code-explain-row"><code>router.navigate(['/estudiantes'])</code><div>Después de guardar, cambia a la página del listado.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> capturar → validar → guardar en servicio → navegar.</div>
+  </div>
+<div data-preview="formulario">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -1646,7 +1736,17 @@ export class App {}</pre></div>
   &lt;router-outlet /&gt;
 &lt;/main&gt;</pre></div>
 
-  <div data-preview="rutas">
+  <div class="code-explanation" data-code-explanation="rutas">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende Angular Router</strong><p>El Router decide qué componente debe aparecer según la URL.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>Routes</code><div>Tipo de Angular que representa la configuración de rutas.</div></div><div class="code-explain-row"><code>{ path: '', component: Inicio }</code><div>Cuando la URL es la raíz, Angular muestra Inicio.</div></div><div class="code-explain-row"><code>path: 'estudiantes'</code><div>Representa la URL <code>/estudiantes</code>. No se escribe la barra inicial en la configuración.</div></div><div class="code-explain-row"><code>path: '**'</code><div>Comodín: captura URLs no definidas y permite redirigirlas.</div></div><div class="code-explain-row"><code>routerLink</code><div>Navega dentro de la SPA sin solicitar una página HTML completa al servidor.</div></div><div class="code-explain-row"><code>routerLinkActive</code><div>Agrega una clase al enlace correspondiente a la ruta actual.</div></div><div class="code-explain-row"><code><router-outlet /></code><div>Es el espacio donde Angular inserta el componente de la ruta activa.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> el menú permanece; lo que cambia es el componente colocado dentro de <code>router-outlet</code>.</div>
+  </div>
+<div data-preview="rutas">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -1840,7 +1940,17 @@ private leer(): Estudiante[] {
     <div class="side"><b>JSON.parse</b><p>Texto → objeto/array.</p></div>
   </div>
 
-  <div class="mission"><h3>Prueba</h3><p>Registra un estudiante, recarga con F5 y comprueba que permanezca.</p><button class="finish" data-finish="16">Marcar etapa terminada</button></div>
+  <div class="code-explanation" data-code-explanation="storage">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende la persistencia con localStorage</strong><p>Hasta este punto, un F5 perdería el estado. localStorage permite conservarlo en ese navegador.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>clave = 'angular-aula-estudiantes'</code><div>Nombre con el que identificamos los datos guardados.</div></div><div class="code-explain-row"><code>localStorage.setItem(...)</code><div>Guarda un valor asociado a una clave.</div></div><div class="code-explain-row"><code>JSON.stringify(...)</code><div>Convierte el array de objetos en texto, porque localStorage guarda strings.</div></div><div class="code-explain-row"><code>localStorage.getItem(...)</code><div>Recupera el texto guardado o devuelve null si no existe.</div></div><div class="code-explain-row"><code>JSON.parse(...)</code><div>Convierte el texto JSON nuevamente en array y objetos.</div></div><div class="code-explain-row"><code>signal(this.leer())</code><div>El Signal comienza usando lo almacenado en el navegador.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> localStorage es útil para practicar persistencia, pero no reemplaza una base de datos real.</div>
+  </div>
+<div class="mission"><h3>Prueba</h3><p>Registra un estudiante, recarga con F5 y comprueba que permanezca.</p><button class="finish" data-finish="16">Marcar etapa terminada</button></div>
 </section>
 
 <div class="phase-title"><h2>FASE 5 · Conectar Angular Aula con una API</h2><p>Usaremos HttpClient dentro del servicio, no fetch directo en el componente.</p></div>
@@ -1953,7 +2063,17 @@ importarDesdeApi() {
     <div class="row"><div>tap()</div><div>Ejecuta una acción cuando llega la respuesta.</div></div>
   </div>
 
-  <div class="mission"><h3>Comprobación</h3><p>El proyecto debe seguir compilando antes de conectar el botón.</p><button class="finish" data-finish="17">Marcar etapa terminada</button></div>
+  <div class="code-explanation" data-code-explanation="http">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende HttpClient y la petición a la API</strong><p>La petición HTTP vive en el servicio para mantener la página enfocada en la interfaz.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>provideHttpClient()</code><div>Habilita la infraestructura HTTP para poder inyectar <code>HttpClient</code>.</div></div><div class="code-explain-row"><code>inject(HttpClient)</code><div>Obtiene el cliente HTTP de Angular dentro del servicio.</div></div><div class="code-explain-row"><code>get<UsuarioApi[]>()</code><div>Realiza una petición GET e indica que esperamos un array con la forma UsuarioApi.</div></div><div class="code-explain-row"><code>UsuarioApi</code><div>Representa el formato que entrega la API externa. No tiene por qué ser igual a nuestro Estudiante.</div></div><div class="code-explain-row"><code>map(usuario => ...)</code><div>Transforma cada usuario externo al formato que utiliza Angular Aula.</div></div><div class="code-explain-row"><code>slice(0, 5)</code><div>Toma solamente los primeros cinco resultados para el ejercicio.</div></div><div class="code-explain-row"><code>pipe(tap(...))</code><div>Permite ejecutar una acción cuando llegan los datos sin cambiar el valor que circula por el Observable.</div></div><div class="code-explain-row"><code>agregarVarios(nuevos)</code><div>Entrega los usuarios transformados al mismo servicio para agregarlos y persistirlos.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> API externa → UsuarioApi → transformación → Estudiante → estado de Angular Aula.</div>
+  </div>
+<div class="mission"><h3>Comprobación</h3><p>El proyecto debe seguir compilando antes de conectar el botón.</p><button class="finish" data-finish="17">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section station" id="estados" data-search="loading error subscribe next error api state">
@@ -2043,7 +2163,17 @@ importar(): void {
 }</pre></div>
 
   <div class="expected"><strong>Debes ver:</strong> el botón cambia a “Importando...” y luego aparecen usuarios nuevos.</div>
-  <div data-preview="estados">
+  <div class="code-explanation" data-code-explanation="estados">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende subscribe(), carga y error</strong><p>Una petición tarda y puede fallar. La interfaz debe representar esos estados.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>cargando = signal(false)</code><div>Indica si hay una petición en curso.</div></div><div class="code-explain-row"><code>mensaje = signal('')</code><div>Guarda un mensaje de éxito o error para el usuario.</div></div><div class="code-explain-row"><code>subscribe({...})</code><div>Activa la suscripción al Observable y define qué hacer con sus resultados.</div></div><div class="code-explain-row"><code>next: () => {...}</code><div>Se ejecuta cuando la operación termina correctamente.</div></div><div class="code-explain-row"><code>error: () => {...}</code><div>Se ejecuta si la petición falla.</div></div><div class="code-explain-row"><code>[disabled]="cargando()"</code><div>Evita presionar el botón varias veces mientras la petición sigue activa.</div></div><div class="code-explain-row"><code>cargando() ? 'Importando...' : ...</code><div>Operador ternario: escoge uno de dos textos según una condición.</div></div><div class="code-explain-row"><code>@if (mensaje())</code><div>Muestra el mensaje solo cuando el Signal contiene texto.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> toda operación remota debería considerar al menos: cargando, éxito y error.</div>
+  </div>
+<div data-preview="estados">
   <div class="lesson-preview">
     <div class="lesson-preview__head">
       <strong>👀 Así debería verse</strong>
@@ -2286,7 +2416,17 @@ button {
     <div class="build-item">Generar un build final.</div>
   </div></div>
 
-  <div class="mission"><h3>Entrega final</h3><p>No marques esta etapa hasta que <code>ng build</code> finalice correctamente y hayas probado toda la checklist.</p><button class="finish" data-finish="20">Marcar etapa terminada</button></div>
+  <div class="code-explanation" data-code-explanation="build">
+    <div class="code-explanation__head">
+      <span class="code-explanation__icon">💡</span>
+      <div><strong>Entiende qué hace ng build</strong><p>El servidor de desarrollo no es la versión que se publica. El build genera archivos optimizados para producción.</p></div>
+    </div>
+    <div class="code-explanation__body">
+      <div class="code-explain-row"><code>ng serve</code><div>Compila para desarrollo, inicia servidor local y observa cambios.</div></div><div class="code-explain-row"><code>ng build</code><div>Compila y optimiza la aplicación para distribución.</div></div><div class="code-explain-row"><code>dist/</code><div>Carpeta de salida donde Angular deja los archivos construidos.</div></div><div class="code-explain-row"><code>sin errores</code><div>Antes de entregar, el build debe finalizar correctamente; así detectas problemas que podrían pasar desapercibidos.</div></div>
+    </div>
+    <div class="simple-rule"><b>Qué debes recordar:</b> durante el curso usa <code>ng serve</code>; antes de entregar ejecuta <code>ng build</code>.</div>
+  </div>
+<div class="mission"><h3>Entrega final</h3><p>No marques esta etapa hasta que <code>ng build</code> finalice correctamente y hayas probado toda la checklist.</p><button class="finish" data-finish="20">Marcar etapa terminada</button></div>
 </section>
 
 <section class="section" id="errores" data-search="errors common ngmodel routerlink unknown component port blank">
@@ -2322,6 +2462,6 @@ button {
 
 </main>
 </div>
-<script src="script.js?v=20260924-preview-1"></script>
+<script src="script.js?v=20260924-code-2"></script>
 </body>
 </html>
