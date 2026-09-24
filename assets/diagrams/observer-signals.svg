@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="t d">
+<title id="t">Observer con Signals</title><desc id="d">El servicio publica cambios en un Signal y los observadores actualizan dashboard y listado.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#faf7ff"/><stop offset="1" stop-color="#f4fbff"/></linearGradient>
+ <linearGradient id="signal" x1="0" x2="1"><stop stop-color="#16a34a"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+ <filter id="s"><feDropShadow dx="0" dy="9" stdDeviation="13" flood-color="#334155" flood-opacity=".13"/></filter>
+ <marker id="a" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0L12 6L0 12Z" fill="#7c3aed"/></marker>
+</defs>
+<rect width="1200" height="560" rx="34" fill="url(#bg)"/>
+<text x="58" y="66" font-family="Inter,Arial" font-size="31" font-weight="900" fill="#172033">Observer aplicado con Signals</text>
+<text x="58" y="101" font-family="Inter,Arial" font-size="16" fill="#64748b">Un cambio se publica una vez; varios observadores reaccionan.</text>
+
+<g filter="url(#s)">
+ <rect x="70" y="205" width="210" height="140" rx="28" fill="#fff"/>
+ <text x="175" y="246" text-anchor="middle" font-family="Inter,Arial" font-size="17" font-weight="900" fill="#172033">Acción</text>
+ <text x="175" y="277" text-anchor="middle" font-family="Inter,Arial" font-size="13" fill="#64748b">agregar / eliminar</text>
+ <text x="175" y="307" text-anchor="middle" font-family="monospace" font-size="12" fill="#2563eb">servicio</text>
+</g>
+<path d="M280 275 H398" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<g filter="url(#s)">
+ <rect x="410" y="175" width="260" height="200" rx="34" fill="url(#signal)"/>
+ <text x="540" y="225" text-anchor="middle" font-family="Inter,Arial" font-size="22" font-weight="900" fill="#fff">Signal observado</text>
+ <text x="540" y="259" text-anchor="middle" font-family="monospace" font-size="13" fill="#ecfdf5">_estudiantes</text>
+ <circle cx="540" cy="315" r="28" fill="#fff" opacity=".17"/>
+ <circle cx="540" cy="315" r="8" fill="#fff"/>
+ <path d="M540 323v20M523 338h34" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+</g>
+
+<path d="M670 230 C760 180 790 180 850 195" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+<path d="M670 275 H850" stroke="#7c3aed" stroke-width="4" marker-end="url(#a)"/>
+<path d="M670 320 C760 370 790 370 850 355" stroke="#7c3aed" stroke-width="4" fill="none" marker-end="url(#a)"/>
+
+<g filter="url(#s)">
+ <rect x="865" y="135" width="265" height="105" rx="24" fill="#f5f3ff" stroke="#c4b5fd"/>
+ <text x="997" y="174" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#6d28d9">computed(total)</text>
+ <text x="997" y="205" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#7c3aed">recalcula automáticamente</text>
+</g>
+<g filter="url(#s)">
+ <rect x="865" y="255" width="265" height="105" rx="24" fill="#eff6ff" stroke="#93c5fd"/>
+ <text x="997" y="294" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#1d4ed8">Página Estudiantes</text>
+ <text x="997" y="325" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#2563eb">tarjetas y búsqueda</text>
+</g>
+<g filter="url(#s)">
+ <rect x="865" y="375" width="265" height="105" rx="24" fill="#fdf2f8" stroke="#f9a8d4"/>
+ <text x="997" y="414" text-anchor="middle" font-family="Inter,Arial" font-size="16" font-weight="900" fill="#be185d">Dashboard</text>
+ <text x="997" y="445" text-anchor="middle" font-family="Inter,Arial" font-size="12" fill="#9d174d">muestra el nuevo total</text>
+</g>
+<rect x="70" y="465" width="700" height="55" rx="20" fill="#fff"/>
+<text x="94" y="499" font-family="Inter,Arial" font-size="14" font-weight="800" fill="#172033">Observer:</text>
+<text x="166" y="499" font-family="Inter,Arial" font-size="14" fill="#64748b">los observadores no necesitan que el servicio los llame uno por uno.</text>
+</svg>
